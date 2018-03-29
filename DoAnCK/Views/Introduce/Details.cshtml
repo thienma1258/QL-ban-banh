@@ -1,0 +1,48 @@
+﻿@model DAL.Models.Introduction
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .title{
+        text-align:center;
+        font-size:26px;
+    }
+    #image-title{
+        width:150px;
+        height:200px;
+        align-items:center;
+        margin-left:40%;
+    }
+    #author{
+        text-align:right;
+        font-size:20px;
+    }
+    #content{
+        width:100%;
+
+
+    }
+    .container{
+        margin-left:100px;
+    }
+</style>
+
+
+<div class="container">
+   <h2 class="title">@Model.title</h2>
+    <img id="image-title" src="~/HinhAnh/@Model.image.nameImage" />
+  
+    <div id="content">
+        
+    @Html.Raw(@Model.details)
+    </div>
+
+
+    <h3 id="author">@Model.Author.UserName</h3>
+</div>
+<p>
+    
+
+</p>

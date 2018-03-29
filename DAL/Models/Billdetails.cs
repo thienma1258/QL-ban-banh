@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DAL.Models
+{
+    public class Billdetails
+    {
+        [Key]
+        public string iddetails { get; set; }
+        public virtual Bill Bill { get; set; }
+        public virtual Bakery Bakery { get; set;  }
+        public int quality { get; set; }
+         
+    }
+}

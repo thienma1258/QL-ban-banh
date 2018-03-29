@@ -1,0 +1,51 @@
+﻿@model DAL.Models.Shop
+
+@{
+    ViewBag.Title = "DeleteBranch";
+    Layout = "~/Views/Shared/Layout-admin.cshtml";
+}
+
+
+
+<div style="margin-left:100px;margin-top:120px">
+    <h4>Xóa Hệ Thống</h4>
+    <h3>Bạn có xác nhận xóa hệ thống không?</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gmail)
+        </dd>
+
+     
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "Index")
+        </div>
+    }
+</div>
