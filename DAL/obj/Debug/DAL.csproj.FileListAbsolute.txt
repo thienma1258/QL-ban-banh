@@ -239,3 +239,17 @@ C:\Users\MAY\Documents\GitHub\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identit
 C:\Users\MAY\Documents\GitHub\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\MAY\Documents\GitHub\QL-ban-banh\DAL\obj\Debug\DAL.dll
 C:\Users\MAY\Documents\GitHub\QL-ban-banh\DAL\obj\Debug\DAL.pdb
+C:\Users\MAY\Desktop\QL-ban-banh\DAL\bin\Debug\DAL.dll.config
+C:\Users\MAY\Desktop\QL-ban-banh\DAL\bin\Debug\DAL.dll
+C:\Users\MAY\Desktop\QL-ban-banh\DAL\bin\Debug\DAL.pdb
+C:\Users\MAY\Desktop\QL-ban-banh\DAL\bin\Debug\EntityFramework.dll
+C:\Users\MAY\Desktop\QL-ban-banh\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\MAY\Desktop\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\MAY\Desktop\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\MAY\Desktop\QL-ban-banh\DAL\bin\Debug\EntityFramework.xml
+C:\Users\MAY\Desktop\QL-ban-banh\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\MAY\Desktop\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\MAY\Desktop\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\MAY\Desktop\QL-ban-banh\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\MAY\Desktop\QL-ban-banh\DAL\obj\Debug\DAL.dll
+C:\Users\MAY\Desktop\QL-ban-banh\DAL\obj\Debug\DAL.pdb
