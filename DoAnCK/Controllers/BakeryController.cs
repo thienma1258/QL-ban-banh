@@ -31,7 +31,8 @@ namespace DoAnCK.Controllers
             var listcategory = db.Categorys.ToList();
 
             ViewBag.listcategory = listcategory;
-
+            ViewBag.test = "abc";
+            ViewBag.test1 = "abmsdc";
             return View("AddBakery");
         }
         [AllowAnonymous]
