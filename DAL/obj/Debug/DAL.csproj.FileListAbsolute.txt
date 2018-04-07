@@ -250,6 +250,5 @@ C:\Users\MAY\Desktop\QL-ban-banh\DAL\bin\Debug\EntityFramework.xml
 C:\Users\MAY\Desktop\QL-ban-banh\DAL\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\MAY\Desktop\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\MAY\Desktop\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\MAY\Desktop\QL-ban-banh\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\MAY\Desktop\QL-ban-banh\DAL\obj\Debug\DAL.dll
 C:\Users\MAY\Desktop\QL-ban-banh\DAL\obj\Debug\DAL.pdb
