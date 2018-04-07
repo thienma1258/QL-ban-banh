@@ -29,7 +29,7 @@ namespace DoAnCK.Controllers
         {
            
             var listcategory = db.Categorys.ToList();
-
+            ViewBag.test2 = "kkk";
             ViewBag.listcategory = listcategory;
             ViewBag.test = "abc";
             ViewBag.test1 = "abmsdc";
