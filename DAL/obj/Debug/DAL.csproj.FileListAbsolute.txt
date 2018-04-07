@@ -226,3 +226,17 @@ E:\CN NET\finalupdate\doan3\doan3\DoAnCK version 0.5\DoAnCK version 0.4\DAL\bin\
 E:\CN NET\finalupdate\doan3\doan3\DoAnCK version 0.5\DoAnCK version 0.4\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 E:\CN NET\finalupdate\doan3\doan3\DoAnCK version 0.5\DoAnCK version 0.4\DAL\obj\Debug\DAL.dll
 E:\CN NET\finalupdate\doan3\doan3\DoAnCK version 0.5\DoAnCK version 0.4\DAL\obj\Debug\DAL.pdb
+C:\Users\MAY\Documents\GitHub\QL-ban-banh\DAL\bin\Debug\DAL.dll.config
+C:\Users\MAY\Documents\GitHub\QL-ban-banh\DAL\bin\Debug\DAL.dll
+C:\Users\MAY\Documents\GitHub\QL-ban-banh\DAL\bin\Debug\DAL.pdb
+C:\Users\MAY\Documents\GitHub\QL-ban-banh\DAL\bin\Debug\EntityFramework.dll
+C:\Users\MAY\Documents\GitHub\QL-ban-banh\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\MAY\Documents\GitHub\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\MAY\Documents\GitHub\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\MAY\Documents\GitHub\QL-ban-banh\DAL\bin\Debug\EntityFramework.xml
+C:\Users\MAY\Documents\GitHub\QL-ban-banh\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\MAY\Documents\GitHub\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\MAY\Documents\GitHub\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\MAY\Documents\GitHub\QL-ban-banh\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\MAY\Documents\GitHub\QL-ban-banh\DAL\obj\Debug\DAL.dll
+C:\Users\MAY\Documents\GitHub\QL-ban-banh\DAL\obj\Debug\DAL.pdb

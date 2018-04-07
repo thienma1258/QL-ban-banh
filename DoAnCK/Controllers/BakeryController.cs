@@ -32,6 +32,7 @@ namespace DoAnCK.Controllers
 
             ViewBag.listcategory = listcategory;
             ViewBag.test = "abc";
+            ViewBag.test1 = "abmsdc";
             return View("AddBakery");
         }
         [AllowAnonymous]
