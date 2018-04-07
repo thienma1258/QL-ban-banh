@@ -22,6 +22,7 @@ namespace DoAnCK.Controllers
         // GET: /Bakery/
         public ActionResult Index()
         {
+            ViewBag.test = "Inedx";
             return View(db.Bakerys.ToList());
         }
         
