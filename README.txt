@@ -1,1 +1,0 @@
-QL-ban-banh version0.2
