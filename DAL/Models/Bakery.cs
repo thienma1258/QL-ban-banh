@@ -12,6 +12,7 @@ namespace DAL.Models
         public string ID { get; set; } 
         public string Name { get; set; }
         public int Price { get; set; }
+
         public DateTime ngaypost { get; set; }
         public BakerySize size;
         public double VAT { get; set; }

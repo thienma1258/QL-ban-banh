@@ -12,7 +12,7 @@ namespace DAL.Context
     public class BakeryContext : IdentityDbContext<BakeryUser>
     {
         public BakeryContext()
-            : base("Data Source=.;Initial Catalog=Bakery;Integrated Security=True", throwIfV1Schema: false)
+            : base("Data Source =localhost:1521/xe; User ID = system; Password = 9406715", throwIfV1Schema: false)
         {
         }
         public DbSet<ImageModel> images { get; set; }
@@ -29,6 +29,13 @@ namespace DAL.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.HasDefaultSchema("SYSTEM");
+
+            modelBuilder.Entity<BakeryUser>().ToTable("AspNetUsers");
+            modelBuilder.Entity<IdentityRole>().ToTable("AspNetRoles");
+            modelBuilder.Entity<IdentityUserRole>().ToTable("AspNetUserRoles");
+            modelBuilder.Entity<IdentityUserClaim>().ToTable("AspNetUserClaims");
+            modelBuilder.Entity<IdentityUserLogin>().ToTable("AspNetUserLogins");
             modelBuilder.Entity<ImageModel>().ToTable("Image");
             
             modelBuilder.Entity<Category>().ToTable("Category");
