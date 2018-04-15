@@ -8,18 +8,27 @@ using System.Web;
 using System.Web.Mvc;
 using DAL.Models;
 using DAL.Context;
+using DAL.Interface;
 
 namespace DoAnCK.Controllers
 {
     [Authorize]
     public class BranchController : Controller
     {
-        private BakeryContext db = new BakeryContext();
+       
+        public readonly BakeryContext db;
+        public readonly IBranchResponsibility branchresponsibility;
+        public BranchController(BakeryContext db, IBranchResponsibility branchresponsibility)
+        {
+            this.db = db;
+            this.branchresponsibility = branchresponsibility;
+        }
 
         // GET: /Branch/
         public ActionResult Index()
         {
-            return View(db.shops.ToList());
+            ViewBag.test = "Index";
+            return View(branchresponsibility.getlist());
         }
 
 
@@ -41,7 +50,7 @@ namespace DoAnCK.Controllers
                     Googlemapembded = shop.Googlemapembded
 
                 };
-                db.shops.Add(newshop);
+                branchresponsibility.AddBranch(newshop);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -55,7 +64,7 @@ namespace DoAnCK.Controllers
             {
                 return HttpNotFound();
             }
-            Shop shop = db.shops.Find(id);
+            Shop shop = branchresponsibility.find(id);
             if (shop == null)
             {
                 return HttpNotFound();
@@ -79,7 +88,7 @@ namespace DoAnCK.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Shop shop = db.shops.Find(id);
+            Shop shop = branchresponsibility.find(id);
             if (shop == null)
             {
                 return HttpNotFound();
@@ -90,9 +99,9 @@ namespace DoAnCK.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Shop shop = db.shops.Find(id);
-            db.shops.Remove(shop);
-            db.SaveChanges();
+            
+            branchresponsibility.DeleteBranch(id);
+            
             return RedirectToAction("Index");
         }
     }
