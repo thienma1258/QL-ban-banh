@@ -269,3 +269,4 @@ E:\Oracle\project\QL-ban-banh\DAL\obj\Debug\DAL.dll
 E:\Oracle\project\QL-ban-banh\DAL\obj\Debug\DAL.pdb
 E:\Oracle\project\QL-ban-banh\DAL\obj\Debug\DAL.Migrations.initialisedatabase.resources
 E:\Oracle\project\QL-ban-banh\DAL\obj\Debug\DAL.csproj.GenerateResource.Cache
+E:\Oracle\project\QL-ban-banh\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
