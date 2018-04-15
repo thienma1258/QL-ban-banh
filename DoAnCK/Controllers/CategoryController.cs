@@ -1,4 +1,5 @@
 ﻿using DAL.Context;
+using DAL.Implement;
 using DAL.Interface;
 using DAL.Models;
 using DoAnCK.Models;
@@ -19,7 +20,7 @@ namespace DoAnCK.Controllers
         public readonly ICategoryResponsibility categoryresponsibility;
         //
         // GET: /Category/
-        public CategoryController(BakeryContext db,ICategoryResponsibility categoryresponsibility)
+        public CategoryController(BakeryContext db, ICategoryResponsibility categoryresponsibility)
         {
             this.db = db;
             this.categoryresponsibility = categoryresponsibility;
