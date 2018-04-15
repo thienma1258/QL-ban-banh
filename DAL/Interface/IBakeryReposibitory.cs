@@ -14,5 +14,6 @@ namespace DAL.Interface
         void AddBakery(Bakery bakery);
         void EditBakery(Bakery bakery, string nameimage);
         void DeleteBakery(string id);
+        List<Bakery> getlist( Category category, int countnumber = 0);
     }
 }

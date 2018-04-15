@@ -1,4 +1,5 @@
 ﻿using DAL.Context;
+using DAL.Interface;
 using DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,20 @@ namespace DoAnCK.Controllers
 {
     public class BillController : Controller
     {
-        BakeryContext db = new BakeryContext(); 
+    
+        IBillReposibility billreposibility;
+        IBillDetailsReposibility billdetailsreposibility;
+        public BillController( IBillReposibility billreposibility, IBillDetailsReposibility billdetailsreposibility)
+        {
+
+            this.billreposibility = billreposibility;
+            this.billdetailsreposibility=billdetailsreposibility;
+        }
         //
         // GET: /Bill/
         public ActionResult Index()
         {
-            return View(db.bill.ToList());
+            return View(billreposibility.getlist());
         }
         public ActionResult Details(string id)
         {
@@ -24,7 +33,7 @@ namespace DoAnCK.Controllers
                 return HttpNotFound();
             }
 
-            Bill bill = db.bill.Find(id);
+            Bill bill = billreposibility.getbill(id);
             if (bill == null)
             {
                 return HttpNotFound();
@@ -37,18 +46,16 @@ namespace DoAnCK.Controllers
             {
                 return HttpNotFound();
             }
-            Bill bill = db.bill.Find(id);
+            Bill bill = billreposibility.getbill(id);
             if (bill == null)
             {
                 return HttpNotFound();
             }
             foreach (var item in bill.billdetails.ToList())
             {
-                db.billdetails.Remove(item);
-                db.SaveChanges();
+                billdetailsreposibility.delete(item);
             }
-            db.bill.Remove(bill);
-                db.SaveChanges();
+            billreposibility.AddBill(bill);
             return RedirectToAction("Index");
         }
 	}
