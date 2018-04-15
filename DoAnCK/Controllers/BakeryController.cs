@@ -1,5 +1,6 @@
 ﻿using DAL.Context;
 using DAL.Enum;
+using DAL.Interface;
 using DAL.Models;
 using DoAnCK.Models;
 using DoAnCK.Resposibility;
@@ -17,13 +18,19 @@ namespace DoAnCK.Controllers
    [Authorize]
     public class BakeryController : Controller
     {
-         public BakeryContext db = new BakeryContext();
+        public readonly BakeryContext db;
+        public readonly IBakeryReposibitory bakeryreposibitory;
         //
         // GET: /Bakery/
+        public BakeryController (BakeryContext db, IBakeryReposibitory bakeryreposibitory)
+        {
+            this.db = db;
+            this.bakeryreposibitory = bakeryreposibitory;
+        }
         public ActionResult Index()
         {
             ViewBag.test = "Inedx";
-            return View(db.Bakerys.ToList());
+            return View(bakeryreposibitory.getlist());
         }
         
         public ActionResult AddBakery()
@@ -68,8 +75,7 @@ namespace DoAnCK.Controllers
                 };
             LogResposibility.Log(User, "Thêm bánh" + newbakery.Name);
 
-                db.Bakerys.Add(newbakery);
-                db.SaveChanges();
+            bakeryreposibitory.AddBakery(newbakery);
                 return RedirectToAction("Index");
             
 
@@ -81,7 +87,7 @@ namespace DoAnCK.Controllers
             {
                 return HttpNotFound();
             }
-            Bakery newbakery = db.Bakerys.Find(bakery.ID);
+            Bakery newbakery = bakeryreposibitory.find(bakery.ID);
             //   Category category = db.Categorys.Find(bakery.category_id);
             ImageModel image = db.images.Find(bakery.nameimage);
             if (newbakery == null)
@@ -98,10 +104,7 @@ namespace DoAnCK.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(bakery).State = EntityState.Modified;
-                var bajeryedit = db.Bakerys.SingleOrDefault(p => p.ID == bakery.ID);
-                var image = db.images.SingleOrDefault(p => p.Id == nameimage);
-                bajeryedit.images = image;
-                db.SaveChanges();
+                bakeryreposibitory.EditBakery(bakery, nameimage);
                 return RedirectToAction("Index");
             }
             return View(bakery);
@@ -112,7 +115,7 @@ namespace DoAnCK.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Bakery bakery = db.Bakerys.Find(id);
+            Bakery bakery = bakeryreposibitory.find(id);
             if (bakery == null)
             {
                 return HttpNotFound();
@@ -123,11 +126,7 @@ namespace DoAnCK.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Bakery bakery = db.Bakerys.Find(id);
-            bakery.ngaypost = DateTime.Now;
-            db.Bakerys.Remove(bakery);
-       
-            db.SaveChanges();
+            bakeryreposibitory.DeleteBakery(id);
             return RedirectToAction("Index");
         }
 	}

@@ -248,3 +248,11 @@ E:\Oracle\project\QL-ban-banh\DoAnCK\bin\System.Web.Http.WebHost.xml
 E:\Oracle\project\QL-ban-banh\DoAnCK\obj\Debug\DoAnCK.csprojResolveAssemblyReference.cache
 E:\Oracle\project\QL-ban-banh\DoAnCK\obj\Debug\DoAnCK.dll
 E:\Oracle\project\QL-ban-banh\DoAnCK\obj\Debug\DoAnCK.pdb
+E:\Oracle\project\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.ServiceLocation.dll
+E:\Oracle\project\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.Unity.Configuration.dll
+E:\Oracle\project\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.Unity.dll
+E:\Oracle\project\QL-ban-banh\DoAnCK\bin\Unity.Mvc3.dll
+E:\Oracle\project\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.ServiceLocation.pdb
+E:\Oracle\project\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.ServiceLocation.xml
+E:\Oracle\project\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.Unity.xml
+E:\Oracle\project\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.Unity.Configuration.xml

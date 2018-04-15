@@ -29,7 +29,7 @@ namespace DAL.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.HasDefaultSchema("SYSTEM");
+            modelBuilder.HasDefaultSchema("QUANLY-BANBANH");
 
             modelBuilder.Entity<BakeryUser>().ToTable("AspNetUsers");
             modelBuilder.Entity<IdentityRole>().ToTable("AspNetRoles");

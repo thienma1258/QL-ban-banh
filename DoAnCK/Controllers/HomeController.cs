@@ -1,4 +1,5 @@
 ﻿using DAL.Context;
+using DAL.Interface;
 using DAL.Models;
 using DoAnCK.Models;
 using System;
@@ -17,13 +18,18 @@ namespace project.Controllers
 
     public class HomeController : Controller
     {
-        public BakeryContext db = new BakeryContext();
+        public BakeryContext db;
+        IBakeryReposibitory bakeryreposibitory;
+        public HomeController(BakeryContext db, IBakeryReposibitory bkf)
+        {
+            this.db = db;
+            bakeryreposibitory = bkf;
+        }
         public ActionResult Index()
         {
-            var list = db.Bakerys.OrderByDescending(p => p.ID).Take(6);
-            List<Bakery> bakery=new List<Bakery>();
-            bakery=list.ToList();
-            return View(bakery);
+       
+            return View(bakeryreposibitory.getlist(6));
+
 
         }
         public ActionResult About()

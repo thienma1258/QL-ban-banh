@@ -267,3 +267,6 @@ E:\Oracle\project\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 E:\Oracle\project\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 E:\Oracle\project\QL-ban-banh\DAL\obj\Debug\DAL.dll
 E:\Oracle\project\QL-ban-banh\DAL\obj\Debug\DAL.pdb
+E:\Oracle\project\QL-ban-banh\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\Oracle\project\QL-ban-banh\DAL\obj\Debug\DAL.Migrations.initialisedatabase.resources
+E:\Oracle\project\QL-ban-banh\DAL\obj\Debug\DAL.csproj.GenerateResource.Cache
