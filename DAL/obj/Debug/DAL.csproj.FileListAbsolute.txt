@@ -13,3 +13,4 @@ C:\Users\admin\Documents\GitHub\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Ident
 C:\Users\admin\Documents\GitHub\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\admin\Documents\GitHub\QL-ban-banh\DAL\obj\Debug\DAL.dll
 C:\Users\admin\Documents\GitHub\QL-ban-banh\DAL\obj\Debug\DAL.pdb
+C:\Users\admin\Documents\GitHub\QL-ban-banh\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
