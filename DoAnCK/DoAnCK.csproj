@@ -461,7 +461,6 @@
     <Content Include="Scripts\skycons.js" />
     <Content Include="Scripts\SmoothScroll.min.js" />
     <Content Include="Scripts\styles.js" />
-    <Content Include="Unity.Mvc3.README.txt" />
     <Content Include="Views\Confirmemail.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
