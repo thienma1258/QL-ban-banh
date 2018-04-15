@@ -256,3 +256,27 @@ E:\Oracle\project\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.ServiceLocation.pdb
 E:\Oracle\project\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.ServiceLocation.xml
 E:\Oracle\project\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.Unity.xml
 E:\Oracle\project\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.Unity.Configuration.xml
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\DoAnCK.dll.config
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\DoAnCK.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\DoAnCK.pdb
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\DAL.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.ServiceLocation.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.Unity.Configuration.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.Unity.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\Oracle.ManagedDataAccess.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\System.Net.Http.Formatting.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\System.Web.Http.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\System.Web.Http.WebHost.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\Unity.Mvc3.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\DAL.pdb
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.ServiceLocation.xml
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.Unity.xml
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.Unity.Configuration.xml
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\System.Net.Http.Formatting.xml
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\System.Web.Http.xml
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\bin\System.Web.Http.WebHost.xml
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\obj\Debug\DoAnCK.csprojResolveAssemblyReference.cache
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\obj\Debug\DoAnCK.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DoAnCK\obj\Debug\DoAnCK.pdb

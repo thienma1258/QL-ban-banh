@@ -71,11 +71,9 @@
     <Compile Include="Enum\BakerySize.cs" />
     <Compile Include="Enum\IntroductionType.cs" />
     <Compile Include="Implement\BakeryReposibitory.cs" />
+    <Compile Include="Implement\CategoryResponsibility.cs" />
     <Compile Include="Interface\IBakeryReposibitory.cs" />
-    <Compile Include="Migrations\201804150422223_initialise-database.cs" />
-    <Compile Include="Migrations\201804150422223_initialise-database.Designer.cs">
-      <DependentUpon>201804150422223_initialise-database.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Interface\ICategoryResponsibility.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bakery.cs" />
     <Compile Include="Models\BakeryUser.cs" />
@@ -100,11 +98,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201804150422223_initialise-database.resx">
-      <DependentUpon>201804150422223_initialise-database.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

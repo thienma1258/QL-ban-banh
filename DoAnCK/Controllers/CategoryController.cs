@@ -1,4 +1,5 @@
 ﻿using DAL.Context;
+using DAL.Interface;
 using DAL.Models;
 using DoAnCK.Models;
 using System;
@@ -14,12 +15,18 @@ namespace DoAnCK.Controllers
     [Authorize]
     public class CategoryController : Controller
     {
-        BakeryContext db = new BakeryContext();
+        public readonly BakeryContext db;
+        public readonly ICategoryResponsibility categoryresponsibility;
         //
         // GET: /Category/
+        public CategoryController(BakeryContext db,ICategoryResponsibility categoryresponsibility)
+        {
+            this.db = db;
+            this.categoryresponsibility = categoryresponsibility;
+        }
         public ActionResult Index()
         {
-            return View(db.Categorys.ToList());
+            return View(categoryresponsibility.getlist());
         }
         public ActionResult AddCategory()
         {
@@ -35,8 +42,7 @@ namespace DoAnCK.Controllers
                     Id = Guid.NewGuid().ToString(),
                     Name = cate.Name
                 };
-                db.Categorys.Add(newcate);
-                db.SaveChanges();
+                categoryresponsibility.AddCate(newcate);
                 return RedirectToAction("Index");
             }
             return View(cate);
@@ -60,7 +66,7 @@ namespace DoAnCK.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(cate).State = EntityState.Modified;
-                db.SaveChanges();
+                categoryresponsibility.Edit(cate);
                 return RedirectToAction("Index");
             }
             return View(cate);
@@ -82,9 +88,8 @@ namespace DoAnCK.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Category cate = db.Categorys.Find(id);
-            db.Categorys.Remove(cate);
-            db.SaveChanges();
+           
+            categoryresponsibility.Delete(id);
             return RedirectToAction("Index");
         }
 	}
