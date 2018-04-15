@@ -30,13 +30,11 @@ namespace DoAnCK
              new ContainerControlledLifetimeManager());
             //   container.Resolve<BakeryContext>();
             container.RegisterType<IBakeryReposibitory, BakeryReposibitory>();
-<<<<<<< HEAD
+
             container.RegisterType<ICategoryResponsibility,CategoryResponsibility>();
-=======
             container.RegisterType<IBillReposibility, BillReposibility>();
             container.RegisterType<IBillDetailsReposibility, BillDetailsReposibility>();
 
->>>>>>> e4be12b6a5710fe48d1b526b3ec33517586839d0
 
             return container;
         }
