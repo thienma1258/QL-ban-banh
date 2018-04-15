@@ -50,5 +50,31 @@ namespace DAL.Implement
             db.SaveChanges();
         }
 
+        public List<Bakery> getlist(Category category,int countnumber)
+        {
+            var list = db.Bakerys.OrderByDescending(p => p.ID).ToList();
+            //return list;
+            var listbakerynesscary = new List<Bakery>();
+           
+                foreach(var item in list)
+                {
+                    if (item.category == category)
+                    {
+                        listbakerynesscary.Add(item);
+                    }
+                if (listbakerynesscary.Count != 0 || listbakerynesscary.Count == countnumber)
+                {
+                    break;
+                }
+                }
+
+
+            ///  return list.Where(p=>p.category==category).Take(countnumber).ToList();
+            //return list.Where(p => p.category == category).ToList();
+            return listbakerynesscary;
+
+
+
+        }
     }
 }

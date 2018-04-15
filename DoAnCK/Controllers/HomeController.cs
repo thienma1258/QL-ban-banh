@@ -20,10 +20,15 @@ namespace project.Controllers
     {
         public BakeryContext db;
         IBakeryReposibitory bakeryreposibitory;
-        public HomeController(BakeryContext db, IBakeryReposibitory bkf)
+        IBillDetailsReposibility billdetailsreposibility;
+        IBillReposibility billreposibility;
+
+        public HomeController(BakeryContext db, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
         {
             this.db = db;
             bakeryreposibitory = bkf;
+            this.billdetailsreposibility = billdetailsreposibility;
+            this.billreposibility = billreposibility;
         }
         public ActionResult Index()
         {
@@ -81,23 +86,34 @@ namespace project.Controllers
         }
         public ActionResult Shop(string listcate)
         {
-           
-                var bakelist = new List<Bakery>();
-                var bakelist1 = db.Bakerys.ToList();
-                bakelist = bakelist1;
-                var bakelist2 = new List<Bakery>();
-                var cateList = new List<string>();
-                var cateQuer = from c in db.Categorys orderby c.Name select c.Name;
-                cateList.AddRange(cateQuer.Distinct());
-                ViewBag.listCate = new SelectList(cateList);
-                var bakery = from b in db.Bakerys select b;
-                if (!string.IsNullOrEmpty(listcate))
-                {
-                    bakery = bakery.Where(b => b.category.Name == listcate);
-                    bakelist2.AddRange(bakery);
-                    bakelist = bakelist2;
-                }        
-                return View(bakelist);
+
+
+
+
+            var categorylist = db.Categorys.ToList();
+            Category category = null;
+            foreach(var item in categorylist)
+            {
+                if (item.Name == listcate)
+                    category = item;
+            }
+
+            if (category == null)
+                return HttpNotFound();
+               // bakelist = bakelist1;
+                //var bakelist2 = new List<Bakery>();
+                //var cateList = new List<string>();
+                //var cateQuer = from c in db.Categorys orderby c.Name select c.Name;
+               // cateList.AddRange(cateQuer.Distinct());
+                //ViewBag.listCate = new SelectList(cateList);
+               // var bakery = from b in db.Bakerys select b;
+                //if (!string.IsNullOrEmpty(listcate))
+                //{
+                  //  bakery = bakery.Where(b => b.category.Name == listcate);
+                   // bakelist2.AddRange(bakery);
+               
+                //}        
+                return View(bakeryreposibitory.getlist(category,0));
             
         }
         public ActionResult Details(string id)
@@ -106,7 +122,7 @@ namespace project.Controllers
             {
                 return HttpNotFound();
             }
-            Bakery bakery = db.Bakerys.Find(id);
+            Bakery bakery = bakeryreposibitory.find(id);
             if (bakery == null)
             {
                 return HttpNotFound();
@@ -154,7 +170,8 @@ namespace project.Controllers
                 var tong = 0;
                 foreach (var item in listbakery)
                 {
-                    Bakery bakery = db.Bakerys.Find(item.ID);
+           
+                    Bakery bakery = bakeryreposibitory.find(item.ID);
                     var billdetail = new Billdetails()
                     {
                         Bakery = bakery,
@@ -170,8 +187,8 @@ namespace project.Controllers
                 bill.billdetails = billdetails;
                 bill.Totalprice = tong;
                 bill.confirmEmail = bill.Id;
-                db.bill.Add(bill);
-                db.SaveChanges();
+                billreposibility.AddBill(bill);
+                //db.SaveChanges();
                 if (EmailService.sendEmailTocustomer(bill, Server))
                 {
                     return RedirectToAction("Thanks", "Home");
@@ -183,19 +200,7 @@ namespace project.Controllers
             }
         }
        
-        public ActionResult Search(string listcate)
-        {
-            var cateList = new List<string>();
-            var cateQuer = from c in db.Categorys orderby c.Name select c.Name;
-            cateList.AddRange(cateQuer.Distinct());
-            ViewBag.listCate = new SelectList(cateList);
-            var bakery = from b in db.Bakerys select b;
-            if (!string.IsNullOrEmpty(listcate))
-            {
-                bakery = bakery.Where(b => b.category.Name == listcate);
-            }
-            return View(bakery);
-        }
+       
         public ActionResult demoCheckout(){
             var listbakery = Session["listCheckout"] as List<AddBakeryViewModel>;
             if (listbakery == null)
@@ -218,7 +223,7 @@ namespace project.Controllers
            var CheckExisit = listbakery.SingleOrDefault(p => p.ID == id);
            if (CheckExisit == null)
            {
-               Bakery bakery = db.Bakerys.SingleOrDefault(p => p.ID == id);
+                Bakery bakery = bakeryreposibitory.find(id);
                if (bakery == null)
                {
                    return Json(new
