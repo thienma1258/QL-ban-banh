@@ -1,4 +1,5 @@
 ﻿using DAL.Context;
+using DAL.Interface;
 using DAL.Models;
 using DoAnCK.Models;
 using DoAnCK.Resposibility;
@@ -16,10 +17,17 @@ namespace DoAnCK.Controllers
     public class IntroduceController : Controller
     {
         // GET: Introduce
-        public BakeryContext db = new BakeryContext();
+        public readonly BakeryContext db;
+        public readonly IIntroduceResponsibility introduceResponsibility;
+        public IntroduceController(BakeryContext db, IIntroduceResponsibility introduceResponsibility)
+        {
+            this.db = db;
+            this.introduceResponsibility = introduceResponsibility;
+        }
         public ActionResult Index()
         {
-            return View(db.introduction.ToList());
+            ViewBag.test = "Index";
+            return View(introduceResponsibility.getlist());
         }
         public ActionResult AddIntroduce()
         {
@@ -31,18 +39,18 @@ namespace DoAnCK.Controllers
             if (ModelState.IsValid)
             {
                 var image = db.images.SingleOrDefault(p => p.Id == nameimage);
-                if (image == null)
-                    return HttpNotFound();
+               
                 Introduction introducess = new Introduction
                 {
                     Id = Guid.NewGuid().ToString(),    
                     title = introduces.title,
                     details=introduces.details,
-                    image =image       ,
                     Author= db.Users.SingleOrDefault(p=>p.UserName==User.Identity.Name)
                 };
-                db.introduction.Add(introducess);
-                db.SaveChanges();
+                if (image != null)
+                    introducess.image = image;
+                introduceResponsibility.AddIntroduction(introducess);
+             
                 return RedirectToAction("Index");
             }
             return View(introduces);
@@ -53,7 +61,7 @@ namespace DoAnCK.Controllers
             {
                 return HttpNotFound();
             }
-            Introduction introduces = db.introduction.Find(id);
+            Introduction introduces = introduceResponsibility.find(id);
             if (introduces == null)
             {
                 return HttpNotFound();
@@ -83,7 +91,7 @@ namespace DoAnCK.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Introduction introduces = db.introduction.Find(id);
+            Introduction introduces = introduceResponsibility.find(id);
             if (introduces == null)
             {
                 return HttpNotFound();
@@ -94,9 +102,7 @@ namespace DoAnCK.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirme(string id)
         {
-            Introduction introduces = db.introduction.Find(id);
-            db.introduction.Remove(introduces);
-            db.SaveChanges();
+            introduceResponsibility.DeleteIntroduction(id);
             return RedirectToAction("Index");
         }
         [AllowAnonymous]
@@ -106,7 +112,7 @@ namespace DoAnCK.Controllers
             {
                 return HttpNotFound();
             }
-            Introduction intro = db.introduction.Find(id);
+            Introduction intro = introduceResponsibility.find(id);
             if (intro == null)
             {
                 return HttpNotFound();

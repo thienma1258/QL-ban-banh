@@ -35,6 +35,7 @@ namespace DoAnCK
             container.RegisterType<IBillReposibility, BillReposibility>();
             container.RegisterType<IBillDetailsReposibility, BillDetailsReposibility>();
             container.RegisterType<IBranchResponsibility, BranchResponsibility>();
+            container.RegisterType<IIntroduceResponsibility, IntroductionResponsibility>();
 
 
             return container;

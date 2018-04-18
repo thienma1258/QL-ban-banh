@@ -35,7 +35,9 @@ namespace DAL.Implement
         public void EditBranch(Shop branch)
         {
             var branchedit = db.shops.SingleOrDefault(p => p.Id == branch.Id);
-           
+            branchedit.address = branch.address;
+            branchedit.gmail = branch.gmail;
+            branchedit.SDT = branch.SDT;
             db.SaveChanges();
         }
 
