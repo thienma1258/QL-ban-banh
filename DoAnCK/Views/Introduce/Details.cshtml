@@ -32,8 +32,10 @@
 
 <div class="container">
    <h2 class="title">@Model.title</h2>
+    @if (Model.image != null)
+    {
     <img id="image-title" src="~/HinhAnh/@Model.image.nameImage" />
-  
+    }
     <div id="content">
         
     @Html.Raw(@Model.details)

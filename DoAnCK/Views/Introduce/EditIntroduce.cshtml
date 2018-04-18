@@ -42,8 +42,11 @@
         </div>
 
        
+
         @{ Html.RenderAction("GalleryPicker", "Admin");}
+        @if(Model.image != null) { 
         <img src="~/HinhAnh/@Model.image.nameImage" id="image-show" style="width:100px;height:100px;border-radius:50%;margin-left:40%" />
+        }
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="SAVE" class="btn btn-default" />
