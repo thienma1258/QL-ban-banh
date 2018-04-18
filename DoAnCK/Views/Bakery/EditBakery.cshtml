@@ -56,9 +56,15 @@
             <div class="form-group">
                 <div class="col-md-10">
                     @{ Html.RenderAction("GalleryPicker", "Admin");}
-                   
+                   @if (Model.images != null)
+                   {
                     <img src="~/HinhAnh/@Model.images.nameImage" style="width:30%;height:150px" class="mfp-image-holder" id="image-show" />
+                   }
+                   else
+                   {
+                    <img src="~/HinhAnh/abc.jpg" style="width:30%;height:150px" class="mfp-image-holder" id="image-show" />
 
+                   }
                 </div>
             </div>
             <div class="form-group">

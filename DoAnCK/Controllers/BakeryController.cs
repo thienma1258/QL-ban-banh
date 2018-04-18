@@ -43,16 +43,7 @@ namespace DoAnCK.Controllers
             ViewBag.test1 = "abmsdc";
             return View("AddBakery");
         }
-        [AllowAnonymous]
-        public ActionResult Confirm(string id)
-        {
-            var bill = db.bill.SingleOrDefault(p => p.confirmEmail==id);
-            if (bill == null)
-                return HttpNotFound();
-            bill.confirmEmail = "true";
-            db.SaveChanges();
-            return View();
-        }
+     
         [HttpPost]
         public ActionResult AddBakery(AddBakeryViewModel bakery)
         {
@@ -89,13 +80,13 @@ namespace DoAnCK.Controllers
             }
             Bakery newbakery = bakeryreposibitory.find(bakery.ID);
             //   Category category = db.Categorys.Find(bakery.category_id);
-            ImageModel image = db.images.Find(bakery.nameimage);
+           // ImageModel image = db.images.Find(bakery.nameimage);
             if (newbakery == null)
             {
                 return HttpNotFound();
             }
        
-            db.SaveChanges();
+          
             return View(newbakery);
         }
         [HttpPost]
@@ -103,7 +94,7 @@ namespace DoAnCK.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(bakery).State = EntityState.Modified;
+               
                 bakeryreposibitory.EditBakery(bakery, nameimage);
                 return RedirectToAction("Index");
             }

@@ -38,6 +38,12 @@ namespace DAL.Implement
         {
             var bajeryedit = db.Bakerys.SingleOrDefault(p => p.ID == bakery.ID);
             var image = db.images.SingleOrDefault(p => p.Id == nameimage);
+            bajeryedit.Name = bakery.Name;
+            bajeryedit.Price = bakery.Price;
+            bajeryedit.VAT = bakery.VAT;
+            if(bakery.category!=null)
+            bajeryedit.category = bakery.category;
+           if(image!=null)
             bajeryedit.images = image;
             db.SaveChanges();
         }

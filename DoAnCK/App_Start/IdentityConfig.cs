@@ -40,7 +40,7 @@ namespace project
             body = body.Replace("{{now}}", DateTime.Now.ToString());
             body = body.Replace("{{Tongtien}}", bill.Totalprice.ToString());
 
-            body = body.Replace("{{xacnhandonhang}}", "http://localhost:9999/Bakery/Confirm/"+bill.confirmEmail);
+            body = body.Replace("{{xacnhandonhang}}", "http://localhost:9999/Bill/Confirm/"+bill.confirmEmail);
             var noidung = "";
             foreach(var item in bill.billdetails)
             {

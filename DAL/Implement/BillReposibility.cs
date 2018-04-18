@@ -23,9 +23,20 @@ namespace DAL.Implement
             db.SaveChanges();
         }
 
-        public void ConfirmBill(string id)
+        public bool ConfirmBill(string id)
         {
-            throw new NotImplementedException();
+            var bill = db.bill.ToList().SingleOrDefault(p => p.confirmEmail == id);
+            if (bill==null)
+                return false;
+            bill.confirmEmail = "true";
+            db.SaveChanges();
+            return true;
+        }
+
+        public void DeleteBill(Bill bill)
+        {
+            db.bill.Remove(bill);
+            db.SaveChanges();
         }
 
         public void DeleteBill(string id)

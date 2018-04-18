@@ -12,8 +12,8 @@ namespace DAL.Interface
         List<Bill> getlist(int countnumber = 0);
         Bill getbill(string id);
         void AddBill(Bill bill);
-        void ConfirmBill(string id);
+        bool ConfirmBill(string id);
         void DeleteBill(string id);
-
+        void DeleteBill(Bill bill);
     }
 }

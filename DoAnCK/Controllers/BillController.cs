@@ -26,6 +26,14 @@ namespace DoAnCK.Controllers
         {
             return View(billreposibility.getlist());
         }
+
+        [AllowAnonymous]
+        public ActionResult Confirm(string id)
+        {
+          if( billreposibility.ConfirmBill(id))
+            return View();
+            return HttpNotFound();
+        }
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -55,7 +63,7 @@ namespace DoAnCK.Controllers
             {
                 billdetailsreposibility.delete(item);
             }
-            billreposibility.AddBill(bill);
+            billreposibility.DeleteBill(bill);
             return RedirectToAction("Index");
         }
 	}

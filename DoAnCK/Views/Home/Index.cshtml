@@ -44,8 +44,11 @@
                         <div class="top_box">
                             <h3 class="m_1">@item.Name</h3>
                             <div class="grid_img">
+                                @if (item.images != null)
+                                {
                                 <div class="css3"><img src="~/HinhAnh/@item.images.nameImage" alt="" width="410" height="200"></div>
-                                <div class="mask1">
+                                }
+                                  <div class="mask1">
                                     <div class="info">@Html.ActionLink("Chi Tiết", "Details", new { id = @item.ID })</div>
                                 </div>
                             </div>

@@ -535,6 +535,7 @@
     <Content Include="Views\Introduce\Details.cshtml" />
     <Content Include="Views\Introduce\EditIntroduce.cshtml" />
     <Content Include="Views\Introduce\Index.cshtml" />
+    <Content Include="Views\Bill\Confirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
