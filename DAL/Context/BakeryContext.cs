@@ -12,7 +12,7 @@ namespace DAL.Context
     public class BakeryContext : IdentityDbContext<BakeryUser>
     {
         public BakeryContext()
-            : base("Data Source =localhost:1521/xe; User ID = system; Password = 9406715", throwIfV1Schema: false)
+            : base("", throwIfV1Schema: false)
 
 
         {
