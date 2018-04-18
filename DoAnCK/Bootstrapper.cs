@@ -27,7 +27,7 @@ namespace DoAnCK
             // e.g. container.RegisterType<ITestService, TestService>();            
             container
              .RegisterType<BakeryContext>(
-             new ContainerControlledLifetimeManager());
+         );
             //   container.Resolve<BakeryContext>();
             container.RegisterType<IBakeryReposibitory, BakeryReposibitory>();
 

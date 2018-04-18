@@ -33,6 +33,7 @@ namespace DAL.Implement
         public void Edit(Category id)
         {
             var cate = db.Categorys.SingleOrDefault(p => p.Id == id.Id);
+            cate.Name = id.Name;
             db.SaveChanges();
         }
 
@@ -50,6 +51,12 @@ namespace DAL.Implement
                 return list.Take(countnumber).ToList();
             }
             return list.ToList();
+        }
+        public Category SearchByName(string name)
+        {
+            var category = db.Categorys.ToList().SingleOrDefault(p => p.Name == name);
+          
+            return category;
         }
     }
 }

@@ -13,7 +13,8 @@ namespace DAL.Interface
         Category find(string id);
         void AddCate(Category name);
         void Delete(string id);
-        void Edit(Category id); 
+        void Edit(Category id);
+        Category SearchByName(string name);
     }
 
 }

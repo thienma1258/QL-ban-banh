@@ -13,7 +13,7 @@ namespace DAL.Context
     {
         public BakeryContext()
 
-            : base(" ", throwIfV1Schema: false)
+            : base("Data Source =localhost:1521/orcl; User ID = system; Password = Manga24h.com ", throwIfV1Schema: false)
 
 
         {
@@ -34,7 +34,7 @@ namespace DAL.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.HasDefaultSchema("");
+            modelBuilder.HasDefaultSchema("HR");
 
             modelBuilder.Entity<BakeryUser>().ToTable("AspNetUsers");
             modelBuilder.Entity<IdentityRole>().ToTable("AspNetRoles");

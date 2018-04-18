@@ -22,13 +22,16 @@ namespace project.Controllers
         IBakeryReposibitory bakeryreposibitory;
         IBillDetailsReposibility billdetailsreposibility;
         IBillReposibility billreposibility;
+        ICategoryResponsibility categorysponsibility;
 
-        public HomeController(BakeryContext db, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
+        public HomeController(BakeryContext db,ICategoryResponsibility categoryrepository, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
         {
             this.db = db;
             bakeryreposibitory = bkf;
+            this.categorysponsibility = categoryrepository;
             this.billdetailsreposibility = billdetailsreposibility;
             this.billreposibility = billreposibility;
+        
         }
         public ActionResult Index()
         {
@@ -68,7 +71,7 @@ namespace project.Controllers
             ViewBag.Authentication = false;
             var header = new HeaderModel
             {
-                category = db.Categorys.ToList(),
+                category =categorysponsibility.getlist(),
                 shop = db.shops.ToList()
             };
             if (User.Identity.IsAuthenticated) {
@@ -82,7 +85,7 @@ namespace project.Controllers
         }
         public ActionResult Menu()
         {
-            return View(db.Categorys.ToList());
+            return View(categorysponsibility.getlist());
         }
         public ActionResult Shop(string listcate)
         {
@@ -90,18 +93,14 @@ namespace project.Controllers
 
 
 
-            var categorylist = db.Categorys.ToList();
+       
             Category category = null;
-            foreach(var item in categorylist)
-            {
-                if (item.Name == listcate)
-                    category = item;
-            }
+            category = categorysponsibility.SearchByName(listcate);
 
             if (category == null)
                 return HttpNotFound();
                
-                return View(bakeryreposibitory.getlist(category,0));
+                return View(category.bakerys);
             
         }
         public ActionResult Details(string id)
