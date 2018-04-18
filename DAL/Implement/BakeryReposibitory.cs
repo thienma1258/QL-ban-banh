@@ -34,10 +34,10 @@ namespace DAL.Implement
             db.Bakerys.Add(bakery);
             db.SaveChanges();
         }
-        public void EditBakery(Bakery bakery,string nameimage)
+        public void EditBakery(Bakery bakery,string Id)
         {
             var bajeryedit = db.Bakerys.SingleOrDefault(p => p.ID == bakery.ID);
-            var image = db.images.SingleOrDefault(p => p.Id == nameimage);
+            var image = db.images.SingleOrDefault(p => p.Id == Id);
             bajeryedit.Name = bakery.Name;
             bajeryedit.Price = bakery.Price;
             bajeryedit.VAT = bakery.VAT;

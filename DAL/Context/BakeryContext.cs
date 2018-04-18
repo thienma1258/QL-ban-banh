@@ -33,7 +33,7 @@ namespace DAL.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.HasDefaultSchema("HR");
+            modelBuilder.HasDefaultSchema("");
 
             modelBuilder.Entity<BakeryUser>().ToTable("AspNetUsers");
             modelBuilder.Entity<IdentityRole>().ToTable("AspNetRoles");
