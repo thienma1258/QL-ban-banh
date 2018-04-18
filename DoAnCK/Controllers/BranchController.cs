@@ -16,11 +16,11 @@ namespace DoAnCK.Controllers
     public class BranchController : Controller
     {
        
-        public readonly BakeryContext db;
+      
         public readonly IBranchResponsibility branchresponsibility;
         public BranchController(BakeryContext db, IBranchResponsibility branchresponsibility)
         {
-            this.db = db;
+        
             this.branchresponsibility = branchresponsibility;
         }
 
@@ -51,7 +51,7 @@ namespace DoAnCK.Controllers
 
                 };
                 branchresponsibility.AddBranch(newshop);
-                db.SaveChanges();
+               
                 return RedirectToAction("Index");
             }
             return View(shop);
@@ -76,8 +76,7 @@ namespace DoAnCK.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(shop).State = EntityState.Modified;
-                db.SaveChanges();
+                branchresponsibility.EditBranch(shop);
                 return RedirectToAction("Index");
             }
             return View(shop);
