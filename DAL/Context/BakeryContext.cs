@@ -13,7 +13,7 @@ namespace DAL.Context
     {
         public BakeryContext()
 
-            : base("", throwIfV1Schema: false)
+            : base(" ", throwIfV1Schema: false)
 
 
         {

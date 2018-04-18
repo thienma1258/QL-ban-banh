@@ -80,7 +80,7 @@ namespace project.Controllers
 
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Username hoặc password không đúng");
+                    ModelState.AddModelError("", "Email hoặc password không đúng");
                     return View(model);
             }
         }

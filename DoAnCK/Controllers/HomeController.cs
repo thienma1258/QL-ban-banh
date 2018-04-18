@@ -100,19 +100,7 @@ namespace project.Controllers
 
             if (category == null)
                 return HttpNotFound();
-               // bakelist = bakelist1;
-                //var bakelist2 = new List<Bakery>();
-                //var cateList = new List<string>();
-                //var cateQuer = from c in db.Categorys orderby c.Name select c.Name;
-               // cateList.AddRange(cateQuer.Distinct());
-                //ViewBag.listCate = new SelectList(cateList);
-               // var bakery = from b in db.Bakerys select b;
-                //if (!string.IsNullOrEmpty(listcate))
-                //{
-                  //  bakery = bakery.Where(b => b.category.Name == listcate);
-                   // bakelist2.AddRange(bakery);
                
-                //}        
                 return View(bakeryreposibitory.getlist(category,0));
             
         }

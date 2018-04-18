@@ -71,7 +71,7 @@ namespace DoAnCK.Controllers
                 {
                     return HttpNotFound();
                 }
-                db.Entry(introduces).State = EntityState.Modified;
+                //db.Entry(introduces).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

@@ -22,7 +22,10 @@ namespace DoAnCK.Resposibility
         }
         public static BakeryUser getcurrentUser(System.Security.Principal.IPrincipal user)
         {
-            var current = Bakerycontext.Users.SingleOrDefault(p => p.UserName == user.Identity.Name);
+            var opl = (ClaimsIdentity)user.Identity;
+            var claims = opl.Claims.FirstOrDefault(p => p.Type == ClaimTypes.Email);
+
+            var current = Bakerycontext.Users.SingleOrDefault(p => p.Email == claims.Value);
             return current;
 
 
