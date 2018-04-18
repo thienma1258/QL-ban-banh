@@ -76,12 +76,14 @@
     <Compile Include="Implement\BillReposibility.cs" />
     <Compile Include="Implement\BranchResponsibility.cs" />
     <Compile Include="Implement\IntroductionResponsibility.cs" />
+    <Compile Include="Implement\NewsResponsibility.cs" />
     <Compile Include="Interface\IBillDetailsReposibility.cs" />
     <Compile Include="Interface\IBillReposibility.cs" />
     <Compile Include="Interface\IBranchResponsibility.cs" />
     <Compile Include="Interface\IBakeryReposibitory.cs" />
     <Compile Include="Interface\ICategoryResponsibility.cs" />
     <Compile Include="Interface\IIntroduceResponsibility.cs" />
+    <Compile Include="Interface\INewsResponsibility.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bakery.cs" />
     <Compile Include="Models\BakeryUser.cs" />
