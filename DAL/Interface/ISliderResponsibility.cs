@@ -14,6 +14,6 @@ namespace DAL.Interface
         void AddSlider(Slider slider);
         void EditSlider(Slider slider,string nameimage);
         void DeleteSlider(string id );
-      
+
     }
 }

@@ -32,7 +32,6 @@ namespace DAL.Implement
 
             db.SaveChanges();
         }
-
         public void EditSlider(Slider slider, string nameimage)
         {
             var slideredit = db.sliders.SingleOrDefault(p => p.Id == slider.Id);

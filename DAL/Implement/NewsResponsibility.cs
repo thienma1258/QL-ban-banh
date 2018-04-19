@@ -20,8 +20,9 @@ namespace DAL.Implement
         {
             db.news.Add(news);
             db.SaveChanges();
+
             //string query = String.Format("insert into qlbb.\"News\" values('{0}','{1}','{2}',to_date('{3}','dd-mm-yy hh:mi:ss am')", news.ID, news.Title,news.Body,news.DatePost);
-            //var result = db.Database.ExecuteSqlCommand(query);
+            //var result = db.Database.ExecuteSqlCommand(query)
         }
 
         public void DeleteNews(string id)
@@ -29,8 +30,12 @@ namespace DAL.Implement
             //var news = db.news.Find(id);
             //db.news.Remove(news);
             //db.SaveChanges();
-            string query = "delete from qlbb.\"News\" where\"ID\"='" + id + "'";
-            var result = db.Database.ExecuteSqlCommand(query);
+         //   string query = "delete from qlbb.\"News\" where\"ID\"='" + id + "'";
+           // var result = db.Database.ExecuteSqlCommand(query);
+
+            var tt = db.news.Find(id);
+            db.news.Remove(tt);
+            db.SaveChanges();
         }
 
         public void EditNews(News news)
@@ -46,6 +51,10 @@ namespace DAL.Implement
             string query1 = "Update qlbb.\"News\" Set \"Title\"='" + news.Title + "', \"Body\" = '"+news.Body+"' where \"ID\" ='" + news.ID + "'";
             //b.SaveChanges();
             var result = db.Database.ExecuteSqlCommand(query1);
+            var newsedit = db.news.SingleOrDefault(p => p.ID == news.ID);
+            newsedit.Body = news.Body;
+            newsedit.Title = news.Title;
+            db.SaveChanges();
         }
 
         public News find(string id)
@@ -59,14 +68,10 @@ namespace DAL.Implement
 
         public List<News> getlist(int countnumber = 0)
         {
-
-            //var list = db.news.OrderByDescending(p => p.ID);
-            //if (countnumber != 0)
-            //   return list.Take(countnumber).ToList();
-            //return list.ToList();
-            string query = "select * from qlbb.\"News\"";
-            var results = db.Database.SqlQuery<News>(query).ToList();
-            return results;
+         var list = db.news.OrderByDescending(p => p.ID);
+            if (countnumber != 0)
+                return list.Take(countnumber).ToList();
+            return list.ToList();
         }
     }
 }
