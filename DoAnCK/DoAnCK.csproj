@@ -217,6 +217,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountManagerController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BackupRestoreController.cs" />
     <Compile Include="Controllers\BakeryController.cs" />
     <Compile Include="Controllers\BillController.cs" />
     <Compile Include="Controllers\BranchController.cs" />
@@ -536,6 +537,7 @@
     <Content Include="Views\Introduce\EditIntroduce.cshtml" />
     <Content Include="Views\Introduce\Index.cshtml" />
     <Content Include="Views\Bill\Confirm.cshtml" />
+    <Content Include="Views\BackupRestore\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

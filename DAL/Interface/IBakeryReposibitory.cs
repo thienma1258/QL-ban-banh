@@ -12,6 +12,7 @@ namespace DAL.Interface
          List<Bakery> getlist(int countnumber = 0);
         Bakery find(string id);
         void AddBakery(Bakery bakery);
+        bool AddBakery(string name,Category category,ImageModel image,int price,float VAT,int count);
         void EditBakery(Bakery bakery, string nameimage);
         void DeleteBakery(string id);
         List<Bakery> getlist( Category category, int countnumber = 0);

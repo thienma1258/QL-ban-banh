@@ -3,6 +3,8 @@ using DAL.Interface;
 using DAL.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity.Core.EntityClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,14 +21,15 @@ namespace DAL.Implement
         public List<Bakery> getlist(int countnumber = 0)
         {
             var list = db.Bakerys.OrderByDescending(p => p.ID);
-        //    if (countnumber != 0)
-          //  return list.Take(countnumber).ToList();
-
-
+            if (countnumber != 0)
+            {
+                return list.Take(countnumber).ToList();
+            }
             //vd
-            string query = "select * from qlbb.\"Bakery\"";
-            var results = db.Database.SqlQuery<Bakery>(query).ToList();
-            return results;
+             string query = "select * from qlbb.\"Bakery\" a inner join qlbb.\"Image\" b  on a.\"images_Id\" = b.\"Id\"";
+         //   var bakery = db.Database.SqlQuery<Bakery>(query).SingleOrDefault();
+
+            return list.ToList();
 
         }
         public Bakery find(string id)
@@ -36,7 +39,9 @@ namespace DAL.Implement
         }
         public void AddBakery(Bakery bakery)
         {
-        //    db.Bakerys.Add(bakery);
+          
+          //  db.Bakerys.Add(bakery);
+           // db.SaveChanges();
             string query = String.Format("insert into qlbb.\"Bakery\" values('{0}','{1}',{2},to_date('{3}','dd-mm-yy hh:mi:ss am'),{4},{5},'{6}','{7}')",bakery.ID,bakery.Name,bakery.Price,bakery.ngaypost,bakery.VAT,bakery.count,bakery.category.Id,bakery.images.Id) ;
             var result = db.Database.ExecuteSqlCommand(query);
 
@@ -88,6 +93,25 @@ namespace DAL.Implement
 
 
 
+        }
+
+        public bool AddBakery(string name, Category category, ImageModel image, int price, float VAT, int count)
+        {
+            Bakery newbakery = new Bakery
+            {
+                ID = Guid.NewGuid().ToString(),
+                ngaypost = DateTime.Now,
+                Name = name,
+                category = category,
+                Price = price,
+                VAT=VAT,
+                images = image,
+                count = count
+
+            };
+            this.db.Bakerys.Add(newbakery);
+            this.db.SaveChanges();
+            return true;
         }
     }
 }

@@ -18,14 +18,17 @@ namespace DoAnCK.Controllers
    [Authorize]
     public class BakeryController : Controller
     {
-        public readonly BakeryContext db;
-        public readonly IBakeryReposibitory bakeryreposibitory;
-        //
+         public readonly IBakeryReposibitory bakeryreposibitory;
+        public ICategoryResponsibility icategegoryrepository;
+        public IImageRepository imagerepository;
+        public ILogRepository ilogrepository;
         // GET: /Bakery/
-        public BakeryController (BakeryContext db, IBakeryReposibitory bakeryreposibitory)
+        public BakeryController (ILogRepository ilogrepository, IImageRepository imagerepository, IBakeryReposibitory bakeryreposibitory,ICategoryResponsibility icategegoryrepository)
         {
-            this.db = db;
+            this.ilogrepository = ilogrepository;
             this.bakeryreposibitory = bakeryreposibitory;
+            this.icategegoryrepository=icategegoryrepository;
+            this.imagerepository = imagerepository;
         }
         public ActionResult Index()
         {
@@ -35,8 +38,8 @@ namespace DoAnCK.Controllers
         
         public ActionResult AddBakery()
         {
-           
-            var listcategory = db.Categorys.ToList();
+
+            var listcategory = this.icategegoryrepository.getlist();
             ViewBag.test2 = "kkk";
             ViewBag.listcategory = listcategory;
            
@@ -50,9 +53,9 @@ namespace DoAnCK.Controllers
 
                 //   var path = Path.Combine(Server.MapPath("~/HinhAnh"), imageselected.FileName);
 
-                ImageModel newimage = db.images.SingleOrDefault(p => p.Id == bakery.nameimage);
+                ImageModel newimage = this.imagerepository.findimage(bakery.nameimage);
               //  imageselected.SaveAs(path);
-                Category category = db.Categorys.SingleOrDefault(p => p.Id == bakery.category_id);
+                Category category =this.icategegoryrepository.find( bakery.category_id);
                 Bakery newbakery = new Bakery
                 {
                     ID = Guid.NewGuid().ToString(),
@@ -64,10 +67,12 @@ namespace DoAnCK.Controllers
                     count=bakery.quantity
 
                 };
-            LogResposibility.Log(User, "Thêm bánh" + newbakery.Name);
+       
 
-            bakeryreposibitory.AddBakery(newbakery);
-                return RedirectToAction("Index");
+            this.bakeryreposibitory.AddBakery(newbakery);
+           // this.ilogrepository.AddLog()
+           this.ilogrepository.AddLog(User, "Thêm bánh" + newbakery.Name);
+            return RedirectToAction("Index");
             
 
             //return View(bakery);

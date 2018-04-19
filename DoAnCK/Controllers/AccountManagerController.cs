@@ -1,4 +1,5 @@
-﻿ using DAL.Context;
+﻿using DAL.Context;
+using DAL.Interface;
 using DoAnCK.Resposibility;
 using Microsoft.AspNet.Identity.Owin;
 using System;
@@ -12,14 +13,12 @@ namespace DoAnCK.Controllers
     [Authorize]
     public class AccountManagerController : Controller
     {
-        public  BakeryContext Bakerycontext
+        ILogRepository ilog;
+        public AccountManagerController(ILogRepository ilog)
         {
-            get
-            {
-                return HttpContext.GetOwinContext().Get<BakeryContext>();
-            }
-
+            this.ilog = ilog;
         }
+    
         // GET: AccountManager
         [HttpGet]
         public ActionResult Index()
@@ -38,8 +37,14 @@ namespace DoAnCK.Controllers
         [Authorize(Roles ="Admin")]
         public ActionResult Log()
         {
-            var listlog = Bakerycontext.logs.OrderByDescending(p=>p.datetime).ToList();
+            var listlog = this.ilog.GetList();
             return View(listlog);
+        }
+        [Authorize(Roles = "Admin")]
+        public ActionResult DeleteAll()
+        {
+            this.ilog.DeleteAllLog();
+            return RedirectToAction("Log");
         }
     }
 }

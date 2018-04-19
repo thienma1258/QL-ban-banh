@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Context
 {
-    public class BakeryContext : IdentityDbContext<BakeryUser>
+    public class BakeryContext : IdentityDbContext<BakeryUser>,IDisposable
     {
         public BakeryContext()
             : base("", throwIfV1Schema: false)

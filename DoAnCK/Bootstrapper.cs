@@ -5,6 +5,7 @@ using DAL.Context;
 using DAL.Interface;
 using DAL.Implement;
 using project.Controllers;
+using System;
 
 namespace DoAnCK
 {
@@ -26,7 +27,7 @@ namespace DoAnCK
 
             // e.g. container.RegisterType<ITestService, TestService>();            
             container
-             .RegisterType<BakeryContext>(
+             .RegisterType<IDisposable, BakeryContext>(
          );
             //   container.Resolve<BakeryContext>();
             container.RegisterType<IBakeryReposibitory, BakeryReposibitory>();
@@ -36,6 +37,9 @@ namespace DoAnCK
             container.RegisterType<IBillDetailsReposibility, BillDetailsReposibility>();
             container.RegisterType<IBranchResponsibility, BranchResponsibility>();
             container.RegisterType<IIntroduceResponsibility, IntroductionResponsibility>();
+            container.RegisterType<IBackup_RestoreRepository, Backup_RestoreRepository>();
+            container.RegisterType<ILogRepository, LogRepository>();
+            container.RegisterType<IImageRepository, Imagerepository>();
 
 
             return container;
