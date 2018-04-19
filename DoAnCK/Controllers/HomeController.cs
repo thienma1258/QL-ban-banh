@@ -36,7 +36,7 @@ namespace project.Controllers
         public ActionResult Index()
         {
        
-            return View(bakeryreposibitory.getlist(6));
+            return View(this.bakeryreposibitory.getlist(6));
 
 
         }
@@ -88,17 +88,19 @@ namespace project.Controllers
             return View(categorysponsibility.getlist());
         }
         public ActionResult Shop(string listcate)
-        {
-
-
-
-
-       
+        {   
             Category category = null;
             category = categorysponsibility.SearchByName(listcate);
-
-            if (category == null)
-                return HttpNotFound();
+            //List<Bakery> bakerys = bakeryreposibitory.getlist();
+            //List<Bakery> results = new List<Bakery>();
+            //if (category == null)
+            //    return HttpNotFound();
+           
+            //    foreach(var i in bakerys)
+            //    {
+            //        if (i.category == category)
+            //            results.Add(i);
+            //    }
                
                 return View(category.bakerys);
             

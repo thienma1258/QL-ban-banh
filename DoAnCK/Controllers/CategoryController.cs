@@ -66,7 +66,6 @@ namespace DoAnCK.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cate).State = EntityState.Modified;
                 categoryresponsibility.Edit(cate);
                 return RedirectToAction("Index");
             }

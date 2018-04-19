@@ -27,7 +27,7 @@ namespace DoAnCK
 
             // e.g. container.RegisterType<ITestService, TestService>();            
             container
-             .RegisterType<IDisposable, BakeryContext>(
+             .RegisterType<IDisposable, BakeryContext>(new ContainerControlledLifetimeManager()
          );
             //   container.Resolve<BakeryContext>();
             container.RegisterType<IBakeryReposibitory, BakeryReposibitory>();
@@ -37,9 +37,12 @@ namespace DoAnCK
             container.RegisterType<IBillDetailsReposibility, BillDetailsReposibility>();
             container.RegisterType<IBranchResponsibility, BranchResponsibility>();
             container.RegisterType<IIntroduceResponsibility, IntroductionResponsibility>();
+
             container.RegisterType<IBackup_RestoreRepository, Backup_RestoreRepository>();
             container.RegisterType<ILogRepository, LogRepository>();
             container.RegisterType<IImageRepository, Imagerepository>();
+
+            container.RegisterType<INewsResponsibility,NewsResponsibility>();
 
 
             return container;

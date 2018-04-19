@@ -25,6 +25,12 @@ namespace DAL.Implement
             {
                 return list.Take(countnumber).ToList();
             }
+            //var list = db.Bakerys.OrderByDescending(p => p.ID);
+        //    if (countnumber != 0)
+          //  return list.Take(countnumber).ToList();
+
+
+
             //vd
              string query = "select * from qlbb.\"Bakery\" a inner join qlbb.\"Image\" b  on a.\"images_Id\" = b.\"Id\"";
          //   var bakery = db.Database.SqlQuery<Bakery>(query).SingleOrDefault();
@@ -40,11 +46,9 @@ namespace DAL.Implement
         public void AddBakery(Bakery bakery)
         {
           
-          //  db.Bakerys.Add(bakery);
-           // db.SaveChanges();
-            string query = String.Format("insert into qlbb.\"Bakery\" values('{0}','{1}',{2},to_date('{3}','dd-mm-yy hh:mi:ss am'),{4},{5},'{6}','{7}')",bakery.ID,bakery.Name,bakery.Price,bakery.ngaypost,bakery.VAT,bakery.count,bakery.category.Id,bakery.images.Id) ;
-            var result = db.Database.ExecuteSqlCommand(query);
-
+           db.Bakerys.Add(bakery);
+           db.SaveChanges();
+         
         }
         public void EditBakery(Bakery bakery,string Id)
         {

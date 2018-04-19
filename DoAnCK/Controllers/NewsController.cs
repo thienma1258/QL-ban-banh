@@ -8,18 +8,26 @@ using System.Web;
 using System.Web.Mvc;
 using DAL.Models;
 using DAL.Context;
+using DAL.Interface;
 
 namespace DoAnCK.Controllers
 {
     [Authorize]
     public class NewsController : Controller
     {
-        private BakeryContext db = new BakeryContext();
+        public readonly INewsResponsibility newsResponsibility;
+        public NewsController(BakeryContext db, INewsResponsibility newsResponsibility)
+        {
+
+            this.newsResponsibility = newsResponsibility;
+        }
+
 
         // GET: /News/
         public ActionResult Index()
         {
-            return View(db.news.ToList());
+            ViewBag.test = "Index";
+            return View(newsResponsibility.getlist());
         }
 
 
@@ -30,18 +38,17 @@ namespace DoAnCK.Controllers
         [HttpPost]
         public ActionResult AddNews(News news)
         {
-           
-                News thongtin = new News
-                {
-                    ID = Guid.NewGuid().ToString(),
-                    Body=news.Body,
-                    DatePost=DateTime.Now,
-                    Title=news.Title
-                };
-                db.news.Add(thongtin);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            
+
+            News thongtin = new News
+            {
+                ID = Guid.NewGuid().ToString(),
+                Body = news.Body,
+                DatePost = DateTime.Now,
+                Title = news.Title
+            };
+            newsResponsibility.AddNews(thongtin);
+            return RedirectToAction("Index");
+
             return View(news);
         }
 
@@ -52,7 +59,7 @@ namespace DoAnCK.Controllers
             {
                 return HttpNotFound();
             }
-            News news = db.news.Find(id);
+            News news = newsResponsibility.find(id);
             if (news == null)
             {
                 return HttpNotFound();
@@ -64,8 +71,7 @@ namespace DoAnCK.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(news).State = EntityState.Modified;
-                db.SaveChanges();
+                newsResponsibility.EditNews(news);
                 return RedirectToAction("Index");
             }
             return View(news);
@@ -76,7 +82,7 @@ namespace DoAnCK.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            News news = db.news.Find(id);
+            News news = newsResponsibility.find(id);
             if (news == null)
             {
                 return HttpNotFound();
@@ -87,9 +93,9 @@ namespace DoAnCK.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            News news = db.news.Find(id);
-            db.news.Remove(news);
-            db.SaveChanges();
+            News news = newsResponsibility.find(id);
+            newsResponsibility.DeleteNews(id);
+
             return RedirectToAction("Index");
         }
     }
