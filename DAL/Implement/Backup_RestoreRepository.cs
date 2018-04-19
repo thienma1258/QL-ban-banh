@@ -19,7 +19,7 @@ namespace DAL.Implement
         }
         public  void Backup(DateTime now)
         {
-              string command = "/C expdp SYSTEM/ SCHEMAS=qlbb  DUMPFILE=qlbb" + now.ToFileTimeUtc() + ".dmp";
+              string command = "/C expdp SYSTEM/9406715 SCHEMAS=qlbb  DUMPFILE=qlbb" + now.ToFileTimeUtc() + ".dmp";
             // System.Diagnostics.Process.Start("CMD.exe", command);
             //String command = @"/k java -jar myJava.jar";
             ProcessStartInfo cmdsi = new ProcessStartInfo("cmd.exe");
@@ -39,7 +39,7 @@ namespace DAL.Implement
 
         public void Restore(string id)
         {
-            string command = "/C impdp SYSTEM/Manga24h.com SCHEMAS=qlbb  DUMPFILE=" + id+ ".dmp TABLE_EXISTS_ACTION=REPLACE";
+            string command = "/C impdp SYSTEM/9406715 SCHEMAS=qlbb  DUMPFILE=" + id+ ".dmp TABLE_EXISTS_ACTION=REPLACE";
             // System.Diagnostics.Process.Start("CMD.exe", command);
             //String command = @"/k java -jar myJava.jar";
             ProcessStartInfo cmdsi = new ProcessStartInfo("cmd.exe");

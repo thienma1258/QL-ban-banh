@@ -32,7 +32,7 @@ namespace DAL.Implement
 
 
             //vd
-             string query = "select * from qlbb.\"Bakery\" a inner join qlbb.\"Image\" b  on a.\"images_Id\" = b.\"Id\"";
+          //   string query = "select * from qlbb.\"Bakery\" a inner join qlbb.\"Image\" b  on a.\"images_Id\" = b.\"Id\"";
          //   var bakery = db.Database.SqlQuery<Bakery>(query).SingleOrDefault();
 
             return list.ToList();
@@ -47,8 +47,12 @@ namespace DAL.Implement
         {
           
            db.Bakerys.Add(bakery);
+
            db.SaveChanges();
-         
+        
+    
+       //     string query = String.Format("insert into qlbb.\"Bakery\" values('{0}','{1}',{2},to_date('{3}','dd-mm-yy hh:mi:ss am'),{4},{5},'{6}','{7}')",bakery.ID,bakery.Name,bakery.Price,bakery.ngaypost,bakery.VAT,bakery.count,bakery.category.Id,bakery.images.Id) ;
+         //   var result = db.Database.ExecuteSqlCommand(query);
         }
         public void EditBakery(Bakery bakery,string Id)
         {
@@ -57,7 +61,8 @@ namespace DAL.Implement
             bajeryedit.Name = bakery.Name;
             bajeryedit.Price = bakery.Price;
             bajeryedit.VAT = bakery.VAT;
-            if(bakery.category!=null)
+            bajeryedit.count = bakery.count;
+            if (bakery.category!=null)
             bajeryedit.category = bakery.category;
            if(image!=null)
             bajeryedit.images = image;
