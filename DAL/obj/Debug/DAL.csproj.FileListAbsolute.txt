@@ -1,0 +1,16 @@
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DAL\bin\Debug\DAL.dll.config
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DAL\bin\Debug\DAL.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DAL\bin\Debug\DAL.pdb
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DAL\bin\Debug\EntityFramework.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DAL\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DAL\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DAL\bin\Debug\EntityFramework.xml
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DAL\obj\Debug\DAL.dll
+C:\Users\Khac Duy\Desktop\QL-ban-banh\DAL\obj\Debug\DAL.pdb

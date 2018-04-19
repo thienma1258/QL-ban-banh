@@ -12,7 +12,7 @@ namespace DAL.Context
     public class BakeryContext : IdentityDbContext<BakeryUser>,IDisposable
     {
         public BakeryContext()
-            : base("", throwIfV1Schema: false)
+            : base(" ", throwIfV1Schema: false)
 
 
         {

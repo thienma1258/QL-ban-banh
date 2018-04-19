@@ -1,4 +1,5 @@
 ﻿using DAL.Context;
+using DAL.Implement;
 using DAL.Interface;
 using DAL.Models;
 using DoAnCK.Models;
@@ -18,8 +19,8 @@ namespace DoAnCK.Controllers
     {
         // GET: Introduce
         public readonly BakeryContext db;
-        public readonly IIntroduceResponsibility introduceResponsibility;
-        public IntroduceController(BakeryContext db, IIntroduceResponsibility introduceResponsibility)
+        public readonly IIntroductionReposibitory introduceResponsibility;
+        public IntroduceController(BakeryContext db, IIntroductionReposibitory introduceResponsibility)
         {
             this.db = db;
             this.introduceResponsibility = introduceResponsibility;

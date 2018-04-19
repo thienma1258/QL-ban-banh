@@ -10,7 +10,7 @@ using DAL.Context;
 
 namespace DAL.Implement
 {
-    public class IntroductionResponsibility : IIntroduceResponsibility
+    public class IntroductionResponsibility : IIntroductionReposibitory
     {
         private BakeryContext db;
         public IntroductionResponsibility(BakeryContext db)

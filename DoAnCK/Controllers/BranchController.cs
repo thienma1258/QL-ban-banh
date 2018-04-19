@@ -17,8 +17,8 @@ namespace DoAnCK.Controllers
     {
        
       
-        public readonly IBranchResponsibility branchresponsibility;
-        public BranchController(BakeryContext db, IBranchResponsibility branchresponsibility)
+        public readonly IBranchReposibitory branchresponsibility;
+        public BranchController(BakeryContext db, IBranchReposibitory branchresponsibility)
         {
         
             this.branchresponsibility = branchresponsibility;

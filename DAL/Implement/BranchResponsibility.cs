@@ -9,7 +9,7 @@ using DAL.Context;
 
 namespace DAL.Implement
 {
-    public class BranchResponsibility : IBranchResponsibility
+    public class BranchResponsibility : IBranchReposibitory
     {
         private BakeryContext db;
         public BranchResponsibility(BakeryContext db)
