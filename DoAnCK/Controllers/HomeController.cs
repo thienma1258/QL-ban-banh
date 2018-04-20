@@ -109,8 +109,10 @@ namespace project.Controllers
             {
                 ViewBag.numberpage += 1;
             }
+          
             ViewBag.currentpage = page;
-            listbakery = listbakery.Take(this.numberperonepage * page ).ToList();
+            ViewBag.listcate = listcate;
+            listbakery = listbakery.Skip(this.numberperonepage *(page - 1)).Take(numberperonepage).ToList();
 
             //List<Bakery> bakerys = bakeryreposibitory.getlist();
             //List<Bakery> results = new List<Bakery>();

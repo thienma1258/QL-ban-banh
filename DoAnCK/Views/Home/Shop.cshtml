@@ -87,15 +87,15 @@
         <nav aria-label="Page navigation example">
             <ul class="pagination pagination-lg">
                 @if (ViewBag.currentpage != 1) {
-                <li class="page-item"><a class="page-link" href="/Home/Shop/page=@(ViewBag.currentpage-1)">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/Home/Shop/?@(ViewBag.listcate==null?"":"listcate="+ViewBag.listcate)&page=@(ViewBag.currentpage-1)">Previous</a></li>
                 }
-             @for (var i = 0; i < 2&&i+ViewBag.currentpage <= ViewBag.numberpage; i++) {
-                <li class="page-item @(i==0? "active":"" )"><a class="page-link " href="/Home/Shop/page=@(i+ViewBag.currentpage)">@(i+ ViewBag.currentpage)</a></li>
+             @for (var i = 0; i < 3&&i+ViewBag.currentpage <= ViewBag.numberpage; ++i) {
+                <li class="page-item @(i==0? "active":"" )"><a class="page-link " href="/Home/Shop/?@(ViewBag.listcate==null?"":"listcate="+ViewBag.listcate)&page=@(i+ViewBag.currentpage)">@(i+ ViewBag.currentpage)</a></li>
              }
 
 
                 @if (ViewBag.currentpage != ViewBag.numberpage) {
-                <li class="page-item"><a class="page-link" href="/Home/Shop/page=@(ViewBag.currentpage+1)">Next</a></li>
+                <li class="page-item"><a class="page-link" href="/Home/Shop/?@(ViewBag.listcate==null?"":"listcate="+ViewBag.listcate)&page=@(ViewBag.currentpage+1)">Next</a></li>
                     }
             </ul>
         </nav>

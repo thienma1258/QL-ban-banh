@@ -13,13 +13,14 @@ namespace DAL.Implement
     public class Backup_RestoreRepository : IBackup_RestoreRepository
     {
         BakeryContext db;
+        string password = "Manga24h.com";
         public Backup_RestoreRepository(BakeryContext db)
         {
             this.db = db;
         }
         public  void Backup(DateTime now)
         {
-              string command = "/C expdp SYSTEM/9406715 SCHEMAS=qlbb  DUMPFILE=qlbb" + now.ToFileTimeUtc() + ".dmp";
+              string command = "/C expdp SYSTEM/"+ password + " SCHEMAS=qlbb  DUMPFILE=qlbb" + now.ToFileTimeUtc() + ".dmp";
             // System.Diagnostics.Process.Start("CMD.exe", command);
             //String command = @"/k java -jar myJava.jar";
             ProcessStartInfo cmdsi = new ProcessStartInfo("cmd.exe");
@@ -39,7 +40,7 @@ namespace DAL.Implement
 
         public void Restore(string id)
         {
-            string command = "/C impdp SYSTEM/9406715 SCHEMAS=qlbb  DUMPFILE=" + id+ ".dmp TABLE_EXISTS_ACTION=REPLACE";
+            string command = "/C impdp SYSTEM/" + password + " SCHEMAS=qlbb  DUMPFILE=" + id+ ".dmp TABLE_EXISTS_ACTION=REPLACE";
             // System.Diagnostics.Process.Start("CMD.exe", command);
             //String command = @"/k java -jar myJava.jar";
             ProcessStartInfo cmdsi = new ProcessStartInfo("cmd.exe");
