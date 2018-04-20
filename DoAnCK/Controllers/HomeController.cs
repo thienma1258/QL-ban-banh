@@ -23,10 +23,12 @@ namespace project.Controllers
         IBillDetailsReposibility billdetailsreposibility;
         IBillReposibility billreposibility;
         ICategoryResponsibility categorysponsibility;
-
-        public HomeController(BakeryContext db,ICategoryResponsibility categoryrepository, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
+        IBranchReposibitory ibranchrepository;
+        int numberperonepage = 6;
+        public HomeController(BakeryContext db, IBranchReposibitory ibranchrepository,ICategoryResponsibility categoryrepository, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
         {
             this.db = db;
+            this.ibranchrepository = ibranchrepository;
             bakeryreposibitory = bkf;
             this.categorysponsibility = categoryrepository;
             this.billdetailsreposibility = billdetailsreposibility;
@@ -59,7 +61,7 @@ namespace project.Controllers
         {
             var Footer = new FooterModel()
             {
-                shop = db.shops.ToList(),
+                shop = ibranchrepository.getlist(),
                 news = db.news.ToList()
 
             };
@@ -71,8 +73,8 @@ namespace project.Controllers
             ViewBag.Authentication = false;
             var header = new HeaderModel
             {
-                category =categorysponsibility.getlist(),
-                shop = db.shops.ToList()
+                category = categorysponsibility.getlist(),
+                shop = ibranchrepository.getlist()
             };
             if (User.Identity.IsAuthenticated) {
                 var opl = (ClaimsIdentity)User.Identity;
@@ -87,10 +89,29 @@ namespace project.Controllers
         {
             return View(categorysponsibility.getlist());
         }
-        public ActionResult Shop(string listcate)
-        {   
-            Category category = null;
-            category = categorysponsibility.SearchByName(listcate);
+        public ActionResult Shop(string listcate=null,int page=1)
+        {
+            List<Bakery> listbakery=new List<Bakery>() ;
+            if (listcate!=null)
+            {
+                Category category = null;
+                category = categorysponsibility.SearchByName(listcate);
+                listbakery = category.bakerys.ToList();
+             
+            }
+            else {
+                listbakery = bakeryreposibitory.getlist(0);
+
+            }
+            var count = listbakery.Count;
+            ViewBag.numberpage = count / numberperonepage;
+            if (count % numberperonepage!=0)
+            {
+                ViewBag.numberpage += 1;
+            }
+            ViewBag.currentpage = page;
+            listbakery = listbakery.Take(this.numberperonepage * page ).ToList();
+
             //List<Bakery> bakerys = bakeryreposibitory.getlist();
             //List<Bakery> results = new List<Bakery>();
             //if (category == null)
@@ -102,7 +123,7 @@ namespace project.Controllers
             //            results.Add(i);
             //    }
                
-                return View(category.bakerys);
+                return View(listbakery);
             
         }
         public ActionResult Details(string id)

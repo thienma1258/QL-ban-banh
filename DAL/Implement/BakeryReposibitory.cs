@@ -18,22 +18,14 @@ namespace DAL.Implement
         {
             this.db = db;
         }
-        public List<Bakery> getlist(int countnumber = 0)
+        public List<Bakery> getlist(int countnumber = 0,int partiotion=1)
         {
             var list = db.Bakerys.OrderByDescending(p => p.ID);
             if (countnumber != 0)
             {
-                return list.Take(countnumber).ToList();
+                           return list.Take(countnumber).ToList();
             }
-            //var list = db.Bakerys.OrderByDescending(p => p.ID);
-        //    if (countnumber != 0)
-          //  return list.Take(countnumber).ToList();
 
-
-
-            //vd
-          //   string query = "select * from qlbb.\"Bakery\" a inner join qlbb.\"Image\" b  on a.\"images_Id\" = b.\"Id\"";
-         //   var bakery = db.Database.SqlQuery<Bakery>(query).SingleOrDefault();
 
             return list.ToList();
 

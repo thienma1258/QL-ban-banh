@@ -9,7 +9,8 @@ namespace DAL.Interface
 {
    public  interface IBakeryReposibitory
     {
-         List<Bakery> getlist(int countnumber = 0);
+         List<Bakery> getlist(int countnumber = 0,int partition=1);
+            
         Bakery find(string id);
         void AddBakery(Bakery bakery);
         bool AddBakery(string name,Category category,ImageModel image,int price,float VAT,int count);

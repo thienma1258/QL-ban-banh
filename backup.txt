@@ -1,1 +1,0 @@
-expdp SYSTEM/9406715 SCHEMAS=qlbb  DUMPFILE=qlbb.dmp
