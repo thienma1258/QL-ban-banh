@@ -1,4 +1,6 @@
-﻿using DoAnCK;
+﻿using DAL.Context;
+using DoAnCK;
+using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +9,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Unity.Mvc3;
 
 namespace project
 {
@@ -19,7 +22,10 @@ namespace project
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Bootstrapper.Initialise();
+            UnityContainer container =   Bootstrapper.BuildUnityContainer();
+            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+            var context = container.Resolve<BakeryContext>();
+            new DAL.Startup(context).initialisedatabase();
 
         }
     }

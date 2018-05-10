@@ -12,7 +12,9 @@ namespace DAL.Context
     public class BakeryContext : IdentityDbContext<BakeryUser>,IDisposable
     {
         public BakeryContext()
-            : base("", throwIfV1Schema: false)
+        
+            : base("Data Source = .;Initial Catalog=Bakery;Integrated Security=SSPI", throwIfV1Schema: false)
+          
 
 
 

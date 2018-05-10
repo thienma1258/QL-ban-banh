@@ -4,6 +4,8 @@ using DAL.Interface;
 using DAL.Models;
 using DoAnCK.Models;
 using DoAnCK.Resposibility;
+using Ganss.XSS;
+using Microsoft.Security.Application;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -34,18 +36,20 @@ namespace DoAnCK.Controllers
         {
             return View("AddIntroduce");
         }
-        [HttpPost, ValidateInput(false)]
-        public ActionResult AddIntroduce(Introduction introduces,string nameimage)
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult AddIntroduce(AddIntroduceModel introduces,string nameimage)
         {
             if (ModelState.IsValid)
             {
+                var sanitizer = new HtmlSanitizer();
                 var image = db.images.SingleOrDefault(p => p.Id == nameimage);
-               
+                var details = sanitizer.Sanitize(Server.HtmlDecode(introduces.details));
                 Introduction introducess = new Introduction
                 {
                     Id = Guid.NewGuid().ToString(),    
                     title = introduces.title,
-                    details=introduces.details,
+                    details=details,
                     Author= db.Users.SingleOrDefault(p=>p.UserName==User.Identity.Name)
                 };
                 if (image != null)
@@ -71,7 +75,7 @@ namespace DoAnCK.Controllers
         }
         [HttpPost]
        
-        public ActionResult EditIntroduce(Introduction introduces,string nameimage)
+        public ActionResult EditIntroduce(AddIntroduceModel introduces,string nameimage)
         {
             if (ModelState.IsValid)
             {

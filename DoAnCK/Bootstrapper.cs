@@ -11,14 +11,18 @@ namespace DoAnCK
 {
     public static class Bootstrapper
     {
+        public static IUnityContainer container;
         public static void Initialise()
         {
             var container = BuildUnityContainer();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
-        }
+           
 
-        private static IUnityContainer BuildUnityContainer()
+        }
+      
+
+        public static UnityContainer BuildUnityContainer()
         {
             var container = new UnityContainer();
 
@@ -43,7 +47,8 @@ namespace DoAnCK
             container.RegisterType<IImageRepository, Imagerepository>();
 
             container.RegisterType<INewsResponsibility,NewsResponsibility>();
-
+            var context = container.Resolve<BakeryContext>();
+            new DAL.Startup(context).initialisedatabase();
 
             return container;
         }

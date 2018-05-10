@@ -94,7 +94,7 @@
              }
 
 
-                @if (ViewBag.currentpage != ViewBag.numberpage) {
+                @if (ViewBag.currentpage != ViewBag.numberpage&&ViewBag.numberpage!=0) {
                 <li class="page-item"><a class="page-link" href="/Home/Shop/?@(ViewBag.listcate==null?"":"listcate="+ViewBag.listcate)&page=@(ViewBag.currentpage+1)">Next</a></li>
                     }
             </ul>

@@ -8,8 +8,8 @@ namespace project
     {
         public void Configuration(IAppBuilder app)
         {
-          
-            DAL.Startup.initialisedatabase();
+
+    
             ConfigureAuth(app);
         }
     }

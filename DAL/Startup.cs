@@ -13,10 +13,16 @@ namespace DAL
 {
     public class Startup
     {
-        public static void initialisedatabase()
+
+      public   BakeryContext bakerycontext;
+       public Startup(BakeryContext bakerycontext)
         {
-            // Display the number of command line arguments:
-            var bakerycontext = BakeryContext.Create();
+            this.bakerycontext = bakerycontext;
+        }
+
+        public  void initialisedatabase()
+        {
+            
           
             var UserManager = new UserManager<BakeryUser>(new UserStore<BakeryUser>(bakerycontext));
             var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(bakerycontext));
