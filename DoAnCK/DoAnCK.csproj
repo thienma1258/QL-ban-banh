@@ -256,6 +256,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resposibility\LogResposibility.cs" />
     <Compile Include="Resposibility\UserReposibility.cs" />
+    <Compile Include="RS\Implement\AppraiseAlgorthim.cs" />
+    <Compile Include="RS\Interface\IAppraiseAlgorthim.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -559,8 +561,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="RS\Implement\" />
-    <Folder Include="RS\Interface\" />
     <Folder Include="Scripts\adapters\" />
     <Folder Include="Scripts\lang\" />
     <Folder Include="Scripts\plugins\" />

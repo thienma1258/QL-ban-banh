@@ -14,7 +14,7 @@ namespace DAL.Models
         public string IPADDRESS { get; set; }
         public virtual  Bakery bakery {get;set;}
         [Range(0,10)]
-        int ratestar { get; set; }
+        public int ratestar { get; set; }
 
     }
 }

@@ -145,6 +145,7 @@ namespace project.Controllers
         {
             if (ModelState.IsValid)
             {
+               
                 var user = new BakeryUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
