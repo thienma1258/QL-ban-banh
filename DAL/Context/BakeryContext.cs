@@ -56,6 +56,7 @@ namespace DAL.Context
             modelBuilder.Entity<Bill>().ToTable("Bill");
             modelBuilder.Entity<Billdetails>().ToTable("Billdetails");
             modelBuilder.Entity<News>().ToTable("News");
+            modelBuilder.Entity<Rating>().ToTable("RatingUser");
 
         }
         public static BakeryContext Create()

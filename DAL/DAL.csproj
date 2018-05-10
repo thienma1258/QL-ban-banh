@@ -106,6 +106,7 @@
     <Compile Include="Models\Introduction.cs" />
     <Compile Include="Models\LogUser.cs" />
     <Compile Include="Models\News.cs" />
+    <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\Sales.cs" />
     <Compile Include="Models\Shop.cs" />
     <Compile Include="Models\ShopModel.cs" />

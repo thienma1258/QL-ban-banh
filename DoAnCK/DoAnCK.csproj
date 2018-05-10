@@ -248,6 +248,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddBakeryViewModel.cs" />
     <Compile Include="Models\AddIntroduceModel.cs" />
+    <Compile Include="Models\Helpers.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
@@ -558,7 +559,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Migrations\" />
+    <Folder Include="RS\Implement\" />
+    <Folder Include="RS\Interface\" />
     <Folder Include="Scripts\adapters\" />
     <Folder Include="Scripts\lang\" />
     <Folder Include="Scripts\plugins\" />
