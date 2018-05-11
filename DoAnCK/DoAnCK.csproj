@@ -241,7 +241,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IntroduceController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+
     <Compile Include="Controllers\RateController.cs" />
+
     <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -258,7 +260,9 @@
     <Compile Include="Resposibility\LogResposibility.cs" />
     <Compile Include="Resposibility\UserReposibility.cs" />
     <Compile Include="RS\Implement\AppraiseAlgorthim.cs" />
+    <Compile Include="RS\Implement\RatingDampMeanAl.cs" />
     <Compile Include="RS\Interface\IAppraiseAlgorthim.cs" />
+    <Compile Include="RS\Interface\IRateDampMeanAl.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -570,7 +574,7 @@
     <Folder Include="Scripts\plugins\" />
     <Folder Include="Scripts\samples\" />
     <Folder Include="Scripts\skins\" />
-    <Folder Include="Views\Rate\" />
+
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -14,7 +14,9 @@ namespace DAL.Models
         public string IPADDRESS { get; set; }
         public virtual  Bakery bakery {get;set;}
         [Range(0,10)]
-        public int ratestar { get; set; }
+        public double ratestar { get; set; }
+        public DateTime ngayrate { get; set; } = DateTime.Now;
+
 
     }
 }

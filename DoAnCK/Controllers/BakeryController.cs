@@ -18,7 +18,7 @@ namespace DoAnCK.Controllers
    [Authorize]
     public class BakeryController : Controller
     {
-         public readonly IBakeryReposibitory bakeryreposibitory;
+       public readonly IBakeryReposibitory bakeryreposibitory;
         public ICategoryResponsibility icategegoryrepository;
         public IImageRepository imagerepository;
         public ILogRepository ilogrepository;

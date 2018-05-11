@@ -24,6 +24,7 @@ namespace project.Controllers
         IBillReposibility billreposibility;
         ICategoryResponsibility categorysponsibility;
         IBranchReposibitory ibranchrepository;
+        
         int numberperonepage = 6;
         public HomeController(BakeryContext db, IBranchReposibitory ibranchrepository,ICategoryResponsibility categoryrepository, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
         {
@@ -33,7 +34,9 @@ namespace project.Controllers
             this.categorysponsibility = categoryrepository;
             this.billdetailsreposibility = billdetailsreposibility;
             this.billreposibility = billreposibility;
-        
+       
+
+
         }
         public ActionResult Index()
         {
@@ -212,6 +215,7 @@ namespace project.Controllers
                 }
             }
         }
+
        
        
         public ActionResult demoCheckout(){

@@ -13,9 +13,9 @@ namespace DoAnCK.Controllers
     public class RateController : Controller
     {
 
-        public readonly IRateReposibitory ratereposibitory;
+        public readonly IRateResposibitory ratereposibitory;
         public readonly IBakeryReposibitory ibakeryrepository; 
-        public RateController(IBakeryReposibitory ibakeryrepository, IRateReposibitory ratereposibitory)
+        public RateController(IBakeryReposibitory ibakeryrepository, IRateResposibitory ratereposibitory)
         {
 
             this.ratereposibitory = ratereposibitory;
@@ -39,7 +39,7 @@ namespace DoAnCK.Controllers
                     bakery = this.ibakeryrepository.find(idbake),
                     ratestar = valuerate
                 };
-                ratereposibitory.AddRate(rate);
+                ratereposibitory.AddRates(rate);
                 return "Success";
             }
             else

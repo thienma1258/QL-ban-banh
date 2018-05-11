@@ -82,7 +82,9 @@
     <Compile Include="Implement\IntroductionResponsibility.cs" />
     <Compile Include="Implement\LogRepository.cs" />
     <Compile Include="Implement\NewsResponsibility.cs" />
-    <Compile Include="Implement\RateReposibitory.cs" />
+
+    <Compile Include="Implement\RateResposibitory.cs" />
+
     <Compile Include="Implement\SliderResponsibility.cs" />
     <Compile Include="Interface\IBackup_RestoreRepository.cs" />
     <Compile Include="Interface\IBillDetailsReposibility.cs" />
@@ -94,7 +96,9 @@
     <Compile Include="Interface\IIntroductionReposibitory.cs" />
     <Compile Include="Interface\ILogRepository.cs" />
     <Compile Include="Interface\INewsResponsibility.cs" />
-    <Compile Include="Interface\IRateReposibitory.cs" />
+
+    <Compile Include="Interface\IRateResposibitory.cs" />
+
     <Compile Include="Interface\ISliderResponsibility.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bakery.cs" />
