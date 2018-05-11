@@ -1,0 +1,16 @@
+D:\He tu van thong tin\QL-ban-banh\DAL\bin\Debug\DAL.dll.config
+D:\He tu van thong tin\QL-ban-banh\DAL\bin\Debug\DAL.dll
+D:\He tu van thong tin\QL-ban-banh\DAL\bin\Debug\DAL.pdb
+D:\He tu van thong tin\QL-ban-banh\DAL\bin\Debug\EntityFramework.dll
+D:\He tu van thong tin\QL-ban-banh\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\He tu van thong tin\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\He tu van thong tin\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\He tu van thong tin\QL-ban-banh\DAL\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\He tu van thong tin\QL-ban-banh\DAL\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+D:\He tu van thong tin\QL-ban-banh\DAL\bin\Debug\EntityFramework.xml
+D:\He tu van thong tin\QL-ban-banh\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\He tu van thong tin\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\He tu van thong tin\QL-ban-banh\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\He tu van thong tin\QL-ban-banh\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\He tu van thong tin\QL-ban-banh\DAL\obj\Debug\DAL.dll
+D:\He tu van thong tin\QL-ban-banh\DAL\obj\Debug\DAL.pdb

@@ -45,6 +45,8 @@ namespace DoAnCK
             container.RegisterType<IBackup_RestoreRepository, Backup_RestoreRepository>();
             container.RegisterType<ILogRepository, LogRepository>();
             container.RegisterType<IImageRepository, Imagerepository>();
+            container.RegisterType<IRateResposibitory, RateResposibitory>();
+
 
             container.RegisterType<INewsResponsibility,NewsResponsibility>();
             var context = container.Resolve<BakeryContext>();
