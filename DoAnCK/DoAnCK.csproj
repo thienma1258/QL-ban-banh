@@ -241,6 +241,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IntroduceController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\RateController.cs" />
     <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -472,6 +473,9 @@
     <Content Include="Scripts\move-top.js" />
     <Content Include="Scripts\nivo-lightbox.min.js" />
     <Content Include="Scripts\owl.carousel.js" />
+    <Content Include="Scripts\rating.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\CHANGES.md" />
@@ -566,6 +570,7 @@
     <Folder Include="Scripts\plugins\" />
     <Folder Include="Scripts\samples\" />
     <Folder Include="Scripts\skins\" />
+    <Folder Include="Views\Rate\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -47,6 +47,8 @@ namespace DoAnCK
             container.RegisterType<IImageRepository, Imagerepository>();
 
             container.RegisterType<INewsResponsibility,NewsResponsibility>();
+            container.RegisterType<IRateReposibitory, RateReposibitory>();
+
             var context = container.Resolve<BakeryContext>();
             new DAL.Startup(context).initialisedatabase();
 

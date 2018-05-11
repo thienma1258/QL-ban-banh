@@ -38,7 +38,7 @@ namespace project.Controllers
         public ActionResult Index()
         {
 
-           string ip= HelperClass.GetIPHelper();
+        
             return View(this.bakeryreposibitory.getlist(6));
 
 
@@ -279,7 +279,6 @@ namespace project.Controllers
 
 
         }
-     
 
     }
 }

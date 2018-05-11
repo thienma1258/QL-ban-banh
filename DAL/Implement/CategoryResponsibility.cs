@@ -59,15 +59,15 @@ namespace DAL.Implement
 
         public List<Category> getlist(int countnumber = 0)
         {
-            //var list = db.Categorys.OrderByDescending(p => p.Id);
-            //if (countnumber != 0)
-            //{
-            //    return list.Take(countnumber).ToList();
-            //}
-            //return list.ToList();
-            string query = "select * from qlbb.\"Category\"";
-            var results = db.Database.SqlQuery<Category>(query).ToList();
-            return results;
+            var list = db.Categorys.OrderByDescending(p => p.Id);
+            if (countnumber != 0)
+            {
+                return list.Take(countnumber).ToList();
+            }
+            return list.ToList();
+            //string query = "select * from qlbb.\"Category\"";
+            //var results = db.Database.SqlQuery<Category>(query).ToList();
+            //return results;
         }
         public Category SearchByName(string name) {
 

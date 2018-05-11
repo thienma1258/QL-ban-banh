@@ -10,7 +10,7 @@ namespace DAL.Models
     public class Rating
     {
         [Key]
-        public string ID { get; set; } = new Guid().ToString();
+        public string ID { get; set; } = Guid.NewGuid().ToString();
         public string IPADDRESS { get; set; }
         public virtual  Bakery bakery {get;set;}
         [Range(0,10)]
