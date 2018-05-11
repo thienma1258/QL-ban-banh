@@ -7,7 +7,7 @@ namespace DoAnCK.RS.Implement
 {
     public class AppraiseAlgorthim: IAppraiseAlgorthim
     {
-        public double RMSE(int [][]Reality,int [][]prediction)
+        public double RMSE(double [][]Reality,double [][]prediction)
         {
             double rootmeansqaureerror = 0;
            for (int i = 0; i < Reality.GetLength(0);i++)

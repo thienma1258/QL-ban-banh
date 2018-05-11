@@ -2,6 +2,7 @@
 using DAL.Interface;
 using DAL.Models;
 using DoAnCK.Models;
+using DoAnCK.RS.Interface;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -24,13 +25,14 @@ namespace project.Controllers
         IBillReposibility billreposibility;
         ICategoryResponsibility categorysponsibility;
         IBranchReposibitory ibranchrepository;
-        
+        IMatrixParse imatrix;
         int numberperonepage = 6;
-        public HomeController(BakeryContext db, IBranchReposibitory ibranchrepository,ICategoryResponsibility categoryrepository, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
+        public HomeController(BakeryContext db, IMatrixParse imatrix,IBranchReposibitory ibranchrepository,ICategoryResponsibility categoryrepository, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
         {
             this.db = db;
             this.ibranchrepository = ibranchrepository;
             bakeryreposibitory = bkf;
+            this.imatrix = imatrix;
             this.categorysponsibility = categoryrepository;
             this.billdetailsreposibility = billdetailsreposibility;
             this.billreposibility = billreposibility;
@@ -40,7 +42,7 @@ namespace project.Controllers
         }
         public ActionResult Index()
         {
-
+            var list = imatrix.UserItemMatrix();
         
             return View(this.bakeryreposibitory.getlist(6));
 

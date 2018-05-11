@@ -7,6 +7,6 @@ namespace DoAnCK.RS.Implement
 {
     public interface IAppraiseAlgorthim
     {
-         double RMSE(int[][] Reality, int[][] prediction);
+         double RMSE(double [][] Reality, double[][] prediction);
     }
 }

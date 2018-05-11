@@ -6,6 +6,8 @@ using DAL.Interface;
 using DAL.Implement;
 using project.Controllers;
 using System;
+using DoAnCK.RS.Interface;
+using DoAnCK.RS.Implement;
 
 namespace DoAnCK
 {
@@ -50,6 +52,7 @@ namespace DoAnCK
 
             container.RegisterType<INewsResponsibility,NewsResponsibility>();
             container.RegisterType<IRateResposibitory, RateResposibitory>();
+            container.RegisterType<IMatrixParse,MatrixParse >();
 
             var context = container.Resolve<BakeryContext>();
             new DAL.Startup(context).initialisedatabase();
