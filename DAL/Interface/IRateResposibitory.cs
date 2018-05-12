@@ -12,5 +12,6 @@ namespace DAL.Interface
         List<Rating> getlist(int countnumber = 0);
         Rating find(string id);
         void AddRates(Rating rates);
+        Rating check(Bakery bakery, BakeryUser user);
     }
 }

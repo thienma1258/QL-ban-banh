@@ -15,12 +15,16 @@ namespace DoAnCK.Controllers
     {
 
         public readonly IRateResposibitory ratereposibitory;
-        public readonly IBakeryReposibitory ibakeryrepository; 
-        public RateController(IBakeryReposibitory ibakeryrepository, IRateResposibitory ratereposibitory)
+        public readonly IBakeryReposibitory ibakeryrepository;
+        public readonly IUserRepository iuser;
+
+
+        public RateController(     IUserRepository iuser,IBakeryReposibitory ibakeryrepository, IRateResposibitory ratereposibitory)
         {
 
             this.ratereposibitory = ratereposibitory;
             this.ibakeryrepository = ibakeryrepository;
+            this.iuser = iuser;
         }
 
         // GET: Rate
@@ -30,7 +34,7 @@ namespace DoAnCK.Controllers
         {
             string ip = HelperClass.GetIPHelper();
             //current user;
-            var user = UserReposibility.getcurrentUser(User);
+            var user = iuser.getcurrentUser(User);
             if (user == null)
             {
                 // please login

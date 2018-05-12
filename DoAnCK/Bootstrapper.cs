@@ -52,6 +52,8 @@ namespace DoAnCK
 
             container.RegisterType<INewsResponsibility,NewsResponsibility>();
             container.RegisterType<IRateResposibitory, RateResposibitory>();
+            container.RegisterType<IUserRepository, UserRepository>();
+
             container.RegisterType<IMatrixParse,MatrixParse >();
 
             var context = container.Resolve<BakeryContext>();

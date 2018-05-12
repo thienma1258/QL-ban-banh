@@ -28,6 +28,14 @@ namespace DAL.Implement
             return news;
         }
 
+        public Rating check(Bakery bakery,BakeryUser user)
+        {
+             var check = db.rates.Where(p => p.bakery.ID == bakery.ID && p.User.Id == user.Id).SingleOrDefault();
+            if (check == null)
+                return null;
+            return check;
+        }
+
         public List<Rating> getlist(int countnumber = 0)
         {
             var list = db.rates.OrderByDescending(p => p.ID);

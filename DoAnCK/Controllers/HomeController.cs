@@ -27,14 +27,18 @@ namespace project.Controllers
         ICategoryResponsibility categorysponsibility;
         IBranchReposibitory ibranchrepository;
         IMatrixParse imatrix;
+        IUserRepository iuser;
+        IRateResposibitory iratel;
         int numberperonepage = 6;
-        public HomeController(BakeryContext db, IMatrixParse imatrix,IBranchReposibitory ibranchrepository,ICategoryResponsibility categoryrepository, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
+        public HomeController(BakeryContext db,IRateResposibitory irate, IUserRepository iuser, IMatrixParse imatrix,IBranchReposibitory ibranchrepository,ICategoryResponsibility categoryrepository, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
         {
             this.db = db;
             this.ibranchrepository = ibranchrepository;
             bakeryreposibitory = bkf;
+            this.iratel = irate;
             this.imatrix = imatrix;
             this.categorysponsibility = categoryrepository;
+            this.iuser = iuser;
             this.billdetailsreposibility = billdetailsreposibility;
             this.billreposibility = billreposibility;
        
@@ -145,7 +149,19 @@ namespace project.Controllers
             {
                 return HttpNotFound();
             }
+
+            var user = iuser.getcurrentUser(User);
+      
             Bakery bakery = bakeryreposibitory.find(id);
+            var check = iratel.check(bakery, user);
+            if (check == null)
+            {
+                ViewBag.ratestar = -1;
+            }
+            else
+            {
+                ViewBag.ratestar = check.ratestar;
+            }
             if (bakery == null)
             {
                 return HttpNotFound();
