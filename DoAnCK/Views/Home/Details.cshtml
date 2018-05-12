@@ -293,9 +293,12 @@ border-radius: 4px;
                             if (message == "False") {
                                 alert("Bạn đã đánh giá sản phẩm rồi")
                             }
-                            else {
+                            else if (message == "Success") {
                                 alert("Cảm ơn bạn đã đánh giá");
 
+                            }
+                            else {
+                                alert(message);
                             }
                         }
                     });

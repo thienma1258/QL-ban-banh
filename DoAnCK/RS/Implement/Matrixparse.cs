@@ -35,7 +35,7 @@ namespace DoAnCK.RS.Implement
         {
             var listbakery = ibakeryrepository.getlist();
             var listrate = iraterepository.getlist();
-            var listuniqueuser = listrate.GroupBy(p => new { p.IPADDRESS }).ToList();
+            var listuniqueuser = listrate.GroupBy(p => new { p.User }).ToList();
             int col = listuniqueuser.Count();
             int row = listbakery.Count;
             double[][] useritemMatrix = new double[col][];
@@ -60,12 +60,12 @@ namespace DoAnCK.RS.Implement
             return useritemMatrix;
 
         }
-        public List<String> getUserCol(){
-            List<string > listuser=new List<string>();
-                     var list = iraterepository.getlist().GroupBy(p => new { p.IPADDRESS }).ToList();
+        public List<BakeryUser> getUserCol(){
+            List<BakeryUser > listuser=new List<BakeryUser>();
+                     var list = iraterepository.getlist().GroupBy(p => new { p.User }).ToList();
             foreach(var a in list)
             {
-                listuser.Add(a.Key.IPADDRESS);
+                listuser.Add(a.Key.User);
             }
             return listuser;
         }

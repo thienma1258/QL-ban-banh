@@ -14,11 +14,25 @@
                    else
                    {
                     <li>Xin Chào @ViewBag.Username</li>
-                    <li>@Html.ActionLink("Quản lý", "", "AccountManager")</li>}
+                    if (ViewBag.role != "User")
+                        {
 
-                 }
+                            <li>@Html.ActionLink("Quản lý", "", "AccountManager")</li>
+                        }
+                        else
+                        {
+                            <li><a href="/Account/Logoff">Log out</a></li>
+                        }
+                    
+
+
+
+
+
+                     }
+            }
                 <li>@Html.ActionLink("Giỏ Hàng","demoCheckout")</li>
-            </ul>
+           </ul>
         </div>
         <ul class="icon2 sub-icon2 profile_img">
             <li>

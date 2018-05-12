@@ -4,7 +4,8 @@
     public enum AdminRoles
     {
         Admin,
-        Editor
+        Editor,
+        User
     }
 
 }

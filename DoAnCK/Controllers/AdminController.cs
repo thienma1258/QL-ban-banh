@@ -13,7 +13,7 @@ using System.Web.Mvc;
 
 namespace project.Controllers
 {
-   [Authorize]
+    [Authorize(Roles = "Admin, Editor")]
     public class AdminController : Controller
     {
         // GET: Admin

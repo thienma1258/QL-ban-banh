@@ -12,6 +12,7 @@ namespace DAL.Models
         [Key]
         public string ID { get; set; } = Guid.NewGuid().ToString();
         public string IPADDRESS { get; set; }
+        public virtual BakeryUser User { get; set; }
         public virtual  Bakery bakery {get;set;}
         [Range(0,10)]
         public double ratestar { get; set; }

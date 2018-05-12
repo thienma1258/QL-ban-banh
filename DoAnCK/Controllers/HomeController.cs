@@ -2,6 +2,7 @@
 using DAL.Interface;
 using DAL.Models;
 using DoAnCK.Models;
+using DoAnCK.Resposibility;
 using DoAnCK.RS.Interface;
 using System;
 using System.Collections.Generic;
@@ -84,8 +85,12 @@ namespace project.Controllers
             };
             if (User.Identity.IsAuthenticated) {
                 var opl = (ClaimsIdentity)User.Identity;
+          
+
                 var username = User.Identity.Name;
+                var role = UserReposibility.getrolesuser(User);
                 ViewBag.Username = username;
+                ViewBag.role = role;
                 ViewBag.Authentication = true;
             IEnumerable<Claim> claims = opl.Claims;
             }

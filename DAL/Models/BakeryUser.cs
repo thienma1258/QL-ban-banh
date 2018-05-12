@@ -12,6 +12,8 @@ namespace DAL.Models
    public class BakeryUser: IdentityUser
     {
         public virtual ImageModel representImage { get; set; }
+        public string Address { get; set; }
+        public string country { get; set; }
           
         public virtual List<LogUser> loguser { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<BakeryUser> manager,BakeryUser user)
