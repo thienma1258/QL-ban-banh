@@ -30,7 +30,7 @@
 
     /* 2. Action to perform on click */
     $('#stars li').on('click', function () {
-        var getcurrentstar = getcurrentstar();
+        
         if (currentstar != "-1") {
             alert("ban da danh gia san pham roi");
             return;

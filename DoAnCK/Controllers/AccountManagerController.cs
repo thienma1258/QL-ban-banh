@@ -1,6 +1,7 @@
 ﻿using DAL.Context;
 using DAL.Interface;
 using DoAnCK.Resposibility;
+using DoAnCK.RS.Implement;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,15 @@ namespace DoAnCK.Controllers
     public class AccountManagerController : Controller
     {
         ILogRepository ilog;
-        public AccountManagerController(ILogRepository ilog)
+        IAppraiseAlgorthim iappraise;
+        IUserRepository iuser;
+        IBakeryReposibitory ibakery;
+        public AccountManagerController(IBakeryReposibitory ibakery,IUserRepository iuser,ILogRepository ilog,IAppraiseAlgorthim iappraise)
         {
             this.ilog = ilog;
+            this.iappraise = iappraise;
+            this.iuser = iuser;
+            this.ibakery = ibakery;
         }
     
         // GET: AccountManager
@@ -45,6 +52,17 @@ namespace DoAnCK.Controllers
         {
             this.ilog.DeleteAllLog();
             return RedirectToAction("Log");
+        }
+
+        public ActionResult AppraiseAlgorthim()
+        {
+            var user = this.iuser.getcurrentUser(User);
+            var bakery = this.ibakery.getlist();
+            ViewBag.GlobalAverage = this.iappraise.GlobalAvarage();
+            ViewBag.UserAverage = this.iappraise.UserAverage(user.Id);
+
+            ViewBag.ItemAverage = this.iappraise.ItemAvaeage(bakery[0].ID);
+            return View();
         }
     }
 }

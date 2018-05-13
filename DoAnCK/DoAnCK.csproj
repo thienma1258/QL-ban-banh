@@ -80,6 +80,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
       <Private>True</Private>
@@ -258,9 +263,11 @@
     <Compile Include="Resposibility\LogResposibility.cs" />
     <Compile Include="Resposibility\UserReposibility.cs" />
     <Compile Include="RS\Implement\AppraiseAlgorthim.cs" />
+    <Compile Include="RS\Implement\ExcelRepository.cs" />
     <Compile Include="RS\Implement\Matrixparse.cs" />
     <Compile Include="RS\Implement\RatingDampMeanAl.cs" />
     <Compile Include="RS\Interface\IAppraiseAlgorthim.cs" />
+    <Compile Include="RS\Interface\IExcelrepository.cs" />
     <Compile Include="RS\Interface\IMatrixParse.cs" />
     <Compile Include="RS\Interface\IRateDampMeanAl.cs" />
     <Compile Include="Startup.cs" />
@@ -566,6 +573,7 @@
     <Content Include="Views\Introduce\Index.cshtml" />
     <Content Include="Views\Bill\Confirm.cshtml" />
     <Content Include="Views\BackupRestore\Index.cshtml" />
+    <Content Include="Views\AccountManager\AppraiseAlgorthim.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

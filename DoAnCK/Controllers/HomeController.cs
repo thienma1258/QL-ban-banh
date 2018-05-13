@@ -3,6 +3,7 @@ using DAL.Interface;
 using DAL.Models;
 using DoAnCK.Models;
 using DoAnCK.Resposibility;
+using DoAnCK.RS.Implement;
 using DoAnCK.RS.Interface;
 using System;
 using System.Collections.Generic;
@@ -29,26 +30,39 @@ namespace project.Controllers
         IMatrixParse imatrix;
         IUserRepository iuser;
         IRateResposibitory iratel;
+        IAppraiseAlgorthim iappraise;
+        IExcelrepository iexcel;
         int numberperonepage = 6;
-        public HomeController(BakeryContext db,IRateResposibitory irate, IUserRepository iuser, IMatrixParse imatrix,IBranchReposibitory ibranchrepository,ICategoryResponsibility categoryrepository, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
+        public HomeController(BakeryContext db,IExcelrepository iexcel, IAppraiseAlgorthim iappraise,IRateResposibitory irate, IUserRepository iuser, IMatrixParse imatrix,IBranchReposibitory ibranchrepository,ICategoryResponsibility categoryrepository, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
         {
             this.db = db;
             this.ibranchrepository = ibranchrepository;
             bakeryreposibitory = bkf;
             this.iratel = irate;
             this.imatrix = imatrix;
+            this.iappraise = iappraise;
             this.categorysponsibility = categoryrepository;
             this.iuser = iuser;
+            this.iexcel = iexcel;
             this.billdetailsreposibility = billdetailsreposibility;
             this.billreposibility = billreposibility;
        
 
 
         }
+
+      
         public ActionResult Index()
         {
             var list = imatrix.UserItemMatrix();
-        
+            var bakery = this.bakeryreposibitory.getlist();
+            var listmatrix = this.imatrix.UserItemMatrix();
+            var numberuser = listmatrix.GetLength(0);
+          //  this.iexcel.writeExcelFile(list);
+            var listPredict = imatrix.correlSimilarItem(bakery[1].ID);
+            List<double> newCorrel;
+
+            var newMatrix = imatrix.GetHighestItemSimilar(listPredict, out newCorrel, listmatrix,ref bakery, 5, numberuser);
             return View(this.bakeryreposibitory.getlist(6));
 
 

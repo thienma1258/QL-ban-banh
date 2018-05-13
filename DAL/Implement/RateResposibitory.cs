@@ -30,6 +30,8 @@ namespace DAL.Implement
 
         public Rating check(Bakery bakery,BakeryUser user)
         {
+            if (user == null)
+                return null;
              var check = db.rates.Where(p => p.bakery.ID == bakery.ID && p.User.Id == user.Id).SingleOrDefault();
             if (check == null)
                 return null;

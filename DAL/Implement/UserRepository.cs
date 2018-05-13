@@ -22,7 +22,8 @@ namespace DAL.Implement
         {
             var opl = (ClaimsIdentity)user.Identity;
             var claims = opl.Claims.FirstOrDefault(p => p.Type == ClaimTypes.Email);
-
+            if (claims == null)
+                return null;
             var current = db.Users.SingleOrDefault(p => p.Email == claims.Value);
             return current;
 
