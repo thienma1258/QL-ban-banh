@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{456514CB-C294-47F7-8426-76370C24107C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.2.1100\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.12.2.1100\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\BakeryContext.cs" />
+    <Compile Include="Enum\Admin.cs" />
+    <Compile Include="Enum\BakerySize.cs" />
+    <Compile Include="Enum\IntroductionType.cs" />
+    <Compile Include="Implement\Backup_RestoreRepository.cs" />
+    <Compile Include="Implement\BakeryReposibitory.cs" />
+    <Compile Include="Implement\BranchReposibitory.cs" />
+    <Compile Include="Implement\CategoryResponsibility.cs" />
+    <Compile Include="Implement\BillDetailsReposibility.cs" />
+    <Compile Include="Implement\BillReposibility.cs" />
+    <Compile Include="Implement\BranchResponsibility.cs" />
+    <Compile Include="Implement\Imagerepository.cs" />
+    <Compile Include="Implement\IntroductionReposibitory.cs" />
+    <Compile Include="Implement\IntroductionResponsibility.cs" />
+    <Compile Include="Implement\LogRepository.cs" />
+    <Compile Include="Implement\NewsResponsibility.cs" />
+    <Compile Include="Implement\RateResposibitory.cs" />
+    <Compile Include="Implement\SliderResponsibility.cs" />
+    <Compile Include="Implement\UserRepository.cs" />
+    <Compile Include="Interface\IBackup_RestoreRepository.cs" />
+    <Compile Include="Interface\IBillDetailsReposibility.cs" />
+    <Compile Include="Interface\IBillReposibility.cs" />
+    <Compile Include="Interface\IBranchReposibitory.cs" />
+    <Compile Include="Interface\IBakeryReposibitory.cs" />
+    <Compile Include="Interface\ICategoryResponsibility.cs" />
+    <Compile Include="Interface\IImageRepository.cs" />
+    <Compile Include="Interface\IIntroductionReposibitory.cs" />
+    <Compile Include="Interface\ILogRepository.cs" />
+    <Compile Include="Interface\INewsResponsibility.cs" />
+    <Compile Include="Interface\IRateResposibitory.cs" />
+    <Compile Include="Interface\ISliderResponsibility.cs" />
+    <Compile Include="Interface\IUserRepository.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Bakery.cs" />
+    <Compile Include="Models\BakeryUser.cs" />
+    <Compile Include="Models\Bill.cs" />
+    <Compile Include="Models\Billdetails.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\FooterModel.cs" />
+    <Compile Include="Models\HeaderModel.cs" />
+    <Compile Include="Models\ImageModel.cs" />
+    <Compile Include="Models\Introduction.cs" />
+    <Compile Include="Models\LogUser.cs" />
+    <Compile Include="Models\News.cs" />
+    <Compile Include="Models\Rating.cs" />
+    <Compile Include="Models\Sales.cs" />
+    <Compile Include="Models\Shop.cs" />
+    <Compile Include="Models\ShopModel.cs" />
+    <Compile Include="Models\Slider.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

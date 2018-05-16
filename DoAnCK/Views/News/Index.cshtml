@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DAL.Models.News>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout-admin.cshtml";
+}
+
+<div style="margin-left:120px;margin-top:100px;">
+    <p>
+        @Html.ActionLink("Thêm Bảng Tin", "Addnews")
+    </p>
+    </br>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Body)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatePost)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Body)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatePost)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "EditNews", new { id = item.ID }) |
+                    @Html.ActionLink("Xóa", "DeleteNews", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    </table>
+    </div>

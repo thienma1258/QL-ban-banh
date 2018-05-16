@@ -1,0 +1,82 @@
+﻿@model DAL.Models.BakeryUser
+
+<div class="sidebar-menu" style="width:100px;height:1160px">
+    <div class="logo">
+        <span id="logo"></span>
+        <!--<img id="logo" src="" alt="Logo"/>-->
+    </div>
+    <div class="menu">
+        <ul id="menu">
+            <li id="menu-home"><a href="/Account/LogOff"><i class="fa fa-tachometer"></i><span style="position: absolute;"></span>Đăng Xuất</a></li>
+            <li>
+                <a href="/AccountManager"><i class="fa fa-file text-box-light"></i><span style="position: absolute;"></span> Tài khoản<span style="float: right; position: absolute;"></span></a>
+            </li>
+           @if (ViewBag.role=="Admin") {
+            <li>
+                <a href="/AccountManager/Log"><i class="fa fa-file text-box-light"></i><span style="position: absolute;"></span> Lịch sử<span style="float: right; position: absolute;"></span></a>
+            </li>
+           }
+            <li id="menu-comunicacao">
+                <a href="/Bakery"><i class="fa fa-product-hunt"></i><span style="position: absolute;"></span>Quản lý<span style="float: right; position: absolute;"></span></a>
+            </li>
+
+            <li>
+                <a href="/Bakery/AddBakery"><i class="fa fa-pencil"></i><span style="position: absolute;"></span>Thêm bánh<span style="float: right; position: absolute;"></span></a>
+            </li>
+            <li>
+                <a href="/Category/AddCategory"><i class="fa fa-pencil-square"></i><span style="position: absolute;"></span>Thêm loại<span style="float: right; position: absolute;"></span></a>
+            </li>
+            <li>
+                <a href="/Category"><i class="fa fa-delicious"></i><span style="position: absolute;"></span>Loại<span style="float: right; position: absolute;"></span></a>
+            </li>
+            <li>
+                <a href="/Introduce"><i class="fa fa-delicious"></i><span style="position: absolute;"></span>Bài viết<span style="float: right; position: absolute;"></span></a>
+            </li>
+            <li>
+                <a href="/"><i class="fa fa-shopping-cart"></i><span style="position: absolute;"></span>Cửa hàng<span style="float: right; position: absolute;"></span></a>
+            </li>
+
+            <li>
+                <a href="/Bill"><i class="fa fa-bitbucket"></i><span style="position: absolute;"></span>Đặt hàng<span style="float: right; position: absolute;"></span></a>
+            </li>
+            <li>
+                <a href="/Slider"><i class="fa fa-sliders"></i><span style="position: absolute;"></span>Slider<span style="float: right; position: absolute;"></span></a>
+            </li>
+            <li>
+                <a href="/Branch"><i class="fa fa-bank"></i><span style="position: absolute;"></span>Hệ thống<span style="float: right; position: absolute;"></span></a>
+            </li>
+            <li>
+                <a href="/News"><i class="fa fa-newspaper-o"></i><span style="position: absolute;"></span>Tin tức<span style="float: right; position: absolute;"></span></a>
+            </li>
+            <li>
+                <a href="/BackupRestore"><i class="fa fa-newspaper-o"></i><span style="position: absolute;"></span>Backup and restore database<span style="float: right; position: absolute;"></span></a>
+            </li>
+        </ul>
+    </div>
+</div>
+@*<div class="sidebar-menu" style="width:100px;height:800px">
+    <div class="logo">
+        <span id="logo"></span>
+        <img id="logo" src="" alt="Logo"/>
+    </div>
+    <div class="menu">
+        <ul id="menu">
+            <li id="menu-home"><a href="#"><i class="fa fa-tachometer"></i><span style="position: absolute;">@Html.ActionLink("Đăng xuất", "Index")</span></a></li>
+            <li>
+                <a><i class="fa fa-file text-box-light"></i><span style="position: absolute;">@Html.ActionLink("Quản lý", "Index")</span><span style="float: right; position: absolute;"></span></a>
+            </li>
+            <li id="menu-comunicacao">
+                <a href=""><i class="fa fa-product-hunt"></i><span style="position: absolute;">@Html.ActionLink("Sản Phẩm", "", "Bakery")</span><span style="float: right; position: absolute;"></span></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-pencil"></i><span style="position: absolute;">@Html.ActionLink("Thêm Bánh", "", "Bakery/AddBakery")</span><span style="float: right; position: absolute;"></span></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-pencil-square"></i><span style="position: absolute;">@Html.ActionLink("Thêm Loại", "", "Category/AddCategory")</span><span style="float: right; position: absolute;"></span></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-shopping-cart"></i><span style="position: absolute;">@Html.ActionLink("Cửa hàng", "", "Home/Shop")</span><span style="float: right; position: absolute;"></span></a>
+            </li>
+        </ul>
+    </div>
+</div>*@

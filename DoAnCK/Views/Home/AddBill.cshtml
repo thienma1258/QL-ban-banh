@@ -1,0 +1,83 @@
+﻿@model DAL.Models.Bill
+
+@{
+    ViewBag.Title = "AddBill";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="margin-left:120px;margin-top:30px;">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true)
+
+            <div class="form-group" style="display:none">
+                @Html.LabelFor(model => model.Id, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Id)
+                    @Html.ValidationMessageFor(model => model.Id)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <p>Nhập tên người đặt: </p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Nameuser)
+                    @Html.ValidationMessageFor(model => model.Nameuser)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <p>Nhập vào địa chỉ: </p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Addressuser)
+                    @Html.ValidationMessageFor(model => model.Addressuser)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <p>Nhập vào SDT: </p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SDT)
+                    @Html.ValidationMessageFor(model => model.SDT)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <p>Nhập vào Email: </p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email)
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+            </div>
+
+            <div class="form-group" style="display:none">
+                <p>Confirm Email: </p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.confirmEmail)
+                    @Html.ValidationMessageFor(model => model.confirmEmail)
+                </div>
+            </div>
+
+            <div class="form-group" style="display:none">
+                @Html.LabelFor(model => model.Totalprice, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Totalprice)
+                    @Html.ValidationMessageFor(model => model.Totalprice)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Đặt Hàng" class="btn btn-danger" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>

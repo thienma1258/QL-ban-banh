@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "AppraiseAlgorthim";
+    Layout = "~/Views/Shared/Layout-admin.cshtml";
+}
+<style>
+    .content{
+        margin-left:20%;
+        margin-top:10%;
+    }
+    canvas{
+  
+        width:700px !important;
+        height:400px !important;
+    }
+</style>
+<script src="~/Scripts/Chart.min.js"></script>
+<div class="content">
+    <h2>AppraiseAlgorthim</h2>
+    <canvas id="myChart"></canvas>
+</div>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    options = {
+        responsive: true,
+
+        scales: {
+            xAxes: [{
+                barPercentage: 0.2,
+                gridLines: {
+                    offsetGridLines: true,
+
+                }
+            }]
+        }
+    }
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
+
+        // The data for our dataset
+        data: {
+            labels: ["Global Avarage", "User Average", "Item Average", "User-KNNCF"],
+            datasets: [{
+                label: "RMSE",
+                backgroundColor: ['rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)'],
+                borderColor: 'rgb(255, 99, 132)',
+                borderWidth: 3,
+                data: [@ViewBag.GlobalAverage, @ViewBag.UserAverage, @ViewBag.ItemAverage, 0.89],
+            }]
+        },
+
+        // Configuration options go here
+        options:options
+    });
+
+</script>

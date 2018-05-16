@@ -1,0 +1,48 @@
+﻿@model DAL.Models.FooterModel
+@using DAL.Models
+@{
+    ViewBag.Title = "Footer";
+}
+
+<div class="footer">
+    <div class="footer-top">
+        <div class="wrap">
+            <div class="col_1_of_footer-top span_1_of_footer-top">
+                <ul>
+                    <li><img src="~/images/f_icon.png" alt=""><span class="delivery">Tin Tức - Khuyến Mãi</span></li>
+                    @foreach (var item in Model.news)
+                    {
+                       <li><span class="delivery">@item.Title</span></li>
+                    }
+                    <li><span class="delivery">@Html.ActionLink("Xem thêm","News")</span></li>
+                </ul>
+            </div>
+            <div class="col_1_of_footer-top span_1_of_footer-top">
+                <ul class="f_list">
+                    <li><img src="~/images/f_icon1.png" alt=""><span class="delivery">Hỗ Trợ Khách Hàng :<span class="orange"> (800) 000-2587 (freephone)</span></span></li>
+                </ul>
+            </div>
+            <div class="col_1_of_footer-top span_1_of_footer-top">
+                <ul>
+                <li><span class="delivery">Hệ Thống :</span></li>
+                </ul>
+                <ul>
+                    @{
+                        var dem = 1;
+                        foreach (var item in Model.shop)
+                        {
+                             <li><img src="~/images/f_icon2.png" alt=""><span class="delivery">Chi nhánh @dem: @item.address - @item.SDT</span></li>
+                            dem = dem + 1;
+                        }
+                    }                   
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="copy">
+        <div class="wrap">
+            <p>© All rights reserved</p>
+        </div>
+    </div>
+</div>
