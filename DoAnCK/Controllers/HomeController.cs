@@ -32,8 +32,16 @@ namespace project.Controllers
         IRateResposibitory iratel;
         IAppraiseAlgorthim iappraise;
         IExcelrepository iexcel;
+        IPredictAL ipredict;
         int numberperonepage = 6;
-        public HomeController(BakeryContext db,IExcelrepository iexcel, IAppraiseAlgorthim iappraise,IRateResposibitory irate, IUserRepository iuser, IMatrixParse imatrix,IBranchReposibitory ibranchrepository,ICategoryResponsibility categoryrepository, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
+        List<int> ListPos = new List<int>();
+       
+
+     
+
+
+        public HomeController(BakeryContext db, IAppraiseAlgorthim iappraise, IPredictAL ipredict, IExcelrepository iexcel,IRateResposibitory irate, IUserRepository iuser, IMatrixParse imatrix,IBranchReposibitory ibranchrepository,ICategoryResponsibility categoryrepository, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
+
         {
             this.db = db;
             this.ibranchrepository = ibranchrepository;
@@ -46,7 +54,8 @@ namespace project.Controllers
             this.iexcel = iexcel;
             this.billdetailsreposibility = billdetailsreposibility;
             this.billreposibility = billreposibility;
-       
+            this.ipredict = ipredict;
+
 
 
         }
@@ -54,15 +63,54 @@ namespace project.Controllers
       
         public ActionResult Index()
         {
-            var list = imatrix.UserItemMatrix();
+            //test cal pre
+            ListPos.Add(5);
+            ListPos.Add(8);
+            ListPos.Add(2);
+            ListPos.Add(3);
+            ListPos.Add(10);
+            double[][] c = new double[1000][];
+            var listprep = ipredict.CollaborativeFiltering(this.imatrix.getUserCol()[0].Id);
+            //var list = ipredict.MatrixNeibourPreCal(ListPos);
+            var list = ipredict.ListAverage();
+            double[] correl = new double[10];
+            correl[0] = 1;
+            correl[1] = 0.7883;
+            correl[2] = -0.1;
+            correl[3] = -0.1;
+            correl[4] = -0.1;
+            //double temp1 = 0;
+            //double temp2 = 0;
+            //double temp3 = 0;
+            List<double> listpre = new List<double>();
+            double[][] b = imatrix.UserItemMatrix();
+            double[][] a = new double[100][];
+           
+            
+
             var bakery = this.bakeryreposibitory.getlist();
             var listmatrix = this.imatrix.UserItemMatrix();
             var numberuser = listmatrix.GetLength(0);
-          //  this.iexcel.writeExcelFile(list);
+           //this.iexcel.writeExcelFile(list);
             var listPredict = imatrix.correlSimilarItem(bakery[1].ID);
             List<double> newCorrel;
 
             var newMatrix = imatrix.GetHighestItemSimilar(listPredict, out newCorrel, listmatrix,ref bakery, 5, numberuser);
+
+            //correllarray[0] = 0.476683;
+            //correllarray[1] = 0.46411;
+            //correllarray[2] = 0.438992;
+            //correllarray[3] = 0.400275;
+            //correllarray[4] = 0.379856;
+            //moviearray[0] = 4.5;
+            //moviearray[1] = 0;
+            //moviearray[2] = 3.5;
+            //moviearray[3] = 0;
+            //moviearray[4] = 0;
+            //double sumproduct = iratel.sumproduct(moviearray, correllarray);
+            //double sumif = iratel.sumif(moviearray,correllarray);
+            //double result = sumproduct / sumif;
+            
             return View(this.bakeryreposibitory.getlist(6));
 
 

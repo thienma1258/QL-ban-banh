@@ -14,7 +14,7 @@ namespace DAL.Context
         public BakeryContext()
         
 
-            : base("Data Source =;Initial Catalog=Bakery;Integrated Security=SSPI", throwIfV1Schema: false)
+            : base("Data Source =DESKTOP-4HE6K8N\\SQLEXPRESS;Initial Catalog=Bakery;Integrated Security=SSPI", throwIfV1Schema: false)
 
           
 

@@ -10,10 +10,13 @@ namespace DoAnCK.RS.Interface
    public interface IMatrixParse
     {
          double[][] UserItemMatrix();
+
         double[][] Matrixglobal(double avarage, int m, int n);
         List<BakeryUser> getUserCol();
         List<Bakery> getBakeryRow();
+        double average(double[] a);
         List<double> correlSimilarItem(string BakeryId);
         double[][] GetHighestItemSimilar(List<double> correl, out List<double> newCorrel, double[][] usermatrixitem, ref List<Bakery> ListBakery, int n, int numberUser);
+
     }
 }

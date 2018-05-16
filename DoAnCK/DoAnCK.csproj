@@ -256,6 +256,7 @@
     <Compile Include="Models\AddIntroduceModel.cs" />
     <Compile Include="Models\Helpers.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Neighbour.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -264,11 +265,15 @@
     <Compile Include="Resposibility\UserReposibility.cs" />
     <Compile Include="RS\Implement\AppraiseAlgorthim.cs" />
     <Compile Include="RS\Implement\ExcelRepository.cs" />
+    <Compile Include="RS\Implement\CollabrativeFilteringAlgorthsm.cs" />
     <Compile Include="RS\Implement\Matrixparse.cs" />
+    <Compile Include="RS\Implement\PredictAL.cs" />
     <Compile Include="RS\Implement\RatingDampMeanAl.cs" />
     <Compile Include="RS\Interface\IAppraiseAlgorthim.cs" />
     <Compile Include="RS\Interface\IExcelrepository.cs" />
+    <Compile Include="RS\Interface\ICollabrativeFilteringAlgorthsm.cs" />
     <Compile Include="RS\Interface\IMatrixParse.cs" />
+    <Compile Include="RS\Interface\IPredictAL.cs" />
     <Compile Include="RS\Interface\IRateDampMeanAl.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

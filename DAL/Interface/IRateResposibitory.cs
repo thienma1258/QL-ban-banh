@@ -13,5 +13,7 @@ namespace DAL.Interface
         Rating find(string id);
         void AddRates(Rating rates);
         Rating check(Bakery bakery, BakeryUser user);
+       
+      
     }
 }
