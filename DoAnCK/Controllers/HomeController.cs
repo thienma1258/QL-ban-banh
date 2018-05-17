@@ -2,6 +2,7 @@
 using DAL.Interface;
 using DAL.Models;
 using DoAnCK.Models;
+using DoAnCK.RS.Interface;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -24,27 +25,58 @@ namespace project.Controllers
         IBillReposibility billreposibility;
         ICategoryResponsibility categorysponsibility;
         IBranchReposibitory ibranchrepository;
-        
+        IRateDampMeanAl IRATEdampmean;
+        IRateResposibitory irateReposibitory;
         int numberperonepage = 6;
-        public HomeController(BakeryContext db, IBranchReposibitory ibranchrepository,ICategoryResponsibility categoryrepository, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
+        public HomeController(BakeryContext db, IRateDampMeanAl IRATEdampmean,IRateResposibitory irateReposibitory, IBranchReposibitory ibranchrepository,ICategoryResponsibility categoryrepository, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
         {
             this.db = db;
             this.ibranchrepository = ibranchrepository;
             bakeryreposibitory = bkf;
+            this.IRATEdampmean = IRATEdampmean;
             this.categorysponsibility = categoryrepository;
             this.billdetailsreposibility = billdetailsreposibility;
             this.billreposibility = billreposibility;
-       
-
+            this.irateReposibitory = irateReposibitory;
 
         }
         public ActionResult Index()
         {
-
-        
+            
+           //this.IRATE.topxephang(id);
             return View(this.bakeryreposibitory.getlist(6));
 
 
+        }
+        public ActionResult Rate()
+        {
+            
+            var list = this.IRATEdampmean.topxephang();
+             return View(list);
+        }
+        public ActionResult RateDay()
+        {
+           
+             var list = this.IRATEdampmean.topxephangngay();
+             return View(list);
+        }
+        public ActionResult RateMonth()
+        {
+
+            var list = this.IRATEdampmean.topxephangthang();
+            return View(list);
+        }
+
+        public ActionResult RateYear()
+        {
+
+            var list = this.IRATEdampmean.topxephangnam();
+            return View(list);
+        }
+        public ActionResult RateAll()
+        {
+            var list = this.IRATEdampmean.topxephangtatca();
+            return View(list);
         }
         public ActionResult About()
         {

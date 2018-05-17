@@ -52,7 +52,10 @@
     </script>
 </head>
 <body>
-  @{Html.RenderAction("Header", "Home");}
+  @{Html.RenderAction("Header", "Home");
+     
+      }
+    
   
    @RenderBody();
     @RenderSection("scripts", required: false)

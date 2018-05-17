@@ -1,0 +1,106 @@
+﻿@model IEnumerable<DoAnCK.Models.BakeryRateMean>
+@using DoAnCK.Models
+@using DAL.Models
+@{
+    ViewBag.Title = "Rate";
+    Layout = "~/Views/Shared/_Layout.cshtml";}
+
+@*<script>
+        function clickitem()
+        {
+            $.ajax({
+                url:"/Home/topxephangngay",
+            data:{
+
+            },
+            method: "POST",
+                type:"POST"
+            });
+        }
+    </script>*@
+<table class="table">
+    <tr>
+        <th>
+            <h1 <p style="text-align:center">  </p> </h1>
+            <li style="display: inline-block; margin-left:60px;font-size:30px">
+                @*<input type="submit" value="Theo ngày"  onclick = "clickitem()"  />*@
+                @Html.ActionLink("Theo ngày", "RateDay")
+
+            </li>
+
+            <li style="display: inline-block;margin-left:180px;font-size:30px">
+                @Html.ActionLink("Theo tháng", "RateMonth")
+
+            </li>
+            <li style="display: inline-block;margin-left:120px;font-size:30px">
+                @Html.ActionLink("Theo năm", "RateYear")
+
+            </li>
+        </th>
+
+
+    </tr>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @{
+        var dem = 0;
+        foreach (var item in Model)
+        {
+            dem = dem + 1;
+            <div style="margin-left:40px">
+
+                <ul>
+
+                    <td> <h3 style="color:darkorange;font-family:'Bookman Old Style'">@dem : @item.bakery.Name</h3></td>
+
+                    <tr>
+                        <td>
+                            @if (item.bakery.images != null)
+                            {
+                                <a style="margin-left:300px" href="~/Home/Details/@item.bakery.ID">  <img src="~/HinhAnh/@item.bakery.images.nameImage" alt="" width="410" height="200"></a>
+                            }
+                        </td>
+
+                        <td>
+
+                            <div style="margin-right:250px">
+                                <h3 class="fa fa-star" style="font-size:x-large"> Rating: @Math.Round(item.damp_mean, 2) </h3><br />
+
+
+
+                                @if (@item.damp_mean > 4)
+                {
+                                    <h3 class="fa fa-thumbs-o-up" style="font-size:x-large"> Quality: Good </h3>
+                                }
+                                else if (@item.damp_mean >= 3 && @item.damp_mean <= 4)
+                                {
+                                    <h3 class="fa fa-thumbs-o-up" style="font-size:x-large">
+                                        Quality:  Normal
+                                    </h3>
+                                }
+                                else
+                                {
+                                    <h3 class="fa fa-thumbs-o-up" style="font-size:x-large">
+                                        Quality: Bad
+                                    </h3>
+                                }
+                                <br />
+                                @*<h3 class="fa fa-user-times" style="font-size:x-large">Rating Date:  @item.rating.ngayrate.Day</h3>*@
+                            </div>
+                        </td>
+                    </tr>
+
+
+
+
+
+
+
+                </ul>
+
+            </div>
+        }
+    }
+
+</table>

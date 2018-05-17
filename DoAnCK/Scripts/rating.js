@@ -37,7 +37,7 @@
         // JUST RESPONSE (Not needed)
         var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
         var msg = "";
-        if (ratingValue > 1) {
+        if (ratingValue > 0) {
             
             AddRate(ratingValue);
         }

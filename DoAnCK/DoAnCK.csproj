@@ -241,9 +241,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IntroduceController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
-
     <Compile Include="Controllers\RateController.cs" />
-
     <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -251,6 +249,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddBakeryViewModel.cs" />
     <Compile Include="Models\AddIntroduceModel.cs" />
+    <Compile Include="Models\BakeryRateMean.cs" />
     <Compile Include="Models\Helpers.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
@@ -566,6 +565,11 @@
     <Content Include="Views\Introduce\Index.cshtml" />
     <Content Include="Views\Bill\Confirm.cshtml" />
     <Content Include="Views\BackupRestore\Index.cshtml" />
+    <Content Include="Views\Home\Rate.cshtml" />
+    <Content Include="Views\Home\Rateday.cshtml" />
+    <Content Include="Views\Home\RateMonth.cshtml" />
+    <Content Include="Views\Home\RateYear.cshtml" />
+    <Content Include="Views\Home\RateAll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -574,7 +578,6 @@
     <Folder Include="Scripts\plugins\" />
     <Folder Include="Scripts\samples\" />
     <Folder Include="Scripts\skins\" />
-
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

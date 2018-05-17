@@ -35,5 +35,16 @@ namespace DAL.Implement
                 return list.Take(countnumber).ToList();
             return list.ToList();
         }
+        //public double countrate(string IDrate)
+        //{
+        //    //IDrate= "SELECT bakery_ID from QLBB.RatingUser";
+        //    var listbakeryid = db.rates.Select(p => p.bakery.ID).ToList();
+        //    return db.rates.Where(p => p.bakery.ID == IDrate).ToList().Count();
+        //}
+        //public double sumrate(string ID)
+        //{       
+        //    return db.rates.Where(p => p.bakery.ID == ID).ToList().Sum(p=>p.ratestar);
+        //}
+       
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DAL.Models;
+using DoAnCK.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,11 @@ namespace DoAnCK.RS.Interface
 {
     public interface IRateDampMeanAl
     {
-        double damp_mean(int k, double rui, double ui, double average);
-        List<Bakery> topxephang();
+        double damp_mean(double rui, double ui, double average, int k);
+        List<BakeryRateMean> topxephang();
+        List<BakeryRateMean> topxephangtatca();
+        List<BakeryRateMean> topxephangngay();
+        List<BakeryRateMean> topxephangnam();
+        List<BakeryRateMean> topxephangthang();
     }
 }

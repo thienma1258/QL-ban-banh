@@ -1,8 +1,13 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@{Html.RenderAction("Slider", "Home");}
+@{
+    Html.RenderAction("Slider", "Home");
+
+}
+
 <!--main -->
 <script>
     function clickitem(Id) {
@@ -29,12 +34,12 @@
 
 </script>
 
-<div class="main">
+<div class="main ">
     <br />
     <br />
   
-    <div class="box1">
-
+    <div class="box1 col-md-9">
+    
         <h3 style="text-align:center;color:darkorange;font-size:30px"> Sản Phẩm Mới </h3>
         @foreach (var item in Model)
         {
@@ -44,8 +49,9 @@
                         <div class="top_box">
                             <h3 class="m_1">@item.Name</h3>
                             <div class="grid_img">
-                                @if (item.images != null)
+                                @if (item.images != null) 
                                 {
+                                    
                                 <div class="css3"><img src="~/HinhAnh/@item.images.nameImage" alt="" width="410" height="200"></div>
                                 }
                                   <div class="mask1">
@@ -55,7 +61,7 @@
                             <div class="price">Giá:@item.Price</div>
                         </div>
                     </div>
-
+                
                 </a><ul class="list2">
                     <a href="single.html">
                     </a>
@@ -65,7 +71,7 @@
                         </a><ul class="icon1 sub-icon1 profile_img">
                             <li>
                                 <a id="add_bag" onclick="clickitem('@item.ID')">Thêm Vào Giỏ Hàng</a><a class="active-icon c1" id=""></a>
-
+                                
                             </li>
                         </ul>
                     </li>
@@ -74,6 +80,12 @@
             </div>
 
         }
+       
+
         <div class="clear"></div>
+    </div>
+    <div class="col-md-3">
+        @{Html.RenderAction("Rate", "Home"); }
+
     </div>
 </div>
