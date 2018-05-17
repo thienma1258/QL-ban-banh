@@ -14,5 +14,8 @@ namespace DAL.Interface
         void AddRates(Rating rates);
         //double countrate(string IDrate);
         //double sumrate(string ID);
+        Rating check(Bakery bakery, BakeryUser user);
+       
+      
     }
 }

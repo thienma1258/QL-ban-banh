@@ -25,9 +25,27 @@
             }
         });
     }
-   
+
+    
 
 
+
+</script>
+<script>
+    $(document).ready(function () {
+       
+        var currentstar = getcurrentstar();
+        if (currentstar != "-1") {
+            for (i = 0; i < currentstar; i++) {
+                var stars = $('#stars').children('li.star');
+               
+                $(stars[i]).addClass('selected');
+
+            }
+        }
+
+
+    })
 </script>
 <style>
 .clearfix {
@@ -234,6 +252,8 @@ border-radius: 4px;
                 </div>
             </div>
             <script type="text/javascript">
+
+              
                 $(window).load(function () {
                     $("#flexiselDemo1").flexisel();
                     $("#flexiselDemo2").flexisel({
@@ -278,7 +298,9 @@ border-radius: 4px;
                     });
 
                 });
-
+                function getcurrentstar() {
+                    return "@ViewBag.ratestar";
+                }
                 function AddRate(ratevalue) {
                     $.ajax({
                         url: "/Rate/AddRate",
@@ -293,9 +315,13 @@ border-radius: 4px;
                             if (message == "False") {
                                 alert("Bạn đã đánh giá sản phẩm rồi")
                             }
-                            else {
+                            else if (message == "Success") {
                                 alert("Cảm ơn bạn đã đánh giá");
+                                currentstar = "5";
 
+                            }
+                            else {
+                                alert(message);
                             }
                         }
                     });

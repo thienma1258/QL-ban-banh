@@ -9,6 +9,7 @@ using System;
 using DoAnCK.RS.Implement;
 using DoAnCK.RS.Interface;
 
+
 namespace DoAnCK
 {
     public static class Bootstrapper
@@ -52,8 +53,14 @@ namespace DoAnCK
 
             container.RegisterType<INewsResponsibility,NewsResponsibility>();
             container.RegisterType<IRateResposibitory, RateResposibitory>();
+
             container.RegisterType<IRateDampMeanAl, RatingDampMeanAl>();
 
+            container.RegisterType<IUserRepository, UserRepository>();
+            container.RegisterType<IMatrixParse,MatrixParse >();
+            container.RegisterType<IAppraiseAlgorthim, AppraiseAlgorthim>();
+            container.RegisterType<IExcelrepository, ExcelRepository>();
+            container.RegisterType<IPredictAL,PredictAL>();
             var context = container.Resolve<BakeryContext>();
             new DAL.Startup(context).initialisedatabase();
 

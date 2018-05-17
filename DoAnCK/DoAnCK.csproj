@@ -80,6 +80,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
       <Private>True</Private>
@@ -252,6 +257,7 @@
     <Compile Include="Models\BakeryRateMean.cs" />
     <Compile Include="Models\Helpers.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Neighbour.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -259,8 +265,16 @@
     <Compile Include="Resposibility\LogResposibility.cs" />
     <Compile Include="Resposibility\UserReposibility.cs" />
     <Compile Include="RS\Implement\AppraiseAlgorthim.cs" />
+    <Compile Include="RS\Implement\ExcelRepository.cs" />
+    <Compile Include="RS\Implement\CollabrativeFilteringAlgorthsm.cs" />
+    <Compile Include="RS\Implement\Matrixparse.cs" />
+    <Compile Include="RS\Implement\PredictAL.cs" />
     <Compile Include="RS\Implement\RatingDampMeanAl.cs" />
     <Compile Include="RS\Interface\IAppraiseAlgorthim.cs" />
+    <Compile Include="RS\Interface\IExcelrepository.cs" />
+    <Compile Include="RS\Interface\ICollabrativeFilteringAlgorthsm.cs" />
+    <Compile Include="RS\Interface\IMatrixParse.cs" />
+    <Compile Include="RS\Interface\IPredictAL.cs" />
     <Compile Include="RS\Interface\IRateDampMeanAl.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -565,11 +579,15 @@
     <Content Include="Views\Introduce\Index.cshtml" />
     <Content Include="Views\Bill\Confirm.cshtml" />
     <Content Include="Views\BackupRestore\Index.cshtml" />
+
     <Content Include="Views\Home\Rate.cshtml" />
     <Content Include="Views\Home\Rateday.cshtml" />
     <Content Include="Views\Home\RateMonth.cshtml" />
     <Content Include="Views\Home\RateYear.cshtml" />
     <Content Include="Views\Home\RateAll.cshtml" />
+
+    <Content Include="Views\AccountManager\AppraiseAlgorthim.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -2,6 +2,9 @@
 using DAL.Interface;
 using DAL.Models;
 using DoAnCK.Models;
+
+using DoAnCK.Resposibility;
+using DoAnCK.RS.Implement;
 using DoAnCK.RS.Interface;
 using System;
 using System.Collections.Generic;
@@ -25,25 +28,55 @@ namespace project.Controllers
         IBillReposibility billreposibility;
         ICategoryResponsibility categorysponsibility;
         IBranchReposibitory ibranchrepository;
+
         IRateDampMeanAl IRATEdampmean;
         IRateResposibitory irateReposibitory;
         int numberperonepage = 6;
-        public HomeController(BakeryContext db, IRateDampMeanAl IRATEdampmean,IRateResposibitory irateReposibitory, IBranchReposibitory ibranchrepository,ICategoryResponsibility categoryrepository, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
+
+
+        IRateResposibitory iratel;
+        IMatrixParse imatrix;
+
+        IAppraiseAlgorthim iappraise;
+        IUserRepository iuser;
+        IExcelrepository iexcel;
+        IPredictAL ipredict;
+
+
+        public HomeController(BakeryContext db, IRateResposibitory irateReposibitory, IRateDampMeanAl IRATEdampmean, IAppraiseAlgorthim iappraise, IPredictAL ipredict, IExcelrepository iexcel,IRateResposibitory irate, IUserRepository iuser, IMatrixParse imatrix,IBranchReposibitory ibranchrepository,ICategoryResponsibility categoryrepository, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
+
+
         {
             this.db = db;
             this.ibranchrepository = ibranchrepository;
             bakeryreposibitory = bkf;
+
             this.IRATEdampmean = IRATEdampmean;
+
+            this.iratel = irate;
+            this.imatrix = imatrix;
+            this.iappraise = iappraise;
+
             this.categorysponsibility = categoryrepository;
+            this.iuser = iuser;
+            this.iexcel = iexcel;
             this.billdetailsreposibility = billdetailsreposibility;
             this.billreposibility = billreposibility;
+
             this.irateReposibitory = irateReposibitory;
 
+            this.ipredict = ipredict;
+
+
+
         }
+
+      
         public ActionResult Index()
         {
+
             
-           //this.IRATE.topxephang(id);
+  
             return View(this.bakeryreposibitory.getlist(6));
 
 
@@ -114,8 +147,12 @@ namespace project.Controllers
             };
             if (User.Identity.IsAuthenticated) {
                 var opl = (ClaimsIdentity)User.Identity;
+          
+
                 var username = User.Identity.Name;
+                var role = UserReposibility.getrolesuser(User);
                 ViewBag.Username = username;
+                ViewBag.role = role;
                 ViewBag.Authentication = true;
             IEnumerable<Claim> claims = opl.Claims;
             }
@@ -170,7 +207,19 @@ namespace project.Controllers
             {
                 return HttpNotFound();
             }
+
+            var user = iuser.getcurrentUser(User);
+      
             Bakery bakery = bakeryreposibitory.find(id);
+            var check = iratel.check(bakery, user);
+            if (check == null)
+            {
+                ViewBag.ratestar = -1;
+            }
+            else
+            {
+                ViewBag.ratestar = check.ratestar;
+            }
             if (bakery == null)
             {
                 return HttpNotFound();

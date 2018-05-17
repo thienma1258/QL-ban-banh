@@ -44,6 +44,12 @@ namespace DAL
                     role.Name = AdminRoles.Editor.ToString();
                     roleResult = RoleManager.Create(role);
                 }
+                if (!RoleManager.RoleExists(AdminRoles.User.ToString()))
+                {
+                    var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                    role.Name = AdminRoles.User.ToString();
+                    roleResult = RoleManager.Create(role);
+                }
             }
             var listuser = bakerycontext.Users.ToList();
             if (!listuser.Any())

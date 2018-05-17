@@ -7,6 +7,9 @@ namespace DoAnCK.RS.Implement
 {
     public interface IAppraiseAlgorthim
     {
-         double RMSE(int[][] Reality, int[][] prediction);
+         double RMSE(double [][] Reality, double[][] prediction);
+        double GlobalAvarage();
+        double ItemAvaeage(string IdBakery);
+        double UserAverage(string idUser);
     }
 }

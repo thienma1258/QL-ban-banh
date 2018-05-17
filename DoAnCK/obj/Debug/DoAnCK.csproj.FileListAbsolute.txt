@@ -1,0 +1,64 @@
+D:\He tu van thong tin\DoAnCK\bin\Scripts\rating.js
+D:\He tu van thong tin\DoAnCK\bin\DoAnCK.dll.config
+D:\He tu van thong tin\DoAnCK\bin\DoAnCK.dll
+D:\He tu van thong tin\DoAnCK\bin\DoAnCK.pdb
+D:\He tu van thong tin\DoAnCK\bin\AngleSharp.dll
+D:\He tu van thong tin\DoAnCK\bin\AntiXssLibrary.dll
+D:\He tu van thong tin\DoAnCK\bin\DAL.dll
+D:\He tu van thong tin\DoAnCK\bin\HtmlSanitizationLibrary.dll
+D:\He tu van thong tin\DoAnCK\bin\HtmlSanitizer.dll
+D:\He tu van thong tin\DoAnCK\bin\Microsoft.Practices.ServiceLocation.dll
+D:\He tu van thong tin\DoAnCK\bin\Microsoft.Practices.Unity.Configuration.dll
+D:\He tu van thong tin\DoAnCK\bin\Microsoft.Practices.Unity.dll
+D:\He tu van thong tin\DoAnCK\bin\Oracle.ManagedDataAccess.dll
+D:\He tu van thong tin\DoAnCK\bin\Oracle.ManagedDataAccess.EntityFramework.dll
+D:\He tu van thong tin\DoAnCK\bin\System.Net.Http.Formatting.dll
+D:\He tu van thong tin\DoAnCK\bin\System.Web.Http.dll
+D:\He tu van thong tin\DoAnCK\bin\System.Web.Http.WebHost.dll
+D:\He tu van thong tin\DoAnCK\bin\Unity.Mvc3.dll
+D:\He tu van thong tin\DoAnCK\bin\DAL.pdb
+D:\He tu van thong tin\DoAnCK\bin\AngleSharp.xml
+D:\He tu van thong tin\DoAnCK\bin\AntiXssLibrary.xml
+D:\He tu van thong tin\DoAnCK\bin\HtmlSanitizationLibrary.xml
+D:\He tu van thong tin\DoAnCK\bin\Microsoft.Practices.ServiceLocation.pdb
+D:\He tu van thong tin\DoAnCK\bin\Microsoft.Practices.ServiceLocation.xml
+D:\He tu van thong tin\DoAnCK\bin\Microsoft.Practices.Unity.xml
+D:\He tu van thong tin\DoAnCK\bin\Microsoft.Practices.Unity.Configuration.xml
+D:\He tu van thong tin\DoAnCK\bin\System.Net.Http.Formatting.xml
+D:\He tu van thong tin\DoAnCK\bin\System.Web.Http.xml
+D:\He tu van thong tin\DoAnCK\bin\System.Web.Http.WebHost.xml
+D:\He tu van thong tin\DoAnCK\obj\Debug\DoAnCK.csprojResolveAssemblyReference.cache
+D:\He tu van thong tin\DoAnCK\obj\Debug\DoAnCK.dll
+D:\He tu van thong tin\DoAnCK\obj\Debug\DoAnCK.pdb
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\obj\Debug\DoAnCK.csprojResolveAssemblyReference.cache
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\obj\Debug\DoAnCK.dll
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\obj\Debug\DoAnCK.pdb
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\Scripts\rating.js
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\DoAnCK.dll.config
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\DoAnCK.dll
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\DoAnCK.pdb
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\AngleSharp.dll
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\AntiXssLibrary.dll
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\DAL.dll
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\HtmlSanitizationLibrary.dll
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\HtmlSanitizer.dll
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.ServiceLocation.dll
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.Unity.Configuration.dll
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.Unity.dll
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\Oracle.ManagedDataAccess.dll
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\Oracle.ManagedDataAccess.EntityFramework.dll
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\System.Net.Http.Formatting.dll
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\System.Web.Http.dll
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\System.Web.Http.WebHost.dll
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\Unity.Mvc3.dll
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\DAL.pdb
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\AngleSharp.xml
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\AntiXssLibrary.xml
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\HtmlSanitizationLibrary.xml
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.ServiceLocation.pdb
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.ServiceLocation.xml
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.Unity.xml
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\Microsoft.Practices.Unity.Configuration.xml
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\System.Net.Http.Formatting.xml
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\System.Web.Http.xml
+D:\He tu van thong tin\He tu van thong tin\QL-ban-banh\DoAnCK\bin\System.Web.Http.WebHost.xml

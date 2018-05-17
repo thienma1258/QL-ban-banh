@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 using project.Models;
 using DAL.Models;
 using DoAnCK.Resposibility;
+using DAL.Enum;
 
 namespace project.Controllers
 {
@@ -146,10 +147,12 @@ namespace project.Controllers
             if (ModelState.IsValid)
             {
                
-                var user = new BakeryUser { UserName = model.Email, Email = model.Email };
+                var user = new BakeryUser { UserName = model.Email, Email = model.Email ,country=model.country,Address=model.Address};
                 var result = await UserManager.CreateAsync(user, model.Password);
+              
                 if (result.Succeeded)
                 {
+                    UserManager.AddToRole(user.Id, AdminRoles.User.ToString());
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

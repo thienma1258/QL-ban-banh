@@ -14,12 +14,13 @@
            <h2>@Html.ValidationSummary("", new { @class = "text-danger" })</h2>
             <div >
                 <div><input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}"></div>
-                <div><input type="text" value="Company Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Company Name';}"></div>
-                <div>@Html.TextBoxFor(m => m.Email, new { @class = "form-control" })</div>
-                <div>@Html.TextBoxFor(m => m.Password, new { @class = "form-control" })</div>
-            </div>
+                <div>@Html.TextBoxFor(m => m.Email, new { @class = "form-control",placeholder = "Email" })</div>
+                <div>@Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "Password",type="password" })</div>
+                <div>@Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "ConfirmPassword", type = "password" })</div>
+
+               </div>
             <div>
-                <div><input type="text" value="Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Address';}"></div>
+                <div><input type="text" name="Address"  value="Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Address';}"></div>
                 <div>
                     <select id="country" name="country" onchange="change_country(this.value)" class="frm-field required">
                         <option value="null">Select a Country</option>
@@ -217,11 +218,11 @@
                         <option value="ST">Sao Tome and Principe</option>
                         <option value="SA">Saudi Arabia</option>
                         <option value="SN">Senegal</option>
+                        <option value="VN">VietNam</option>
+
                     </select>
                 </div>
-                <div><input type="text" value="City" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'City';}"></div>
-                <input type="text" value="" class="code"> - <input type="text" value="" class="number">
-                <p class="code">Country Code + Phone Number</p>
+           
             </div>
             <button class="grey">Submit</button>
             <p class="terms">By clicking 'Create Account' you agree to the <a href="#">Terms &amp; Conditions</a>.</p>
