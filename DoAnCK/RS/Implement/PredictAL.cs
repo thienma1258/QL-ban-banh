@@ -372,5 +372,20 @@ namespace DoAnCK.RS.Implement
             return result;
         }
 
+        public List<double> CollaborativeFilteringz(string id)
+        {
+
+            Neighbour[] ListNeibour = new Neighbour[1000];
+            ListNeibour = FindNeighBour(id);
+            //Prototype ListNeibour=NeibourArray
+            //List chỉ số của neibour trong matrix user item
+            List<int> ListPos = GetListItemNeibour(ListNeibour);
+            //tối giản matrixuseritem
+            double[][] ListNeibourFromListPos = MatrixNeibourPreCal(ListPos);
+            //List predict cần tìm
+            List<double> ListPreDict = ListPreDictPreCall(ListNeibourFromListPos, ListNeibour, id);
+          
+            return ListPreDict; ;
+        }
     }
 }

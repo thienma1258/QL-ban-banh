@@ -61,6 +61,9 @@ namespace DoAnCK
             container.RegisterType<IAppraiseAlgorthim, AppraiseAlgorthim>();
             container.RegisterType<IExcelrepository, ExcelRepository>();
             container.RegisterType<IPredictAL,PredictAL>();
+
+            container.RegisterType<IReconmended_based_data, Reconmended_based_data>();
+
             var context = container.Resolve<BakeryContext>();
             new DAL.Startup(context).initialisedatabase();
 

@@ -23,6 +23,7 @@ namespace DoAnCK.Controllers
         public IImageRepository imagerepository;
         public ILogRepository ilogrepository;
         // GET: /Bakery/
+        int numberperonepage = 6;
         public BakeryController (ILogRepository ilogrepository, IImageRepository imagerepository, IBakeryReposibitory bakeryreposibitory,ICategoryResponsibility icategegoryrepository)
         {
             this.ilogrepository = ilogrepository;
@@ -30,10 +31,20 @@ namespace DoAnCK.Controllers
             this.icategegoryrepository=icategegoryrepository;
             this.imagerepository = imagerepository;
         }
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
             ViewBag.test = "Inedx";
-            return View(bakeryreposibitory.getlist());
+            var listbakery = bakeryreposibitory.getlist();
+            var count = listbakery.Count;
+            ViewBag.numberpage = count / numberperonepage;
+            if (count % numberperonepage != 0)
+            {
+                ViewBag.numberpage += 1;
+            }
+
+            ViewBag.currentpage = page;
+            listbakery = listbakery.Skip(this.numberperonepage * (page - 1)).Take(numberperonepage).ToList();
+            return View(listbakery);
         }
         
         public ActionResult AddBakery()

@@ -270,12 +270,14 @@
     <Compile Include="RS\Implement\Matrixparse.cs" />
     <Compile Include="RS\Implement\PredictAL.cs" />
     <Compile Include="RS\Implement\RatingDampMeanAl.cs" />
+    <Compile Include="RS\Implement\Reconmended_based_data.cs" />
     <Compile Include="RS\Interface\IAppraiseAlgorthim.cs" />
     <Compile Include="RS\Interface\IExcelrepository.cs" />
     <Compile Include="RS\Interface\ICollabrativeFilteringAlgorthsm.cs" />
     <Compile Include="RS\Interface\IMatrixParse.cs" />
     <Compile Include="RS\Interface\IPredictAL.cs" />
     <Compile Include="RS\Interface\IRateDampMeanAl.cs" />
+    <Compile Include="RS\Interface\IReconmended_based_data.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -490,9 +492,9 @@
     <Content Include="Scripts\move-top.js" />
     <Content Include="Scripts\nivo-lightbox.min.js" />
     <Content Include="Scripts\owl.carousel.js" />
-    <Content Include="Scripts\rating.js">
+    <AdditionalFiles Include="Scripts\rating.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </AdditionalFiles>
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\CHANGES.md" />
@@ -504,7 +506,9 @@
     <Content Include="Scripts\SmoothScroll.min.js" />
     <Content Include="Scripts\styles.js" />
     <Content Include="Views\Confirmemail.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

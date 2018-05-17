@@ -69,13 +69,18 @@
                                         Quality:  Normal
                                     </h3>
                                 }
+                                else if (@item.damp_mean == 0)
+                                {
+                                    <h3 class="fa fa-thumbs-o-up" style="font-size:x-large">
+                                        Quality:No Rating
+                                    </h3>
+                                }
                                 else
                                 {
                                     <h3 class="fa fa-thumbs-o-up" style="font-size:x-large">
                                         Quality: Bad
                                     </h3>
                                 }
-                                <br />
                                 @*<h3 class="fa fa-user-times" style="font-size:x-large">Rating Month: @item.rating.ngayrate.Month</h3>*@
                             </div>
                         </td>

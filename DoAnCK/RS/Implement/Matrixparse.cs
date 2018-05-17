@@ -151,37 +151,68 @@ namespace DoAnCK.RS.Implement
             }
             return listsimilaritem ;
         }
+        public List<Bakery> getHighNbyonvalue(List<Bakery> listbakery, ref List<double> score, int n,ref List<int> position)
+        {
+            List<double> newScore = new List<double>();
+            List<Bakery> listnewBakery = new List<Bakery>();
+            for (int i = 0; i < n; i++)
+            {
+
+                double temp = -100;
+                int k = -1;
+                for (int j = 0; j < score.Count; j++)
+                {
+                    if (temp < score[j] && score[j] != 1)
+                    {
+
+                        k = j;
+                        temp = score[j];
+                    }
+                }
+
+                newScore.Add(score[k]);
+                listnewBakery.Add(listbakery[k]);
+                position.Add(k);
+                score[k] = -100;
+
+
+            }
+            score = newScore;
+            return listnewBakery;
+        }
         public double[][] GetHighestItemSimilar(List<double> correl,out List<double> newCorrel,double[][] usermatrixitem,ref List<Bakery> ListBakery,int n,int numberUser)
         {
             double[][] a = new double[numberUser][];
             List<Bakery> listnewBakery = new List<Bakery>();
               newCorrel = new List<double>();
             List<int> listpos = new List<int>();
-            for(int i = 0; i < n; i++)
-            {
-               
-                double temp = -100;
-                int k = -1;
-                for(int j = 0; j < correl.Count; j++)
-                {
-                    if (temp < correl[j]&&correl[j]!=1)
-                    {
-                        
-                        k = j;
-                        temp = correl[j];
-                    }
-                }
-               // lay ra n highest correl
-             
-                newCorrel.Add(correl[k]);
-                listnewBakery.Add(ListBakery[k]);
-                listpos.Add(k);
-                correl[k] = -100;
+           listnewBakery= getHighNbyonvalue(ListBakery,ref correl, n, ref listpos);
+            //for(int i = 0; i < n; i++)
+            //{
+
+            //    double temp = -100;
+            //    int k = -1;
+            //    for(int j = 0; j < correl.Count; j++)
+            //    {
+            //        if (temp < correl[j]&&correl[j]!=1)
+            //        {
+
+            //            k = j;
+            //            temp = correl[j];
+            //        }
+            //    }
+            //   // lay ra n highest correl
+
+            //    newCorrel.Add(correl[k]);
+            //    listnewBakery.Add(ListBakery[k]);
+            //    listpos.Add(k);
+            //    correl[k] = -100;
 
 
-            }
+            //}
+            newCorrel = correl;
             //initialise matrix
-            for(int i = 0; i < numberUser; i++)
+            for (int i = 0; i < numberUser; i++)
             {
                 a[i] = new double[n];
            

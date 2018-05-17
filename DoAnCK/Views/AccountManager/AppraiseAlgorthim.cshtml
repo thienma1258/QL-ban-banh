@@ -17,6 +17,7 @@
 <script src="~/Scripts/Chart.min.js"></script>
 <div class="content">
     <h2>AppraiseAlgorthim</h2>
+    <h3>Recal(User-KNN) :@ViewBag.recall (ss:0.5 )</h3>
     <canvas id="myChart"></canvas>
 </div>
 <script>
@@ -49,7 +50,7 @@
                 'rgba(75, 192, 192, 0.2)'],
                 borderColor: 'rgb(255, 99, 132)',
                 borderWidth: 3,
-                data: [@ViewBag.GlobalAverage, @ViewBag.UserAverage, @ViewBag.ItemAverage, 0.89],
+                data: [@ViewBag.GlobalAverage, @ViewBag.UserAverage, @ViewBag.ItemAverage,@ViewBag.UserKNN],
             }]
         },
 

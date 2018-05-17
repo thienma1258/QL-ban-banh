@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
-    var currentstar = getcurrentstar();
-    if (currentstar != "-1") {
-        for (i = 0; i < currentstar; i++) {
+    
+    if (window.currentstar != "-1") {
+        for (i = 0; i < window.currentstar; i++) {
             var stars = $(this).parent().children('li.star');
             $(stars[i]).addClass('selected');
 
@@ -30,12 +30,8 @@
 
     /* 2. Action to perform on click */
     $('#stars li').on('click', function () {
-<<<<<<< Updated upstream
-        
-=======
-       
->>>>>>> Stashed changes
-        if (currentstar != "-1") {
+
+        if (window.currentstar != "-1") {
             alert("ban da danh gia san pham roi");
             return;
         }

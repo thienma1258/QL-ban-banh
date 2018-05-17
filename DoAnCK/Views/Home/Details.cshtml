@@ -191,7 +191,7 @@ border-radius: 4px;
         <div class="cont span_2_of_3">
             <div class="labout span_1_of_a1">
                 <!-- start product_slider -->
-                <ul id="etalage" class="etalage" style="display: block; width: 314px; height: 552px;">      
+                <ul id="etalage" class="etalage" style="display: block; width: 314px;">      
                     <li class="etalage_thumb thumb_6 etalage_thumb_active" style="background-image: none; display: list-item; opacity: 1;">
                         <img src="~/HinhAnh/@Html.DisplayFor(model => model.images.nameImage)" style="display: inline; width: 300px; height: 300px; opacity: 1;">
                         <img class="etalage_source_image" src="~/images/t6.jpg">
@@ -202,7 +202,7 @@ border-radius: 4px;
             </div>
             <div class="cont1 span_2_of_a1">
                 <div class="price_single">
-                    <span class="actual">Tên Bánh: @Html.DisplayFor(model => model.Name)</span>
+                    <span class="actual">Tên : @Html.DisplayFor(model => model.Name)</span>
                 </div>
                 <div class='rating-stars text-center'>
                     <ul id='stars'>
@@ -223,7 +223,7 @@ border-radius: 4px;
                         </li>
                     </ul>
                 </div>
-                <h3 class="m_3">Giá: @Html.DisplayFor(model => model.Price)</h3>
+                <h3 class="m_3">Giá: @Model.Price.ToString("#,###", new System.Globalization.CultureInfo("vi-VN").NumberFormat)VND</h3>
                 <h3 class="m_3">Ngày Đăng: @Html.DisplayFor(model => model.ngaypost)</h3>
                 <h3 class="m_3">VAT: @Html.DisplayFor(model => model.VAT)</h3>
                 <h3 class="m_3">Kích cỡ: @Html.DisplayFor(model => model.size)</h3>
@@ -298,9 +298,12 @@ border-radius: 4px;
                     });
 
                 });
+
+               
                 function getcurrentstar() {
                     return "@ViewBag.ratestar";
                 }
+                var currentstar = getcurrentstar();
                 function AddRate(ratevalue) {
                     $.ajax({
                         url: "/Rate/AddRate",
@@ -317,7 +320,7 @@ border-radius: 4px;
                             }
                             else if (message == "Success") {
                                 alert("Cảm ơn bạn đã đánh giá");
-                                currentstar = "5";
+                                window.currentstar = "5";
 
                             }
                             else {
@@ -343,15 +346,42 @@ border-radius: 4px;
 <table class="table">
 
     <tr>
+
         @foreach (var a in ViewBag.listreconmended)
         {
             <td>
-                @a.Name
-                @if (a.images.nameImage != null)
+                <a href="/Home/Details/@a.ID">
+                    @a.Name
+                    @if (a.images.nameImage != null)
                 {
-                    <div class="css3"><img src="~/HinhAnh/@a.images.nameImage" alt="" width="200" height="150"></div>
-                }
-                @Model.Price
+                        <div class="css3"><img src="~/HinhAnh/@a.images.nameImage" alt="" width="200" height="150"></div>
+                    }
+                
+                    @a.Price.ToString("#,###", new System.Globalization.CultureInfo("vi-VN").NumberFormat)VND
+                    </a>
+            </td>
+        }
+
+    </tr>
+
+
+</table>
+<h3 style="text-align:center"> Khách hàng mua sản phẩm này thì thường hay mua thêm những sản phẩm này</h3>
+<table class="table">
+
+    <tr>
+
+        @foreach (var a in ViewBag.reconmendedbaseonitem)
+        {
+            <td>
+                <a href="/Home/Details/@a.ID">
+                    @a.Name
+                    @if (a.images.nameImage != null)
+                {
+                        <div class="css3"><img src="~/HinhAnh/@a.images.nameImage" alt="" width="200" height="150"></div>
+                    }
+                    @a.Price.ToString("#,###", new System.Globalization.CultureInfo("vi-VN").NumberFormat)VND
+                </a>
             </td>
         }
 

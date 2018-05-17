@@ -44,7 +44,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     @{
-        var dem = 0;
+        var dem = ViewBag.stt;
         foreach (var item in Model)
         {
             dem = dem + 1;
@@ -79,13 +79,18 @@
                                         Quality:  Normal
                                     </h3>
                                 }
+                                else if (@item.damp_mean == 0)
+                                {
+                                    <h3 class="fa fa-thumbs-o-up" style="font-size:x-large">
+                                        Quality:No Rating
+                                    </h3>
+                                }
                                 else
                                 {
                                     <h3 class="fa fa-thumbs-o-up" style="font-size:x-large">
                                         Quality: Bad
                                     </h3>
                                 }
-                                <br />
                                 @*<h3 class="fa fa-user-times" style="font-size:x-large">Rating Date:  @item.rating.ngayrate.Day</h3>*@
                             </div>
                         </td>
@@ -104,3 +109,35 @@
     }
 
 </table>
+<div style="margin-left:120px;margin-bottom:200px;">
+    <div class="pull-right">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination pagination-lg">
+
+                @if (ViewBag.currentpage != 1)
+            {
+                    <li class="page-item"><a class="page-link" href="/Home/RateAll/?page=@(ViewBag.currentpage-1)">Previous</a></li>
+                }
+                @for (var i = 0; i < 3 && i + ViewBag.currentpage <= ViewBag.numberpage; ++i)
+            {
+                    <li class="page-item @(i==0? "active":"" )"><a class="page-link " href="/Home/RateAll/?page=@(i+ViewBag.currentpage)">@(i + ViewBag.currentpage)</a></li>
+                }
+
+
+                @if (ViewBag.currentpage != ViewBag.numberpage && ViewBag.numberpage != 0)
+            {
+                    <li class="page-item"><a class="page-link" href="/Home/RateAll/?page=@(ViewBag.currentpage+1)">Next</a></li>
+                }
+
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+
+
+
+
+
+

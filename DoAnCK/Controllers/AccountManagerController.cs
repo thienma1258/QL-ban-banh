@@ -2,6 +2,7 @@
 using DAL.Interface;
 using DoAnCK.Resposibility;
 using DoAnCK.RS.Implement;
+using DoAnCK.RS.Interface;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
@@ -18,12 +19,16 @@ namespace DoAnCK.Controllers
         IAppraiseAlgorthim iappraise;
         IUserRepository iuser;
         IBakeryReposibitory ibakery;
-        public AccountManagerController(IBakeryReposibitory ibakery,IUserRepository iuser,ILogRepository ilog,IAppraiseAlgorthim iappraise)
+        IPredictAL ipredict;
+        IMatrixParse imatrix;
+        public AccountManagerController(IBakeryReposibitory ibakery, IMatrixParse imatrix, IPredictAL ipredict,IUserRepository iuser,ILogRepository ilog,IAppraiseAlgorthim iappraise)
         {
             this.ilog = ilog;
             this.iappraise = iappraise;
             this.iuser = iuser;
+            this.ipredict = ipredict;
             this.ibakery = ibakery;
+            this.imatrix = imatrix;
         }
     
         // GET: AccountManager
@@ -59,9 +64,11 @@ namespace DoAnCK.Controllers
             var user = this.iuser.getcurrentUser(User);
             var bakery = this.ibakery.getlist();
             ViewBag.GlobalAverage = this.iappraise.GlobalAvarage();
-            ViewBag.UserAverage = this.iappraise.UserAverage(user.Id);
+            ViewBag.UserAverage = this.iappraise.UserAverage();
 
-            ViewBag.ItemAverage = this.iappraise.ItemAvaeage(bakery[0].ID);
+            ViewBag.ItemAverage = this.iappraise.ItemAvaeage();
+            ViewBag.UserKNN = this.iappraise.User_KNN();
+            ViewBag.recall = this.iappraise.recall(0.5);
             return View();
         }
     }

@@ -59,7 +59,7 @@
                                         <div class="info">@Html.ActionLink("Chi Tiết", "Details", new { id = @item.ID })</div>
                                     </div>
                                 </div>
-                                <div class="price">Giá:@item.Price</div>
+                                <div class="price">Giá:@item.Price.ToString("#,###", new System.Globalization.CultureInfo("vi-VN").NumberFormat)VND</div>
                             </div>
                         </div>
 

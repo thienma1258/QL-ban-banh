@@ -9,7 +9,9 @@ namespace DoAnCK.RS.Implement
     {
          double RMSE(double [][] Reality, double[][] prediction);
         double GlobalAvarage();
-        double ItemAvaeage(string IdBakery);
-        double UserAverage(string idUser);
+        double ItemAvaeage();
+        double UserAverage();
+        double User_KNN();
+        double recall(double ss);
     }
 }

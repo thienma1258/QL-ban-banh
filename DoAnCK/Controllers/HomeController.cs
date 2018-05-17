@@ -9,6 +9,7 @@ using DoAnCK.RS.Interface;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -31,7 +32,7 @@ namespace project.Controllers
 
         IRateDampMeanAl IRATEdampmean;
         IRateResposibitory irateReposibitory;
-        int numberperonepage = 6;
+     
 
 
         IRateResposibitory iratel;
@@ -40,10 +41,18 @@ namespace project.Controllers
         IAppraiseAlgorthim iappraise;
         IUserRepository iuser;
         IExcelrepository iexcel;
+
         IPredictAL ipredict;
 
+        IReconmended_based_data ireconmended;
+        int numberperonepage = 6;
+ 
+        List<int> ListPos = new List<int>();
 
-        public HomeController(BakeryContext db, IRateResposibitory irateReposibitory, IRateDampMeanAl IRATEdampmean, IAppraiseAlgorthim iappraise, IPredictAL ipredict, IExcelrepository iexcel,IRateResposibitory irate, IUserRepository iuser, IMatrixParse imatrix,IBranchReposibitory ibranchrepository,ICategoryResponsibility categoryrepository, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
+
+
+        public HomeController(BakeryContext db, IReconmended_based_data ireconmended, IRateResposibitory irateReposibitory, IRateDampMeanAl IRATEdampmean, IAppraiseAlgorthim iappraise, IPredictAL ipredict, IExcelrepository iexcel,IRateResposibitory irate, IUserRepository iuser, IMatrixParse imatrix,IBranchReposibitory ibranchrepository,ICategoryResponsibility categoryrepository, IBakeryReposibitory bkf,IBillDetailsReposibility billdetailsreposibility,IBillReposibility billreposibility)
+
 
 
         {
@@ -60,6 +69,7 @@ namespace project.Controllers
             this.categorysponsibility = categoryrepository;
             this.iuser = iuser;
             this.iexcel = iexcel;
+            this.ireconmended = ireconmended;
             this.billdetailsreposibility = billdetailsreposibility;
             this.billreposibility = billreposibility;
 
@@ -75,8 +85,10 @@ namespace project.Controllers
         public ActionResult Index()
         {
 
-            
-  
+        
+            var test = this.bakeryreposibitory.getlist().FirstOrDefault();
+           var check= this.ireconmended.Reconmended_bought_also_bought(test.ID, 5);
+
             return View(this.bakeryreposibitory.getlist(6));
 
 
@@ -106,9 +118,21 @@ namespace project.Controllers
             var list = this.IRATEdampmean.topxephangnam();
             return View(list);
         }
-        public ActionResult RateAll()
+        public ActionResult RateAll(int page = 1)
         {
+        
             var list = this.IRATEdampmean.topxephangtatca();
+            var count = list.Count;
+            ViewBag.numberpage = count / numberperonepage;
+            if (count % numberperonepage != 0)
+            {
+                ViewBag.numberpage += 1;
+            }
+
+            ViewBag.currentpage = page;
+            ViewBag.stt = this.numberperonepage * (page - 1);
+            list = list.Skip(this.numberperonepage * (page - 1)).Take(numberperonepage).ToList();
+
             return View(list);
         }
         public ActionResult About()
@@ -211,6 +235,7 @@ namespace project.Controllers
             var user = iuser.getcurrentUser(User);
       
             Bakery bakery = bakeryreposibitory.find(id);
+           
             var check = iratel.check(bakery, user);
             if (check == null)
             {
@@ -223,6 +248,14 @@ namespace project.Controllers
             if (bakery == null)
             {
                 return HttpNotFound();
+            }
+            ViewBag.listreconmended = new List<Bakery>();
+            ViewBag.reconmendedbaseonitem = new List<Bakery>();
+            var listrecm = this.ireconmended.Reconmended_bought_also_bought(bakery.ID, 5);
+
+            if (listrecm != null)
+            {
+                ViewBag.reconmendedbaseonitem = listrecm;
             }
             var current = this.iuser.getcurrentUser(User);
             if(current!=null)

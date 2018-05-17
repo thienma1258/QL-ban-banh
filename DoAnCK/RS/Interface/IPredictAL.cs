@@ -19,6 +19,8 @@ namespace DoAnCK.RS.Interface
         List<double> ListAverage();
         List<double> ListPreDictPreCall(double[][] a, Neighbour[] b, string id);
         List<Bakery> CollaborativeFiltering(string id);
+        List<double> CollaborativeFilteringz(string id);
+
         List<int> SortByPredict(List<double> list);
         List<Bakery> ListBakeryFromPre(List<int> list);
     }
