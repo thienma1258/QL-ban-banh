@@ -224,6 +224,10 @@ namespace project.Controllers
             {
                 return HttpNotFound();
             }
+            var current = this.iuser.getcurrentUser(User);
+            if(current!=null)
+            ViewBag.listreconmended = this.ipredict.CollaborativeFiltering(current.Id);
+            
             return View(bakery);
         }
         public ActionResult Checkout()

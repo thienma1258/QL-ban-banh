@@ -227,7 +227,7 @@ namespace DoAnCK.RS.Implement
                 }
                 if (temp1 == 0 || temp2 == 0)
                 {
-                    temp3 = 0;
+                    temp3 = 0 /*+ listaverage[pos]*/;
                 }
                 else
                 {
@@ -308,7 +308,8 @@ namespace DoAnCK.RS.Implement
             }
             return listpre;
         }
-        public List<double> CollaborativeFiltering(string id)
+       
+        public List<Bakery> CollaborativeFiltering(string id)
         {
             
             //Protogtype Cal Correl From id User
@@ -323,8 +324,53 @@ namespace DoAnCK.RS.Implement
             double[][] ListNeibourFromListPos = MatrixNeibourPreCal(ListPos);
             //List predict cần tìm
             List<double> ListPreDict = ListPreDictPreCall(ListNeibourFromListPos, ListNeibour, id);
+            List<int> ListPosPre = SortByPredict(ListPreDict);
+            List<Bakery> ListBakery = ListBakeryFromPre(ListPosPre);
 
-            return ListPreDict;
+            return ListBakery;
         }
+        public List<int> SortByPredict(List<double> list)
+        {
+            List<int> result = new List<int>();
+            double[] lispre = list.ToArray();
+
+            for (int i = 0; i < list.Count-1; i++)
+            {
+                for(int j = i+1; j < list.Count; j++)
+                {
+                    if (list[j] > list[i])
+                    {
+                        var temp = list[i];
+                        list[i] = list[j];
+                        list[j] = temp;
+                    }
+                }
+            }
+            for (int j = 0; j < 5; j++)
+            {
+                var temp = list[j];
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (temp == lispre[i])
+                    {
+                        result.Add(i);
+                        break;
+                    }
+                }
+            }
+            return result;
+
+        }
+        public List<Bakery> ListBakeryFromPre(List<int> list)
+        {
+            List<Bakery> result = new List<Bakery>();
+            var list1 = imatrix.getBakeryRow();
+            for(int i = 0; i< 5; i++)
+            {
+                result.Add(list1[list[i]]);
+            }
+            return result;
+        }
+
     }
 }

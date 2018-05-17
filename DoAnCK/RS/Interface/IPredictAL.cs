@@ -1,4 +1,5 @@
-﻿using DoAnCK.Models;
+﻿using DAL.Models;
+using DoAnCK.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,8 @@ namespace DoAnCK.RS.Interface
         double[][] MatrixNeibourPreCal(List<int> list);
         List<double> ListAverage();
         List<double> ListPreDictPreCall(double[][] a, Neighbour[] b, string id);
-        List<double> CollaborativeFiltering(string id);
+        List<Bakery> CollaborativeFiltering(string id);
+        List<int> SortByPredict(List<double> list);
+        List<Bakery> ListBakeryFromPre(List<int> list);
     }
 }
