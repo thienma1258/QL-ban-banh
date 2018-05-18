@@ -163,11 +163,16 @@ namespace DoAnCK.RS.Implement
             {
                 double temp = 0;
                 double score = 0;
+                double dem = 0;
                 for (int j = 0; j < rows.Count; j++)
                 {
+                    if (a[i][j] == 0)
+                        continue;
                     temp += a[i][j];
+                    dem++;
+                 
                 }
-                score = temp / rows.Count;
+                score = temp / dem;
                 result.Add(score);
             }
             return result;
