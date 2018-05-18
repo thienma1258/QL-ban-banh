@@ -1,0 +1,391 @@
+﻿@using DAL.Models
+@model DAL.Models.Bakery
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/rating.js">
+    function clickitem(Id) {
+        alert("Bạn vừa thêm bánh vào giỏ hàng");
+        $.ajax({
+            url: "/Home/AddItem",
+            data: {
+
+                id: Id
+
+            },
+
+            method: "POST",
+            type: "POST",
+
+            success: function (data) {
+                console.log(data);
+                changeimagesgallery(data);
+                alert("Data Uploaded: ");
+            }
+        });
+    }
+
+    
+
+
+
+</script>
+<script>
+    $(document).ready(function () {
+       
+        var currentstar = getcurrentstar();
+        if (currentstar != "-1") {
+            for (i = 0; i < currentstar; i++) {
+                var stars = $('#stars').children('li.star');
+               
+                $(stars[i]).addClass('selected');
+
+            }
+        }
+
+
+    })
+</script>
+<style>
+.clearfix {
+  clear:both;
+}
+
+.text-center {text-align:center;}
+
+a {
+  color: tomato;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #2196f3;
+}
+
+pre {
+display: block;
+padding: 9.5px;
+margin: 0 0 10px;
+font-size: 13px;
+line-height: 1.42857143;
+color: #333;
+word-break: break-all;
+word-wrap: break-word;
+background-color: #F5F5F5;
+border: 1px solid #CCC;
+border-radius: 4px;
+}
+
+.header {
+  padding:20px 0;
+  position:relative;
+  margin-bottom:10px;
+  
+}
+
+.header:after {
+  content:"";
+  display:block;
+  height:1px;
+  background:#eee;
+  position:absolute; 
+  left:30%; right:30%;
+}
+
+.header h2 {
+  font-size:3em;
+  font-weight:300;
+  margin-bottom:0.2em;
+}
+
+.header p {
+  font-size:14px;
+}
+
+
+
+#a-footer {
+  margin: 20px 0;
+}
+
+.new-react-version {
+  padding: 20px 20px;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
+  
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.new-react-version .react-svg-logo {
+  text-align: center;
+  max-width: 60px;
+  margin: 20px auto;
+  margin-top: 0;
+}
+
+
+
+
+
+.success-box {
+  margin:50px 0;
+  padding:10px 10px;
+  border:1px solid #eee;
+  background:#f9f9f9;
+}
+
+.success-box img {
+  margin-right:10px;
+  display:inline-block;
+  vertical-align:top;
+}
+
+.success-box > div {
+  vertical-align:top;
+  display:inline-block;
+  color:#888;
+}
+
+
+
+/* Rating Star Widgets Style */
+.rating-stars ul {
+  list-style-type:none;
+  padding:0;
+  
+  -moz-user-select:none;
+  -webkit-user-select:none;
+}
+.rating-stars ul > li.star {
+  display:inline-block;
+  
+}
+
+/* Idle State of the stars */
+.rating-stars ul > li.star > i.fa {
+  font-size:2.5em; /* Change the size of the stars */
+  color:#ccc; /* Color on idle state */
+}
+
+/* Hover state of the stars */
+.rating-stars ul > li.star.hover > i.fa {
+  color:#FFCC36;
+}
+
+/* Selected state of the stars */
+.rating-stars ul > li.star.selected > i.fa {
+  color:#FF912C;
+}
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="~/Content/etalage.css">
+<script src="~/Scripts/jquery.etalage.min.js"></script>
+<script src="~/Scripts/jquery.flexisel.js"></script>
+<div class="single">
+    <div class="wrap">
+        <div class="cont span_2_of_3">
+            <div class="labout span_1_of_a1">
+                <!-- start product_slider -->
+                <ul id="etalage" class="etalage" style="display: block; width: 314px;">      
+                    <li class="etalage_thumb thumb_6 etalage_thumb_active" style="background-image: none; display: list-item; opacity: 1;">
+                        <img src="~/HinhAnh/@Html.DisplayFor(model => model.images.nameImage)" style="display: inline; width: 300px; height: 300px; opacity: 1;">
+                        <img class="etalage_source_image" src="~/images/t6.jpg">
+                    </li>
+                </ul>
+
+                <!-- end product_slider -->
+            </div>
+            <div class="cont1 span_2_of_a1">
+                <div class="price_single">
+                    <span class="actual">Tên : @Html.DisplayFor(model => model.Name)</span>
+                </div>
+                <div class='rating-stars text-center'>
+                    <ul id='stars'>
+                        <li class='star' title='Poor' data-value='1'>
+                            <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='Fair' data-value='2'>
+                            <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='Good' data-value='3'>
+                            <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='Excellent' data-value='4'>
+                            <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='WOW!!!' data-value='5'>
+                            <i class='fa fa-star fa-fw'></i>
+                        </li>
+                    </ul>
+                </div>
+                <h3 class="m_3">Giá: @Model.Price.ToString("#,###", new System.Globalization.CultureInfo("vi-VN").NumberFormat)VND</h3>
+                <h3 class="m_3">Ngày Đăng: @Html.DisplayFor(model => model.ngaypost)</h3>
+                <h3 class="m_3">VAT: @Html.DisplayFor(model => model.VAT)</h3>
+                <h3 class="m_3">Kích cỡ: @Html.DisplayFor(model => model.size)</h3>
+                <div class="btn_form">
+                    <form>
+                        <input type="submit" value="Thêm Vào Giỏ" onclick="clickitem('@Model.ID')" title="">
+                    </form>
+                </div>
+               
+
+                <div class="social_single">
+                    <ul>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+
+
+            <div class="nbs-flexisel-container">
+                <div class="nbs-flexisel-inner">
+
+
+
+
+                </div>
+            </div>
+            <script type="text/javascript">
+
+              
+                $(window).load(function () {
+                    $("#flexiselDemo1").flexisel();
+                    $("#flexiselDemo2").flexisel({
+                        enableResponsiveBreakpoints: true,
+                        responsiveBreakpoints: {
+                            portrait: {
+                                changePoint: 480,
+                                visibleItems: 1
+                            },
+                            landscape: {
+                                changePoint: 640,
+                                visibleItems: 2
+                            },
+                            tablet: {
+                                changePoint: 768,
+                                visibleItems: 3
+                            }
+                        }
+                    });
+
+                    $("#flexiselDemo3").flexisel({
+                        visibleItems: 5,
+                        animationSpeed: 1000,
+                        autoPlay: true,
+                        autoPlaySpeed: 3000,
+                        pauseOnHover: true,
+                        enableResponsiveBreakpoints: true,
+                        responsiveBreakpoints: {
+                            portrait: {
+                                changePoint: 480,
+                                visibleItems: 1
+                            },
+                            landscape: {
+                                changePoint: 640,
+                                visibleItems: 2
+                            },
+                            tablet: {
+                                changePoint: 768,
+                                visibleItems: 3
+                            }
+                        }
+                    });
+
+                });
+
+               
+                function getcurrentstar() {
+                    return "@ViewBag.ratestar";
+                }
+                var currentstar = getcurrentstar();
+                function AddRate(ratevalue) {
+                    $.ajax({
+                        url: "/Rate/AddRate",
+                        data: {
+                            idbake:"@Model.ID",
+                            valuerate:ratevalue
+
+                        },
+                        method: "POST",
+                        type: "POST",
+                        success: function (message) {
+                            if (message == "False") {
+                                alert("Bạn đã đánh giá sản phẩm rồi")
+                            }
+                            else if (message == "Success") {
+                                alert("Cảm ơn bạn đã đánh giá");
+                                window.currentstar = "5";
+
+                            }
+                            else {
+                                alert(message);
+                            }
+                        }
+                    });
+                }
+            </script>
+            <script type="text/javascript" src="~/Scripts/jquery.flexisel.js"></script>
+            <div class="toogle">
+
+            </div>
+            <div class="toogle">
+
+            </div>
+        </div>
+        <div class="clear"></div>
+
+    </div>
+</div><h3 style="text-align:center"> SẢN PHẨM GỢI Ý LIÊN QUAN</h3>
+
+<table class="table">
+
+    <tr>
+
+        @foreach (var a in ViewBag.listreconmended)
+        {
+            <td>
+                <a href="/Home/Details/@a.ID">
+                    @a.Name
+                    @if (a.images.nameImage != null)
+                {
+                        <div class="css3"><img src="~/HinhAnh/@a.images.nameImage" alt="" width="200" height="150"></div>
+                    }
+                
+                    @a.Price.ToString("#,###", new System.Globalization.CultureInfo("vi-VN").NumberFormat)VND
+                    </a>
+            </td>
+        }
+
+    </tr>
+
+
+</table>
+<h3 style="text-align:center"> Khách hàng mua sản phẩm này thì thường hay mua thêm những sản phẩm này</h3>
+<table class="table">
+
+    <tr>
+
+        @foreach (var a in ViewBag.reconmendedbaseonitem)
+        {
+            <td>
+                <a href="/Home/Details/@a.ID">
+                    @a.Name
+                    @if (a.images.nameImage != null)
+                {
+                        <div class="css3"><img src="~/HinhAnh/@a.images.nameImage" alt="" width="200" height="150"></div>
+                    }
+                    @a.Price.ToString("#,###", new System.Globalization.CultureInfo("vi-VN").NumberFormat)VND
+                </a>
+            </td>
+        }
+
+    </tr>
+
+
+</table>

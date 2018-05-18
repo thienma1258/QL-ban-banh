@@ -31,6 +31,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -39,6 +42,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AngleSharp, Version=0.9.9.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
@@ -331,32 +335,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="HinhAnh\banhcheese.jpg" />
-    <Content Include="HinhAnh\banhcroissant.jpg" />
-    <Content Include="HinhAnh\banhdau.jpg" />
-    <Content Include="HinhAnh\banhdonut.JPG" />
-    <Content Include="HinhAnh\banhforest.jpg" />
-    <Content Include="HinhAnh\banhgatovichanh.jpg" />
-    <Content Include="HinhAnh\banhkem.jpg" />
-    <Content Include="HinhAnh\banhkhuyenmai.png" />
-    <Content Include="HinhAnh\banhkm.jpg" />
-    <Content Include="HinhAnh\banhsouffle.jpg" />
-    <Content Include="HinhAnh\banhsungtrau.JPG" />
-    <Content Include="HinhAnh\banhtira.jpg" />
-    <Content Include="HinhAnh\banhtiramisu.jpg" />
-    <Content Include="HinhAnh\banhxucxich.jpg" />
-    <Content Include="HinhAnh\bophap.jpg" />
-    <Content Include="HinhAnh\demtrang.jpg" />
-    <Content Include="HinhAnh\logobakery.png" />
-    <Content Include="HinhAnh\pannacotta.jpg" />
-    <Content Include="HinhAnh\phomaimy.jpg" />
-    <Content Include="HinhAnh\abc.jpg" />
-    <Content Include="HinhAnh\quangcao1.jpg" />
-    <Content Include="HinhAnh\quangcao2.JPG" />
-    <Content Include="HinhAnh\quangcao3.jpg" />
-    <Content Include="HinhAnh\sua-tuoi-khong-duong-nguyen-kem-gud-nhap-khau-duc.jpg" />
-    <Content Include="HinhAnh\thanks.png" />
-    <Content Include="HinhAnh\thanks1.png" />
     <Content Include="Controllers\images\1.jpg" />
     <Content Include="Controllers\images\404.png" />
     <Content Include="Controllers\images\arrow.png" />
@@ -455,6 +433,47 @@
     <Content Include="Controllers\images\star.psd" />
     <Content Include="Controllers\images\s_arrow.psd" />
     <Content Include="Controllers\images\tw.psd" />
+    <Content Include="HinhAnh\13115756_630596567093083_1457308266_n.jpg" />
+    <Content Include="HinhAnh\13162383_630596007093139_491482691_n.jpg" />
+    <Content Include="HinhAnh\13501586_1166531010076933_3360163478573415696_n.jpg" />
+    <Content Include="HinhAnh\1_109032.jpg" />
+    <Content Include="HinhAnh\29542719_948516961977623_1577813639967948416_n.png" />
+    <Content Include="HinhAnh\31166317_971683189661000_5461881451869896704_n.png" />
+    <Content Include="HinhAnh\abc.jpg" />
+    <Content Include="HinhAnh\anh-con-soc-de-thuong-300x200.jpg" />
+    <Content Include="HinhAnh\as.jpg" />
+    <Content Include="HinhAnh\banh-flan.jpg" />
+    <Content Include="HinhAnh\banh-ga-to-6-480x319.jpg" />
+    <Content Include="HinhAnh\banh-sinh-nhat-doner-kebab-chua-lang-636477374839850699.jpg" />
+    <Content Include="HinhAnh\banh-sinh-nhat-socola-28.jpg" />
+    <Content Include="HinhAnh\banhcheese.jpg" />
+    <Content Include="HinhAnh\banhcroissant.jpg" />
+    <Content Include="HinhAnh\banhdau.jpg" />
+    <Content Include="HinhAnh\banhdonut.JPG" />
+    <Content Include="HinhAnh\banhforest.jpg" />
+    <Content Include="HinhAnh\banhgatovichanh.jpg" />
+    <Content Include="HinhAnh\banhkem.jpg" />
+    <Content Include="HinhAnh\banhkhuyenmai.png" />
+    <Content Include="HinhAnh\banhkm.jpg" />
+    <Content Include="HinhAnh\banhsouffle.jpg" />
+    <Content Include="HinhAnh\banhsungtrau.JPG" />
+    <Content Include="HinhAnh\banhtet.png" />
+    <Content Include="HinhAnh\banhtira.jpg" />
+    <Content Include="HinhAnh\banhtiramisu.jpg" />
+    <Content Include="HinhAnh\banhxucxich.jpg" />
+    <Content Include="HinhAnh\cach-lam-banh-kem-banh-sinh-nhat.jpg" />
+    <Content Include="HinhAnh\day-lam-kem-ngon.jpg" />
+    <Content Include="HinhAnh\e29b94612d0fc3519a1e.jpg" />
+    <Content Include="HinhAnh\Empty_Star.png" />
+    <Content Include="HinhAnh\Filled_Star.png" />
+    <Content Include="HinhAnh\foody-mobile-gia-linh-huy-banh-ngot-quang-ninh-140721040016.jpg" />
+    <Content Include="HinhAnh\hinh-anh-banh-sinh-nhat-dep-2017-de-thuong-y-nghia-nhat-cho-moi-nguoi1.jpg" />
+    <Content Include="HinhAnh\lam-banh-flan-voi-sua-dac.jpg" />
+    <Content Include="HinhAnh\Mê-đắm-với-bánh-ngọt-Ý-1.jpg" />
+    <Content Include="HinhAnh\soda-bottles-and-cans.jpg" />
+    <Content Include="HinhAnh\soda-y.jpg" />
+    <Content Include="HinhAnh\tải xuống %281%29.jpg" />
+    <Content Include="HinhAnh\tải xuống.jpg" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bars.js" />
@@ -583,18 +602,16 @@
     <Content Include="Views\Introduce\Index.cshtml" />
     <Content Include="Views\Bill\Confirm.cshtml" />
     <Content Include="Views\BackupRestore\Index.cshtml" />
-
     <Content Include="Views\Home\Rate.cshtml" />
     <Content Include="Views\Home\Rateday.cshtml" />
     <Content Include="Views\Home\RateMonth.cshtml" />
     <Content Include="Views\Home\RateYear.cshtml" />
     <Content Include="Views\Home\RateAll.cshtml" />
-
     <Content Include="Views\AccountManager\AppraiseAlgorthim.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="Scripts\adapters\" />
     <Folder Include="Scripts\lang\" />
     <Folder Include="Scripts\plugins\" />

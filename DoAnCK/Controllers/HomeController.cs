@@ -86,9 +86,7 @@ namespace project.Controllers
         {
 
         
-            var test = this.bakeryreposibitory.getlist().FirstOrDefault();
-           var check= this.ireconmended.Reconmended_bought_also_bought(test.ID, 5);
-
+          
             return View(this.bakeryreposibitory.getlist(6));
 
 
@@ -258,9 +256,15 @@ namespace project.Controllers
                 ViewBag.reconmendedbaseonitem = listrecm;
             }
             var current = this.iuser.getcurrentUser(User);
-            if(current!=null)
-            ViewBag.listreconmended = this.ipredict.CollaborativeFiltering(current.Id);
-            
+            if (current != null)
+            {
+                var a= this.ipredict.CollaborativeFiltering(current.Id);
+                if (a != null)
+                    ViewBag.listreconmended = a;
+
+
+            }
+
             return View(bakery);
         }
         public ActionResult Checkout()

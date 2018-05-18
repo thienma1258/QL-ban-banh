@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<DAL.Models.Introduction>
+@using DAL.Models
+<!-- // choose us -->
+<div class="why-choose-agile">
+    <div class="container">
+        <div class="why-choose-agile-grids-top">
+            <div class="col-md-4 agileits-w3layouts-grid">
+                <div class="wthree_agile_us">
+                    <div class="col-xs-9 agile-why-text">
+
+                    </div>
+                    <div class="col-xs-3 agile-why-text">
+                        <div class="wthree_features_grid hvr-rectangle-out">
+                            <i class="fa fa-glass" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="wthree_agile_us">
+                    <div class="col-xs-9 agile-why-text">
+                    </div>
+                    <div class="col-xs-3 agile-why-text">
+                        <div class="wthree_features_grid hvr-rectangle-out">
+                            <i class="fa fa-gift" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="wthree_agile_us">
+                </div>
+                <div class="col-xs-3 agile-why-text">
+                    <div class="wthree_features_grid hvr-rectangle-out">
+                        <i class="fa fa-heart" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+        <div style="width:100%">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-offset-2 col-md-6 col-lg-4 col-xs-6">
+                    <h3 style="font-size:12px;text-decoration-color:orangered">@item.title</h3>
+
+
+                    @if (item.image != null)
+                    {
+                        <img src="~/HinhAnh/@item.image.nameImage" alt=" " style="width:200px;height:200px">
+                        <div class="mask1">
+                            <div class="info"><a href="/Introduce/Details/@item.Id">Xem chi tiet</a></div>
+                        </div>
+                        
+                    }
+                    else
+                    {
+                        <img src="~/HinhAnh/abc.jpg" alt=" " style="width:200px;height:200px">
+                        <div class="mask1">
+                            <div class="info">@Html.ActionLink("Chi Tiết", "", "Introduce/Details", new { id = @item.Id })</div>
+                        </div>
+
+                    }
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,80 @@
+﻿@model DAL.Models.Bill
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Layout-admin.cshtml";
+}
+
+<div style="margin-left:120px;margin-top:100px;">
+    <div>
+        <h4>Bill</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+               Tên người đặt:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nameuser)
+            </dd>
+
+            <dt>
+               Địa chỉ:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Addressuser)
+            </dd>
+
+            <dt>
+               SDT:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SDT)
+            </dd>
+
+            <dt>
+               Email:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt>
+                Confirm Email:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.confirmEmail)
+            </dd>
+            <dt>
+               Tổng tiền:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Totalprice)
+            </dd>
+
+        </dl>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Tên Bánh</th>
+                    <th>Đơn giá</th>
+                    <th>Số lượng</th>
+                </tr>
+                @foreach (var item in Model.billdetails)
+                {
+                    <tr>
+                        <td>@item.Bakery.Name</td>
+                        <td>@item.Bakery.Price</td>
+                        <td>@item.quality</td>
+                    </tr>
+                }
+
+                <tr>
+            </table>
+        </div>
+    </div>
+</div>

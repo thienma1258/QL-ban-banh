@@ -1,0 +1,74 @@
+﻿@model IEnumerable<DAL.Models.Bakery>
+<div style="margin-left:120px;margin-top:100px;">
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/Layout-admin.cshtml";
+    }
+    <table class="table">
+        <tr>
+            <th>
+                <p>Tên Bánh</p>
+            </th>
+            <th>
+                <p>Giá Bánh</p>
+            </th>
+            <th>
+                <p>Ngày Đăng</p>
+            </th>
+            <th>
+                <p>VAT</p>
+            </th>
+            <th>
+                <p>Số Lượng</p>
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ngaypost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VAT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.count)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "EditBakery", new { id = item.ID }) |
+                    @Html.ActionLink("Xóa", "DeleteBakery", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="pull-right">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination pagination-lg">
+                @if (ViewBag.currentpage != 1)
+                {
+                    <li class="page-item"><a class="page-link" href="/Bakery/Index/?page=@(ViewBag.currentpage-1)">Previous</a></li>
+                }
+                @for (var i = 0; i < 3 && i + ViewBag.currentpage <= ViewBag.numberpage; ++i)
+                {
+                    <li class="page-item @(i==0? "active":"" )"><a class="page-link " href="/Bakery/Index/?page=@(i+ViewBag.currentpage)">@(i + ViewBag.currentpage)</a></li>
+                }
+
+
+                @if (ViewBag.currentpage != ViewBag.numberpage && ViewBag.numberpage != 0)
+                {
+                    <li class="page-item"><a class="page-link" href="/Bakery/Index/?page=@(ViewBag.currentpage+1)">Next</a></li>
+                }
+            </ul>
+        </nav>
+
+    </div>
+</div>

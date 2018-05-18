@@ -14,7 +14,7 @@ namespace DAL.Context
         public BakeryContext()
         
 
-            : base("Data Source =.;Initial Catalog=Bakery;Integrated Security=SSPI", throwIfV1Schema: false)
+            : base("workstation id=tm1258zz.mssql.somee.com;packet size=4096;user id=thienma1258_SQLLogin_1;pwd=7bykv58671;data source=tm1258zz.mssql.somee.com;persist security info=False;initial catalog=tm1258zz", throwIfV1Schema: false)
 
 
 

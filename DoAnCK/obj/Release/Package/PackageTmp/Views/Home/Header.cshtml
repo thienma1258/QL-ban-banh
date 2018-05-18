@@ -1,0 +1,139 @@
+﻿@model DAL.Models.HeaderModel
+
+<div class="header-top">
+    <div class="wrap">
+        <div class="logo">
+            <a href="#"><img src="~/HinhAnh/logobakery.png" alt=""></a>
+        </div>
+        <div class="cssmenu">
+            <ul>
+               @{ if (!ViewBag.Authentication)
+                   {
+                <li>@Html.ActionLink("Đăng nhập", "Login", "Account")</li>
+                   }
+                   else
+                   {
+                    <li>Xin Chào @ViewBag.Username</li>
+                    if (ViewBag.role != "User")
+                        {
+
+                            <li>@Html.ActionLink("Quản lý", "", "AccountManager")</li>
+                        }
+                        else
+                        {
+                            <li><a href="/Account/Logoff">Log out</a></li>
+                        }
+                    
+
+
+
+
+
+                     }
+            }
+                <li>@Html.ActionLink("Giỏ Hàng","demoCheckout")</li>
+           </ul>
+        </div>
+        <ul class="icon2 sub-icon2 profile_img">
+            <li>
+                <a class="active-icon c2" href="#"> </a>
+                <ul class="sub-icon2 list">
+                    <li><h3>Products</h3><a href=""></a></li>
+                    <li><p>Lorem ipsum dolor sit amet, consectetuer  <a href="">adipiscing elit, sed diam</a></p></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="header-bottom">
+    <div class="wrap">
+        <!-- start header menu -->
+        <ul class="megamenu skyblue">
+            <li class="showhide" style="display: none;"><span class="title">MENU</span><span class="icon1"></span><span class="icon2"></span></li>
+            <li style="display: inline-block;">@Html.ActionLink("Trang chủ", "Index")</li>
+            <li class="grid" style="display: inline-block;">
+                @Html.ActionLink("Sản Phẩm", "Shop")
+                <div class="megapanel" style="display: none; opacity: 1;">
+                    <div class="row">
+                        <div class="col1">
+                            <div class="h_nav">
+                                <h4>Loại Bánh</h4>
+
+                                @{
+                                    foreach (var item in Model.category)
+                                    {
+                                        <ul>
+                                            <li><a href="@Url.Action("Shop", "Home", new { listcate = @item.Name})">@item.Name</a><br /></li>
+                                        </ul>
+                                    }
+                                }
+                                <div class="megapanel" style="display: none; opacity: 1;">
+                                    <div class="row">
+                                        <div class="col1">
+                                            <div class="h_nav">
+                                                <ul></ul>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </li>
+            <li class="active grid" style="display: inline-block;">
+                @Html.ActionLink("Giới Thiệu", "About")
+
+
+            </li>
+            <li style="display: inline-block;">
+                <a class="color5" href="#">Hệ Thống</a>
+                <div class="megapanel" style="display: none; opacity: 1;">
+                    <div class="row">
+                        <div class="h_nav">
+                            @{
+                                <h4>Các Chi Nhánh</h4>
+                                var dem = 0;
+                                foreach (var item in Model.shop)
+                                {
+                                    dem = dem + 1;
+                                    <ul>
+                                        <li><h3>Chi nhánh @dem: @item.address - @item.SDT</h3><br></li>
+                                    </ul>
+                                }
+                            }
+                            <div class="megapanel" style="display: none; opacity: 1;">
+                                <div class="row">
+                                    <div class="col1">
+                                        <div class="h_nav">
+                                            <ul></ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li style="display: inline-block;">
+                @Html.ActionLink("Thông báo và Khuyễn mãi", "News")
+
+            </li>
+            <li style="display: inline-block;">
+                @Html.ActionLink("Liên Hệ", "Contact")
+
+            </li>
+            <li style="display: inline-block;">
+                @Html.ActionLink("Thịnh Hành", "RateAll")
+
+            </li>
+            <li style="display: inline-block;">
+                <div class="clear"></div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+E:\Reconmmeded system\Project\QL-ban-banh\DAL\bin\Release\DAL.dll.config
+E:\Reconmmeded system\Project\QL-ban-banh\DAL\bin\Release\DAL.dll
+E:\Reconmmeded system\Project\QL-ban-banh\DAL\bin\Release\DAL.pdb
+E:\Reconmmeded system\Project\QL-ban-banh\DAL\bin\Release\EntityFramework.dll
+E:\Reconmmeded system\Project\QL-ban-banh\DAL\bin\Release\EntityFramework.SqlServer.dll
+E:\Reconmmeded system\Project\QL-ban-banh\DAL\bin\Release\Microsoft.AspNet.Identity.Core.dll
+E:\Reconmmeded system\Project\QL-ban-banh\DAL\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Reconmmeded system\Project\QL-ban-banh\DAL\bin\Release\Oracle.ManagedDataAccess.dll
+E:\Reconmmeded system\Project\QL-ban-banh\DAL\bin\Release\Oracle.ManagedDataAccess.EntityFramework.dll
+E:\Reconmmeded system\Project\QL-ban-banh\DAL\bin\Release\EntityFramework.xml
+E:\Reconmmeded system\Project\QL-ban-banh\DAL\bin\Release\EntityFramework.SqlServer.xml
+E:\Reconmmeded system\Project\QL-ban-banh\DAL\bin\Release\Microsoft.AspNet.Identity.Core.xml
+E:\Reconmmeded system\Project\QL-ban-banh\DAL\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Reconmmeded system\Project\QL-ban-banh\DAL\obj\Release\DAL.dll
+E:\Reconmmeded system\Project\QL-ban-banh\DAL\obj\Release\DAL.pdb
+E:\Reconmmeded system\Project\QL-ban-banh\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache

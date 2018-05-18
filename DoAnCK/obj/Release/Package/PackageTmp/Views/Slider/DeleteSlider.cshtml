@@ -1,0 +1,33 @@
+﻿@model DAL.Models.Slider
+
+@{
+    ViewBag.Title = "DeleteSlider";
+    Layout = "~/Views/Shared/Layout-admin.cshtml";
+}
+
+
+<div style="margin-left:120px;margin-top:120px">
+
+    <h3>Bạn có muốn xác nhận xóa Slider không?</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.position)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "Index")
+        </div>
+    }
+</div>

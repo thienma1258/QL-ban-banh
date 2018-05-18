@@ -317,16 +317,20 @@ namespace DoAnCK.RS.Implement
 
             Neighbour[] ListNeibour = new Neighbour[1000];
             ListNeibour = FindNeighBour(id);
+            if (ListNeibour == null)
+                return null;
             //Prototype ListNeibour=NeibourArray
             //List chỉ số của neibour trong matrix user item
             List<int> ListPos = GetListItemNeibour(ListNeibour);
             //tối giản matrixuseritem
             double[][] ListNeibourFromListPos = MatrixNeibourPreCal(ListPos);
             //List predict cần tìm
-            List<double> ListPreDict = ListPreDictPreCall(ListNeibourFromListPos, ListNeibour, id);
-            List<int> ListPosPre = SortByPredict(ListPreDict);
-            List<Bakery> ListBakery = ListBakeryFromPre(ListPosPre);
 
+            List<double> ListPreDict = ListPreDictPreCall(ListNeibourFromListPos, ListNeibour, id);
+            var rowBakery = this.imatrix.getBakeryRow();
+            var ListBakery = new List<Bakery>();
+            List<int> pos = new List<int>();
+            ListBakery=this.imatrix.getHighNbyonvalue(rowBakery, ref ListPreDict, 5,ref pos);
             return ListBakery;
         }
         public List<int> SortByPredict(List<double> list)
