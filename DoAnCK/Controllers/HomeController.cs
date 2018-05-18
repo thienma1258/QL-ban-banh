@@ -220,6 +220,16 @@ namespace project.Controllers
             //            results.Add(i);
             //    }
                
+             ViewBag.listreconmended = new List<Bakery>();
+            var current = this.iuser.getcurrentUser(User);
+            if (current != null)
+            {
+                var a= this.ipredict.CollaborativeFiltering(current.Id);
+                if (a != null)
+                    ViewBag.listreconmended = a;
+
+
+            }
                 return View(listbakery);
             
         }
@@ -247,7 +257,7 @@ namespace project.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.listreconmended = new List<Bakery>();
+            
             ViewBag.reconmendedbaseonitem = new List<Bakery>();
             var listrecm = this.ireconmended.Reconmended_bought_also_bought(bakery.ID, 5);
 
@@ -255,15 +265,7 @@ namespace project.Controllers
             {
                 ViewBag.reconmendedbaseonitem = listrecm;
             }
-            var current = this.iuser.getcurrentUser(User);
-            if (current != null)
-            {
-                var a= this.ipredict.CollaborativeFiltering(current.Id);
-                if (a != null)
-                    ViewBag.listreconmended = a;
-
-
-            }
+           
 
             return View(bakery);
         }

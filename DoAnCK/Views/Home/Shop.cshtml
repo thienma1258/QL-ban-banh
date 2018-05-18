@@ -104,3 +104,28 @@
     <div class="clear"></div>
 </div>
 }
+
+<h3 style="text-align:center"> SẢN PHẨM GỢI Ý LIÊN QUAN</h3>
+<table class="table">
+
+    <tr>
+
+        @foreach (var a in ViewBag.listreconmended)
+        {
+            <td>
+                <a href="/Home/Details/@a.ID">
+                    @a.Name
+                    @if (a.images.nameImage != null)
+                {
+                        <div class="css3"><img src="~/HinhAnh/@a.images.nameImage" alt="" width="200" height="150"></div>
+                    }
+
+                    @a.Price.ToString("#,###", new System.Globalization.CultureInfo("vi-VN").NumberFormat)VND
+                </a>
+            </td>
+        }
+
+    </tr>
+
+
+</table>
